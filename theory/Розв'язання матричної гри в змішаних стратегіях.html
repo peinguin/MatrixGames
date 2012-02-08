@@ -1,0 +1,880 @@
+<!--?xml version="1.0" encoding="windows-1251"?-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              ПРИ КОПІЮВАННІ МАТЕРІАЛІВ САЙТУ ОЗНАЙОМТЕСЬ БУДЬ-ЛАСКА З ПРАВИЛАМИ
+              http://pidruchniki.ws/16321215/pravila_koristuvannya_elektronnoyu_bibliotekoyu
+
+              Якщо Ви маєте бажання розташувати який-небуть матеріал з цього сайту на іншому ресурсі
+              - ми не маємо нічого проти (якщо це не суперечить правилам користування). Умова одна: при розміщенні
+              матеріалів на сторонньому ресурсі повинна бути вказана активна ссилка на розміщений матеріал з 
+              Бібліотеки українських підручників або просто в такому вигляді:
+
+              <a href=”http://pidruchniki.ws/”>Бібліотека українських підручників</a>
+
+              Лінк повинен бути не скриптований а також не повинен містить теги noindex или nofollow.
+              
+              Дана умова стосується також всіх графічних матеріалів сайту
+    
+               
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--><head><title>Розв'язання матричних ігор методами лінійного 
+програмування, Розв'язання матричної гри в змішаних стратегіях - 
+Обгрунтування господарських рішень та оцінювання ризиків - Донець Л.І. 
+Бібліотека українських підручників</title>
+<meta name="keywords" content="Підручники, навчальна література, Розв'язання матричних ігор методами лінійного програмування, Розв'язання матричної гри в змішаних стратегіях -">
+<meta name="author" content="Administrator">
+<meta name="robots" content="index, follow">
+<script language="JavaScript" type="text/javascript" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/proofreader.js"></script>
+<script language="JavaScript" type="text/javascript" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/xajax.js"></script>
+<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+				function pr_setup() {
+					xajaxRequestUri='http://pidruchniki.ws/index2.php?option=com_proofreader&task=sendmistake&no_html=1';
+					xajaxWaitCursor=true;
+					xajaxDefinedPost=1;
+					xajaxDebug=false;
+					xajaxStatusMessages=false;
+					xajaxDefinedGet=0;
+				}
+
+			var xajaxRequestUri='http://pidruchniki.ws/index2.php?option=com_proofreader&task=sendmistake&no_html=1';
+			var xajaxWaitCursor=true;
+			var xajaxDefinedPost=1;
+			var xajaxDebug=false;
+			var xajaxStatusMessages=false;
+			var xajaxDefinedGet=0;
+
+			function addEvent(element, eventType, functionName) {
+				if (element.addEventListener) {
+					element.addEventListener(eventType, functionName, false);
+					return true;
+				} else if (element.attachEvent) {
+					var r = element.attachEvent('on' + eventType, functionName);
+					return r;
+				} else {
+					element['on' + eventType] = functionName;
+				}
+			}
+		 var pr_alt = false;  var pr_shift = true;  var pr_ctrl = false; 
+				var PReader_cur_page = "http://pidruchniki.ws/17590412/ekonomika/rozvyazannya_matrichnih_igor_metodami_liniynogo_programuvannya";
+				addEvent(window, 'load',  addDivWindow);
+				addEvent(window, 'load',  keyPressInit);
+			// ]]></script>
+<link href="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/style.css" rel="stylesheet" type="text/css">
+<script src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/jcomments-v2.js" type="text/javascript"></script>
+<script src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/ajax.js" type="text/javascript"></script>
+<!-- base href="http://pidruchniki.ws/" -->
+	<link ilo-full-src="http://pidruchniki.ws/favicon.ico" rel="shortcut icon" href="http://pidruchniki.ws/favicon.ico">
+	     
+
+ 
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<meta http-equiv="Content-Language" content="ru">
+<meta name="yandex-verification" content="42cd59fabc36693a">
+
+<link href="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/template_css.css" rel="stylesheet" type="text/css">
+  
+
+<style id="ya_share_style" type="text/css">.b-share-popup-wrap{z-index:1073741823;position:absolute;width:500px}.b-share-popup{position:absolute;z-index:1073741823;border:1px solid #888;background:#FFF;color:#000}.b-share-popup-wrap .b-share-popup_down{top:0}.b-share-popup-wrap .b-share-popup_up{bottom:0}.b-share-popup-wrap_state_hidden{position:absolute!important;top:-9999px!important;right:auto!important;bottom:auto!important;left:-9999px!important;visibility:hidden!important}.b-share-popup,x:nth-child(1){border:0;padding:1px!important}@media all and (resolution = 0dpi){.b-share-popup,x:nth-child(1),x:-o-prefocus{padding:0!important;border:1px solid #888}}.b-share-popup__i{display:-moz-inline-box;display:inline-block;padding:5px 0!important;overflow:hidden;vertical-align:top;white-space:nowrap;visibility:visible;background:#FFF;-webkit-box-shadow:0 2px 9px rgba(0,0,0,0.6);-moz-box-shadow:0 2px 9px rgba(0,0,0,0.6);box-shadow:0 2px 9px rgba(0,0,0,0.6)}.b-share-popup__item{font:1em/1.25em Arial,sans-serif;display:block;padding:5px 15px!important;white-space:nowrap;background:#FFF}.b-share-popup__item,a.b-share-popup__item:link,a.b-share-popup__item:visited{text-decoration:none!important;border:0!important}a.b-share-popup__item{cursor:pointer}a.b-share-popup__item .b-share-popup__item__text{display:inline;text-decoration:underline;color:#1a3dc1}a.b-share-popup__item:hover{word-spacing:0}a.b-share-popup__item:hover .b-share-popup__item__text{color:#F00;cursor:pointer}.b-share-popup__icon{display:-moz-inline-box;display:inline-block;margin:-3px 0 0 0;padding:0 5px 0 0!important;vertical-align:middle}.b-share-popup__icon_input{width:21px;height:16px;margin-top:-6px;padding:0!important}.b-share-popup__icon__input{margin-right:0;margin-left:2px;vertical-align:top}.b-share-popup__spacer{display:block;padding-top:10px!important}.b-share-popup__header{font:86%/1em Verdana,sans-serif;display:block;padding:10px 15px 5px 15px!important;color:#999}.b-share-popup__header_first{padding-top:5px!important}.b-share-popup__input{font:86%/1em Verdana,sans-serif;display:block;padding:5px 15px!important;color:#999;text-align:left}.b-share-popup__input__input{font:1em/1em Verdana,sans-serif;display:block;width:10px;margin:5px 0 0;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;resize:none;text-align:left;direction:ltr}.b-share-popup_down .b-share-popup_with-link .b-share-popup__input_link{position:absolute;top:5px;right:0;left:0}.b-share-popup_up .b-share-popup_with-link .b-share-popup__input_link{position:absolute;right:0;bottom:5px;left:0}.b-share-popup_down .b-share-popup_with-link{padding-top:55px!important}.b-share-popup_up .b-share-popup_with-link{padding-bottom:55px!important}.b-share-popup_down .b-share-popup_expandable .b-share-popup__main{padding-bottom:25px!important}.b-share-popup_up .b-share-popup_expandable .b-share-popup__main{padding-top:25px!important}.b-share-popup_down .b-share-popup_yandexed{padding-bottom:10px!important}.b-share-popup_up .b-share-popup_yandexed{padding-top:10px!important}.b-share-popup__yandex{position:absolute;right:4px;bottom:2px;font:78.125%/1em Verdana,sans-serif;padding:3px!important;background:transparent}a.b-share-popup__yandex:link,a.b-share-popup__yandex:visited{color:#c6c5c5;text-decoration:none}a.b-share-popup__yandex:link:hover,a.b-share-popup__yandex:visited:hover{color:#F00;text-decoration:underline}.b-share-popup_up .b-share-popup__yandex{top:2px;bottom:auto}.b-share-popup_expandable .b-share-popup__yandex{right:auto;left:4px}.b-share-popup_to-right .b-share-popup_expandable .b-share-popup__yandex{right:4px;left:auto}.b-share-popup__expander .b-share-popup__item{position:absolute;bottom:5px;font:86%/1em Verdana,sans-serif;margin:10px 0 0;padding:5px 10px!important;cursor:pointer;color:#999;background:transparent}.b-share-popup_to-right,.b-share-popup_to-right .b-share-popup__expander{direction:rtl}.b-share-popup_to-right .b-share-popup__expander .b-share-popup__icon{padding:0 0 0 5px!important}.b-share-popup_up .b-share-popup__expander .b-share-popup__item{top:-5px;bottom:auto}.b-share-popup__expander .b-share-popup__item:hover .b-share-popup__item__text{text-decoration:underline}.b-share-popup__expander .b-ico_action_rarr,.b-share-popup_to-right .b-share-popup__expander .b-ico_action_larr,.b-share-popup_full .b-share-popup__expander .b-ico_action_larr,.b-share-popup_to-right .b-share-popup_full .b-share-popup__expander .b-ico_action_rarr,.b-share-popup__expander .b-share-popup__item__text_collapse,.b-share-popup_full .b-share-popup__item__text_expand{display:none}.b-share-popup_to-right .b-share-popup__expander .b-ico_action_rarr,.b-share-popup_full .b-share-popup__item__text_collapse,.b-share-popup_full .b-share-popup__expander .b-ico_action_rarr,.b-share-popup_to-right .b-share-popup_full .b-share-popup__expander .b-ico_action_larr{display:inline}.b-ico_action_rarr,.b-ico_action_larr{width:8px;height:7px;border:0}.b-share-popup__main,.b-share-popup__extra{direction:ltr;vertical-align:bottom;text-align:left}.b-share-popup_down .b-share-popup__main,.b-share-popup_down .b-share-popup__extra{vertical-align:top}.b-share-popup__main{display:-moz-inline-stack;display:inline-block}.b-share-popup__extra{display:none;margin:0 -10px 0 0}.b-share-popup_full .b-share-popup__extra{display:-moz-inline-stack;display:inline-block}.b-share-popup_to-right .b-share-popup__extra{margin:0 0 0 -10px}.b-share-popup__tail{position:absolute;width:21px;height:10px;margin:0 0 0 -11px}.b-share-popup_down .b-share-popup__tail{top:-10px;background:url(//yandex.st/share/static/b-share-popup_down__tail.gif) 0 0 no-repeat}.b-share-popup_up .b-share-popup__tail{bottom:-10px;background:url(//yandex.st/share/static/b-share-popup_up__tail.gif) 0 0 no-repeat}.b-share-popup_down .b-share-popup__tail,x:nth-child(1){top:-9px;background-image:url(//yandex.st/share/static/b-share-popup_down__tail.png)}.b-share-popup_up .b-share-popup__tail,x:nth-child(1){bottom:-9px;background-image:url(//yandex.st/share/static/b-share-popup_up__tail.png)}@media all and (resolution = 0dpi){.b-share-popup_down .b-share-popup__tail,x:nth-child(1),x:-o-prefocus{top:-10px;background-image:url(//yandex.st/share/static/b-share-popup_down__tail.gif)}.b-share-popup_up .b-share-popup__tail,x:nth-child(1),x:-o-prefocus{bottom:-10px;background-image:url(//yandex.st/share/static/b-share-popup_up__tail.gif)}}.b-share-popup .b-share-popup_show_form_mail,.b-share-popup .b-share-popup_show_form_html{padding:0!important}.b-share-popup .b-share-popup_show_form_mail .b-share-popup__main,.b-share-popup .b-share-popup_show_form_html .b-share-popup__main,.b-share-popup .b-share-popup_show_form .b-share-popup__main,.b-share-popup .b-share-popup_show_form_mail .b-share-popup__extra,.b-share-popup .b-share-popup_show_form_html .b-share-popup__extra,.b-share-popup .b-share-popup_show_form .b-share-popup__extra{height:15px;padding:0!important;overflow:hidden;visibility:hidden}.b-share-popup_show_form_mail .b-share-popup__expander,.b-share-popup_show_form_html .b-share-popup__expander,.b-share-popup_show_form .b-share-popup__expander,.b-share-popup_show_form_mail .b-share-popup__input_link,.b-share-popup_show_form_html .b-share-popup__input_link,.b-share-popup_show_form .b-share-popup__input_link{display:none}.b-share-popup__form{position:relative;display:none;overflow:hidden;padding:5px 0 0!important;margin:0 0 -15px;white-space:normal}.b-share-popup_show_form_mail .b-share-popup__form_mail,.b-share-popup_show_form_html .b-share-popup__form_html,.b-share-popup_show_form .b-share-popup__form{display:block}.b-share-popup__form__link{font:86%/1.4545em Verdana,sans-serif;float:left;display:inline;padding:5px!important;margin:0 0 5px 10px;text-decoration:underline;cursor:pointer;color:#1a3dc1}.b-share-popup__form__button{font:86%/1.4545em Verdana,sans-serif;float:left;display:inline;margin:5px 0 0 15px}.b-share-popup__form__close{font:86%/1.4545em Verdana,sans-serif;float:right;display:inline;padding:5px!important;margin:0 10px 5px 0;cursor:pointer;color:#999}a.b-share-popup__form__link:hover,a.b-share-popup__form__close:hover{text-decoration:underline;color:#F00}.b-share-popup_font_fixed .b-share-popup__item{font-size:12.8px}.b-share-popup_font_fixed .b-share-popup__header,.b-share-popup_font_fixed .b-share-popup__input,.b-share-popup_font_fixed .b-share-popup__expander .b-share-popup__item,.b-share-popup_font_fixed .b-share-popup__form__link,.b-share-popup_font_fixed .b-share-popup__form__button,.b-share-popup_font_fixed .b-share-popup__form__close{font-size:11px}.b-share-popup_font_fixed .b-share-popup__yandex{font-size:10px}.b-share-form-button{font:86%/17px Verdana,Arial,sans-serif;display:-moz-inline-box;display:inline-block;position:relative;height:19px;margin:0 3px;padding:0 4px;cursor:default;white-space:nowrap;text-decoration:none!important;color:#000!important;border:none;outline:none;background:url(//yandex.st/share/static/b-share-form-button.png) 0 -20px repeat-x}.b-share-form-button:link:hover,.b-share-form-button:visited:hover{color:#000!important}.b-share-form-button__before,.b-share-form-button__after{position:absolute;width:3px;height:19px;background:url(//yandex.st/share/static/b-share-form-button.png)}.b-share-form-button__before{margin-left:-7px}.b-share-form-button__after{margin-left:4px;background-position:-3px 0}.b-share-form-button::-moz-focus-inner{border:none}button.b-share-form-button .b-share-form-button__before,button.b-share-form-button .b-share-form-button__after{margin-top:-1px}@-moz-document url-prefix(){button.b-share-form-button .b-share-form-button__after{margin-top:-2px;margin-left:6px}button.b-share-form-button .b-share-form-button__before{margin-top:-2px;margin-left:-9px}}SPAN.b-share-form-button:hover,.b-share-form-button_state_hover{background-position:0 -60px}SPAN.b-share-form-button:hover .b-share-form-button__before,.b-share-form-button_state_hover .b-share-form-button__before{background-position:0 -40px}SPAN.b-share-form-button:hover .b-share-form-button__after,.b-share-form-button_state_hover .b-share-form-button__after{background-position:-3px -40px}.b-share-form-button_state_pressed,.b-share-form-button_state_pressed .b-share-form-button_share{background-position:0 -100px!important}.b-share-form-button_state_pressed .b-share-form-button__before{background-position:0 -80px!important}.b-share-form-button_state_pressed .b-share-form-button__after{background-position:-3px -80px!important}button.b-share-form-button_state_pressed{overflow:visible}.b-share-form-button_icons{position:relative;padding:0;background-position:0 -20px!important}.b-share-form-button_icons .b-share-form-button__before{left:0;margin-left:-3px;background-position:0 0!important}.b-share-form-button_icons .b-share-form-button__after{z-index:-1;margin-left:0;background-position:-3px 0!important}.b-share-form-button_icons .b-share__handle{padding:2px!important}.b-share-form-button_icons .b-share__handle_more{position:relative;padding-right:6px!important;margin-right:-4px}.b-share-form-button_icons .b-share-icon{opacity:.5;background-image:url(//yandex.st/share/static/b-share-icon_size_14.png)}.b-share-form-button_icons A.b-share__handle:hover .b-share-icon{opacity:1}.b-share{font:86%/1.4545em Arial,sans-serif;display:-moz-inline-box;display:inline-block;padding:1px 3px 1px 4px!important;vertical-align:middle}.b-share .b-share-form-button{font-size:1em}.b-share__text .b-share-icon{margin:0 5px 0 0;border:none}.b-share__text{margin-right:5px}.b-share__handle{float:left;cursor:pointer;text-align:left;text-decoration:none!important;height:16px;padding:5px 3px 5px 2px!important;cursor:pointer;text-align:left;text-decoration:none!important}.b-share__handle_cursor_default{cursor:default}.b-share__handle .b-share-form-button{margin-top:-2px}.b-share__hr{display:none;float:left;width:1px;height:26px;margin:0 3px 0 2px}a.b-share__handle:hover .b-share__text{text-decoration:underline;color:#F00}.b-share_bordered{padding:0 2px 0 3px!important;border:1px solid #e4e4e4;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px}.b-share_bordered .b-share__hr{display:inline;background:#e4e4e4}.b-share_link{margin:-8px 0}a.b-share_link{margin:0}.b-share_link .b-share__text{text-decoration:underline;color:#1a3dc1}.b-share-form-button_share{padding-left:26px!important;vertical-align:top}.b-share-form-button_share .b-share-form-button__before{margin-left:-29px}.b-share-form-button_share .b-share-form-button__icon{position:absolute;width:20px;height:17px;margin:1px 0 0 -23px;background:url(//yandex.st/share/static/b-share-form-button_share__icon.png) 0 0 no-repeat}.b-share-pseudo-link{border-bottom:1px dotted;cursor:pointer;text-decoration:none!important}.b-share_font_fixed{font-size:11px}.b-share__handle_more{font-size:9px;margin-top:-1px;color:#7b7b7b}A.b-share__handle_more:hover{color:#000}.b-share__group{float:left}.b-share-icon{float:left;display:inline;overflow:hidden;width:16px;height:16px;padding:0!important;vertical-align:top;border:0;background:url(//yandex.st/share/static/b-share-icon.png) 0 99px no-repeat}.b-share-icon_vkontakte,.b-share-icon_custom{background-position:0 0}.b-share-icon_yaru,.b-share-icon_yaru_photo,.b-share-icon_yaru_wishlist{background-position:0 -17px}.b-share-icon_lj{background-position:0 -34px}.b-share-icon_twitter{background-position:0 -51px}.b-share-icon_facebook{background-position:0 -68px}.b-share-icon_moimir{background-position:0 -85px}.b-share-icon_friendfeed{background-position:0 -102px}.b-share-icon_mail{background-position:0 -119px}.b-share-icon_html{background-position:0 -136px}.b-share-icon_postcard{background-position:0 -153px}.b-share-icon_odnoklassniki{background-position:0 -170px}.b-share-icon_blogger{background-position:0 -187px}.b-share-icon_greader{background-position:0 -204px}.b-share-icon_delicious{background-position:0 -221px}.b-share-icon_gbuzz{background-position:0 -238px}.b-share-icon_linkedin{background-position:0 -255px}.b-share-icon_myspace{background-position:0 -272px}.b-share-icon_evernote{background-position:0 -289px}.b-share-icon_digg{background-position:0 -306px}.b-share-icon_juick{background-position:0 -324px}.b-share-icon_moikrug{background-position:0 -341px}.b-share-icon_yazakladki{background-position:0 -358px}.b-share-icon_liveinternet{background-position:0 -375px}.b-share-icon_tutby{background-position:0 -392px}.b-share-icon_diary{background-position:0 -409px}</style><script>try {  for(var lastpass_iter=0; lastpass_iter < document.forms.length; lastpass_iter++){    var lastpass_f = document.forms[lastpass_iter];    if(typeof(lastpass_f.lpsubmitorig)=="undefined"){      if (typeof(lastpass_f.submit) == "function") {        lastpass_f.lpsubmitorig = lastpass_f.submit;        lastpass_f.submit = function(){          var form = this;          try {            if (document.documentElement && 'createEvent' in document)            {              var forms = document.getElementsByTagName('form');              for (var i=0 ; i<forms.length ; ++i)                if (forms[i]==form)                {                  var element = document.createElement('lpformsubmitdataelement');                  element.setAttribute('formnum',i);                  element.setAttribute('from','submithook');                  document.documentElement.appendChild(element);                  var evt = document.createEvent('Events');                  evt.initEvent('lpformsubmit',true,false);                  element.dispatchEvent(evt);                  break;                }            }          } catch (e) {}          try {            form.lpsubmitorig();          } catch (e) {}        }      }    }  }} catch (e) {}</script><style type="text/css">@media print { #feedlyMiniIcon { display: none; } }</style></head>
+
+<body data-feedly-processed="yes">
+<table class="tborder" style="border-collapse: collapse;" width="100%" border="0">
+	<tbody><tr>
+		<td>
+		<table style="border-collapse: collapse;" width="100%" bgcolor="#b5b5b5" border="0">
+			<tbody><tr>
+				<td width="50%" align="left">
+			<a href="http://pidruchniki.ws/" title="Бібліотека українських підручників"><img ilo-full-src="http://pidruchniki.ws/templates/paranoia/images/logo.jpg" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/logo.jpg" border="0"></a>
+				</td>
+<td valign="top" align="right">
+<noindex>
+<table style="display: block; border: 0pt none; margin: 0pt; padding: 0pt;">
+<tbody><tr><td valign="top">
+<!-- Ukrainian Banner Network 120х60 START -->
+<center><script>
+//<!--
+ubn_user = "97327";
+ubn_page = "1";
+ubn_pid = Math.round((Math.random() * (10000000 - 1)));
+document.write("<iframe src='http://banner.kiev.ua/cgi-bin/bi.cgi?h" +
+ubn_user + "&amp;"+ ubn_pid + "&amp;" + ubn_page +
+"&amp;4' frameborder=0 vspace=0 hspace=0 " +
+" width=120 height=60 marginwidth=0 marginheight=0 scrolling=no>");
+document.write("<a href='http://banner.kiev.ua/cgi-bin/bg.cgi?" +
+ubn_user + "&amp;"+ ubn_pid + "&amp;" + ubn_page + "' target=_top>");
+document.write("<img border=0 src='http://banner.kiev.ua/" +
+"cgi-bin/bi.cgi?i" + ubn_user + "&amp;" + ubn_pid + "&amp;" + ubn_page +
+"&amp;4' width=120 height=60 alt='Ukrainian Banner Network'></a>");
+document.write("</iframe>");
+//-->
+</script><iframe src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/bi.html" vspace="0" hspace="0" marginwidth="0" marginheight="0" scrolling="no" width="120" frameborder="0" height="60">&lt;a
+ 
+href='http://banner.kiev.ua/cgi-bin/bg.cgi?97327&amp;amp;4459826&amp;amp;1'
+ target=_top&gt;&lt;img border=0 
+src='http://banner.kiev.ua/cgi-bin/bi.cgi?i97327&amp;amp;4459826&amp;amp;1&amp;amp;4'
+ width=120 height=60 alt='Ukrainian Banner Network'&gt;&lt;/a&gt;</iframe><br>
+<small><a href="https://www.bannerka.ua/" target="_top">Баннерная реклама</a></small>
+</center>
+<!-- Ukrainian Banner Network 120х60 END --></td>
+<td valign="top">
+<!-- Ukrainian Banner Network 468x60 START -->
+<center><script>
+//<!--
+ubn_user = "97327";
+ubn_page = "1";
+ubn_pid = Math.round((Math.random() * (10000000 - 1)));
+document.write("<iframe src='http://banner.kiev.ua/cgi-bin/bi.cgi?h" +
+ubn_user + "&amp;"+ ubn_pid + "&amp;" + ubn_page +
+"' frameborder=0 vspace=0 hspace=0 " +
+" width=468 height=60 marginwidth=0 marginheight=0 scrolling=no>");
+document.write("<a href='http://banner.kiev.ua/cgi-bin/bg.cgi?" +
+ubn_user + "&amp;"+ ubn_pid + "&amp;" + ubn_page + "' target=_top>");
+document.write("<img border=0 src='http://banner.kiev.ua/" +
+"cgi-bin/bi.cgi?i" + ubn_user + "&amp;" + ubn_pid + "&amp;" + ubn_page +
+"' width=468 height=60 alt='Украинская Баннерная Сеть'></a>");
+document.write("</iframe>");
+//-->
+</script><iframe src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/bi_002.html" vspace="0" hspace="0" marginwidth="0" marginheight="0" scrolling="no" width="468" frameborder="0" height="60">&lt;a
+ 
+href='http://banner.kiev.ua/cgi-bin/bg.cgi?97327&amp;amp;5797921&amp;amp;1'
+ target=_top&gt;&lt;img border=0 
+src='http://banner.kiev.ua/cgi-bin/bi.cgi?i97327&amp;amp;5797921&amp;amp;1'
+ width=468 height=60 alt='Украинская Баннерная Сеть'&gt;&lt;/a&gt;</iframe><br>
+<small><a href="https://www.bannerka.ua/" target="_top">Медийная реклама</a></small>
+</center>
+<!-- Ukrainian Banner Network 468x60 END -->
+</td>
+<td valign="top">
+<!-- Ukrainian Banner Network 120х60 START -->
+<center><script>
+//<!--
+ubn_user = "97327";
+ubn_page = "1";
+ubn_pid = Math.round((Math.random() * (10000000 - 1)));
+document.write("<iframe src='http://banner.kiev.ua/cgi-bin/bi.cgi?h" +
+ubn_user + "&amp;"+ ubn_pid + "&amp;" + ubn_page +
+"&amp;4' frameborder=0 vspace=0 hspace=0 " +
+" width=120 height=60 marginwidth=0 marginheight=0 scrolling=no>");
+document.write("<a href='http://banner.kiev.ua/cgi-bin/bg.cgi?" +
+ubn_user + "&amp;"+ ubn_pid + "&amp;" + ubn_page + "' target=_top>");
+document.write("<img border=0 src='http://banner.kiev.ua/" +
+"cgi-bin/bi.cgi?i" + ubn_user + "&amp;" + ubn_pid + "&amp;" + ubn_page +
+"&amp;4' width=120 height=60 alt='Ukrainian Banner Network'></a>");
+document.write("</iframe>");
+//-->
+</script><iframe src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/bi_003.html" vspace="0" hspace="0" marginwidth="0" marginheight="0" scrolling="no" width="120" frameborder="0" height="60">&lt;a
+ 
+href='http://banner.kiev.ua/cgi-bin/bg.cgi?97327&amp;amp;293691&amp;amp;1'
+ target=_top&gt;&lt;img border=0 
+src='http://banner.kiev.ua/cgi-bin/bi.cgi?i97327&amp;amp;293691&amp;amp;1&amp;amp;4'
+ width=120 height=60 alt='Ukrainian Banner Network'&gt;&lt;/a&gt;</iframe><br>
+<small><a href="https://www.bannerka.ua/" target="_top">Баннерная реклама</a></small>
+</center>
+<!-- Ukrainian Banner Network 120х60 END --></td></tr>
+</tbody></table>
+</noindex>            
+</td> 
+			</tr>
+		</tbody></table>
+		</td>
+	</tr>
+</tbody></table>
+<table><tbody><tr><td>
+</td></tr></tbody></table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+	<tbody><tr>
+		<td valign="top" align="left">
+		<table style="border-collapse: collapse;" width="100%" border="0">
+<tbody><tr>
+				<td valign="top" align="left">
+			<table class="tborder" width="240" align="center" border="0" cellpadding="3" cellspacing="1">
+		 			<tbody><tr>
+						<td class="thead">Навігація						</td>
+						</tr>
+					<tr>
+
+						<td class="vbmainwindow">
+                     
+		<table class="moduletable" cellpadding="0" cellspacing="0">
+				<tbody><tr>
+			<td>
+					<form action="http://pidruchniki.ws/" method="post" name="login">
+		
+	<table width="100%" align="center" border="0" cellpadding="0" cellspacing="0">
+	<tbody><tr>
+		<td valign="bottom">
+			<label for="mod_login_username">
+				Користувач			</label>
+			<br> 
+			<input name="username" id="mod_login_username" class="inputbox" alt="username" size="10" type="text">
+        </td>
+        <td valign="bottom">  
+			<label for="mod_login_password">
+				Пароль			</label>
+            <br>
+			<input id="mod_login_password" name="passwd" class="inputbox" size="10" alt="password" type="password">
+			 </td> 
+             <td valign="bottom">  
+             <input class="button" name="Submit" value="Вхід" type="submit">             
+             </td>   
+             </tr> 
+                <tr>
+              <td colspan="3">
+			<input name="remember" id="mod_login_remember" class="inputbox" value="yes" alt="Remember Me" type="checkbox">
+			<label for="mod_login_remember">
+				Запам'ятати мене			</label>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="3">
+			<a href="http://pidruchniki.ws/lost_password/">
+				Забули пароль?</a>
+		</td>
+	</tr>
+			<tr>
+			<td colspan="3">
+				Ще не зареєстровані?				<a href="http://pidruchniki.ws/create_an_account/">
+					Реєстрація</a>
+			</td>
+		</tr>
+			</tbody></table>
+	
+	<input name="option" value="login" type="hidden">
+	<input name="op2" value="login" type="hidden">
+	<input name="lang" value="russian" type="hidden">
+	<input name="return" value="http://pidruchniki.ws/component/option,com_mssubscriptionpro/Itemid,45/" type="hidden">
+	<input name="message" value="0" type="hidden">
+	<input name="force_session" value="1" type="hidden">
+	<input name="j9b7a142d11640bc327878afaee59e42d" value="1" type="hidden">
+	</form>
+				</td>
+		</tr>
+		</tbody></table>
+				<table class="moduletable" cellpadding="0" cellspacing="0">
+				<tbody><tr>
+			<td>
+				
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tbody><tr align="left"><td><a href="http://pidruchniki.ws/" title="Головна" class="mainlevel">Головна</a></td></tr>
+<tr align="left"><td><a href="http://pidruchniki.ws/component/option,com_mssubscriptionpro/Itemid,45/" title="ПОСЛУГИ" class="mainlevel">ПОСЛУГИ</a></td></tr>
+<tr align="left"><td><a href="http://pidruchniki.ws/20110213/gostova_kniga" title="Гостьова книга" class="mainlevel">Гостьова книга</a></td></tr>
+<tr align="left"><td><a href="http://pidruchniki.ws/16321215/pravila_koristuvannya_elektronnoyu_bibliotekoyu" title="&lt;i&gt;Правила користування&lt;/i&gt;" class="mainlevel"><i>Правила користування</i></a></td></tr>
+</tbody></table>			</td>
+		</tr>
+		</tbody></table>
+								</td>
+					</tr>
+					<tr>
+						<td class="vbmainwindow">
+                            		<table class="moduletable" cellpadding="0" cellspacing="0">
+				<tbody><tr>
+			<td>
+				<p class="rel_items">Схожі теми</p> <a class="hed_lev" href="http://pidruchniki.ws/10290228/menedzhment/rozvyazannya_zadachi_liniynogo_programuvannya_simpleks-metodom#381" title="Менеджмент підприємства - Хомяков В.І.">Розв'язання задачі лінійного програмування симплекс-методом</a><a class="hed_lev" href="http://pidruchniki.ws/10040628/ekonomika/grafichne_rozvyazannya_matrichnih_igor_rozmiru_2xn_mx2#602" title="Обгрунтування господарських рішень та оцінювання ризиків - Донець Л.І.">Графічне розв'язання матричних ігор розміру 2xn, mx2</a><a class="hed_lev" href="http://pidruchniki.ws/12210605/menedzhment/modeli_liniynogo_programuvannya#767" title="Менеджмент підприємства - Хомяков В.І.">Моделі лінійного програмування</a><a class="hed_lev" href="http://pidruchniki.ws/15511215/marketing/sistema_planuvannya_tsin_zmist#261" title="Маркетингова цінова політика - Литвиненко Я.В.">Метод кореляції та регресії</a><a class="hed_lev" href="http://pidruchniki.ws/11540510/ekonomika/priynyattya_rishen_dopomogoyu_matrichnih_igor#355" title="Обгрунтування господарських рішень та оцінювання ризиків - Донець Л.І.">Прийняття рішень за допомогою матричних ігор</a><a class="hed_lev" href="http://pidruchniki.ws/11840720/ekonomika/zmishani_strategiyi_matrichnoyi_gri#593" title="Обгрунтування господарських рішень та оцінювання ризиків - Донець Л.І.">Розв'язування матричних ігор розміру 2x2</a><hr class="rel_items"><a class="hed_lev" href="http://pidruchniki.ws/11840720/ekonomika/zmishani_strategiyi_matrichnoyi_gri#478" title="Обгрунтування господарських рішень та оцінювання ризиків - Донець Л.І.">Змішані стратегії матричної гри</a><a class="hed_lev" href="http://pidruchniki.ws/11781025/ekonomika/rozvyazannya_matrichnoyi_gri_seredovischi_macrosoft_excel#465" title="Обгрунтування господарських рішень та оцінювання ризиків - Донець Л.І.">Розв'язання матричної гри в середовищі Macrosoft EXCEL</a><a class="hed_lev" href="http://pidruchniki.ws/10040628/ekonomika/grafichne_rozvyazannya_matrichnih_igor_rozmiru_2xn_mx2#602" title="Обгрунтування господарських рішень та оцінювання ризиків - Донець Л.І.">Графічне розв'язання матричних ігор розміру 2xn, mx2</a><a class="hed_lev" href="http://pidruchniki.ws/12060218/ekonomika/printsip_minimaksu_maksiminu_rozvyazok_matrichnoyi_gri_chistih_strategiyah#237" title="Обгрунтування господарських рішень та оцінювання ризиків - Донець Л.І.">Принцип мінімаксу (максиміну). Розв'язок матричної гри в чистих стратегіях</a><a class="hed_lev" href="http://pidruchniki.ws/11540510/ekonomika/priynyattya_rishen_dopomogoyu_matrichnih_igor#355" title="Обгрунтування господарських рішень та оцінювання ризиків - Донець Л.І.">Прийняття рішень за допомогою матричних ігор</a><a class="hed_lev" href="http://pidruchniki.ws/11010818/marketing/strategiya_segmenta_rinku#978" title="Маркетингова цінова політика - Литвиненко Я.В.">Стратегія "сегмента ринку"</a><hr class="rel_items">			</td>
+		</tr>
+		</tbody></table>
+								</td>
+					</tr>
+ 
+<tr>
+<td>
+<noindex>
+<!-- Ukrainian Banner Network 240х400 START -->
+<center><script>
+//<!--
+ubn_user = "97327";
+ubn_page = "1";
+ubn_pid = Math.round((Math.random() * (10000000 - 1)));
+document.write("<iframe src='http://banner.kiev.ua/cgi-bin/bi.cgi?h" +
+ubn_user + "&amp;"+ ubn_pid + "&amp;" + ubn_page +
+"&amp;11' frameborder=0 vspace=0 hspace=0 " +
+" width=240 height=400 marginwidth=0 marginheight=0 scrolling=no>");
+document.write("<a href='http://banner.kiev.ua/cgi-bin/bg.cgi?" +
+ubn_user + "&amp;"+ ubn_pid + "&amp;" + ubn_page + "' target=_top>");
+document.write("<img border=0 src='http://banner.kiev.ua/" +
+"cgi-bin/bi.cgi?i" + ubn_user + "&amp;" + ubn_pid + "&amp;" + ubn_page +
+"&amp;11' width=240 height=400 alt='Ukrainian Banner Network'></a>");
+document.write("</iframe>");
+//-->
+</script><iframe src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/bi_004.html" vspace="0" hspace="0" marginwidth="0" marginheight="0" scrolling="no" width="240" frameborder="0" height="400">&lt;a
+ 
+href='http://banner.kiev.ua/cgi-bin/bg.cgi?97327&amp;amp;9961000&amp;amp;1'
+ target=_top&gt;&lt;img border=0 
+src='http://banner.kiev.ua/cgi-bin/bi.cgi?i97327&amp;amp;9961000&amp;amp;1&amp;amp;11'
+ width=240 height=400 alt='Ukrainian Banner Network'&gt;&lt;/a&gt;</iframe><br>
+<small><a href="http://banner.kiev.ua/" target="_top">Баннерная реклама</a></small>
+</center>
+<!-- Ukrainian Banner Network 240х400 END -->
+</noindex>  
+</td>   
+</tr> 
+<tr>
+<td>  
+<noindex> 
+  <!-- MComposite Start -->
+<div id="MarketGidComposite13444"><a href="http://usr.marketgid.com/demo/goods/?utm_source=popunder&amp;utm_medium=text&amp;utm_campaign=add" class="mg_addad13444" target="_blank">Добавить свое объявление</a><style type="text/css">.mg_addad13444{display:block; padding:1px 0 1px 25px; font:700 11px Tahoma, Arial, sans-serif;background:url(http://img.dt00.net/images/search/2/icon-2.png) 5px 0 no-repeat;color:#009966;}</style><table class="MGC0134443471"> <tbody><tr> <td class="mcteaser3471" style="width: 100%; height: 100%;" valign="top"> <table style="width: 100%; height: 100%;" cellpadding="0" cellspacing="1"> <tbody><tr><td class="mctc3471" colspan="1" valign="top"><div class="mcdesc3471"><a target="_blank" href="http://marketgid.com/ghits/1287654/i/3471/pp/1/5/k/#k13444" class="mcdesc3471">Справитесь с любой царапиной <br> за 5 минут без ...</a></div><div class="mctitle3471"><a target="_blank" href="http://marketgid.com/ghits/1287654/i/3471/pp/1/5/k/#k13444" class="mctitle3471">Верните Вашей машине ...</a></div></td></tr><tr><td style="height: 100%; width: 100%;" class="mccc3471" valign="top"><div class="mcimage3471"><a target="_blank" href="http://marketgid.com/ghits/1287654/i/3471/pp/1/5/k/#k13444"><img ilo-full-src="http://imgg.dt01.net/1287/1287654_vb.jpg" class="mcimage3471" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/1287654_vb.jpg" width="200" height="200"></a></div></td></tr></tbody></table></td></tr><tr> <td class="mcteaser3471" style="width: 100%; height: 100%;" valign="top"> <table style="width: 100%; height: 100%;" cellpadding="0" cellspacing="1"> <tbody><tr><td class="mctc3471" colspan="1" valign="top"><div class="mcdesc3471"><a target="_blank" href="http://marketgid.com/ghits/1309207/i/3471/pp/2/5/k/#k13444" class="mcdesc3471">Круглогодичный бизнес </a></div><div class="mctitle3471"><a target="_blank" href="http://marketgid.com/ghits/1309207/i/3471/pp/2/5/k/#k13444" class="mctitle3471">Выращивание клубники в ...</a></div></td></tr><tr><td style="height: 100%; width: 100%;" class="mccc3471" valign="top"><div class="mcimage3471"><a target="_blank" href="http://marketgid.com/ghits/1309207/i/3471/pp/2/5/k/#k13444"><img ilo-full-src="http://imgg.dt01.net/1309/1309207_vb.jpg" class="mcimage3471" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/1309207_vb.jpg" width="200" height="200"></a></div></td></tr></tbody></table></td></tr><tr> <td class="mcteaser3471" style="width: 100%; height: 100%;" valign="top"> <table style="width: 100%; height: 100%;" cellpadding="0" cellspacing="1"> <tbody><tr><td class="mctc3471" colspan="1" valign="top"><div class="mcdesc3471"><a target="_blank" href="http://marketgid.com/ghits/954406/i/3471/pp/3/5/k/#k13444" class="mcdesc3471"><cite> В какие только передряги они не попадали! </cite>  </a></div><div class="mctitle3471"><a target="_blank" href="http://marketgid.com/ghits/954406/i/3471/pp/3/5/k/#k13444" class="mctitle3471">Игра "The Simpsons Game. ...</a></div></td></tr><tr><td style="height: 100%; width: 100%;" class="mccc3471" valign="top"><div class="mcimage3471"><a target="_blank" href="http://marketgid.com/ghits/954406/i/3471/pp/3/5/k/#k13444"><img ilo-full-src="http://imgg.dt01.net/954/954406_vb.jpg" class="mcimage3471" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/954406_vb.jpg" width="200" height="200"></a></div></td></tr></tbody></table></td></tr><tr> <td class="mcteaser3471" style="width: 100%; height: 100%;" valign="top"> <table style="width: 100%; height: 100%;" cellpadding="0" cellspacing="1"> <tbody><tr><td class="mctc3471" colspan="1" valign="top"><div class="mcdesc3471"><a target="_blank" href="http://marketgid.com/ghits/518366/i/3471/pp/4/5/k/#k13444" class="mcdesc3471"><cite> Английский покорится Вам за 10 дней </cite>  </a></div><div class="mctitle3471"><a target="_blank" href="http://marketgid.com/ghits/518366/i/3471/pp/4/5/k/#k13444" class="mctitle3471">25 кадр ЗАВОРАЖИВАЕТ! ...</a></div></td></tr><tr><td style="height: 100%; width: 100%;" class="mccc3471" valign="top"><div class="mcimage3471"><a target="_blank" href="http://marketgid.com/ghits/518366/i/3471/pp/4/5/k/#k13444"><img ilo-full-src="http://imgg.dt01.net/518/518366_vb.jpg" class="mcimage3471" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/518366_vb.jpg" width="200" height="200"></a></div></td></tr></tbody></table></td>  </tr> </tbody></table><table class="MGC0134443471"> <tbody><tr> <td class="mcteaser3471" style="width: 100%; height: 100%;" valign="top"> <table style="width: 100%; height: 100%;" cellpadding="0" cellspacing="1"> <tbody><tr><td class="mctc3471" colspan="1" valign="top"><div class="mcdesc3471"><a target="_blank" href="http://marketgid.com/ghits/1306052/i/3471/pp/1/6/k/#k13444" class="mcdesc3471">Не знаете что подарить <cite> МУЖЧИНЕ - </cite></a></div><div class="mctitle3471"><a target="_blank" href="http://marketgid.com/ghits/1306052/i/3471/pp/1/6/k/#k13444" class="mctitle3471">Стопроцентная копия по ...</a></div></td></tr><tr><td style="height: 100%; width: 100%;" class="mccc3471" valign="top"><div class="mcimage3471"><a target="_blank" href="http://marketgid.com/ghits/1306052/i/3471/pp/1/6/k/#k13444"><img ilo-full-src="http://imgg.dt01.net/1306/1306052_vb.jpg" class="mcimage3471" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/1306052_vb.jpg" width="200" height="200"></a></div></td></tr></tbody></table></td></tr><tr> <td class="mcteaser3471" style="width: 100%; height: 100%;" valign="top"> <table style="width: 100%; height: 100%;" cellpadding="0" cellspacing="1"> <tbody><tr><td class="mctc3471" colspan="1" valign="top"><div class="mcdesc3471"><a target="_blank" href="http://marketgid.com/ghits/639866/i/3471/pp/2/6/k/#k13444" class="mcdesc3471">Самозарядный пистолет </a></div><div class="mctitle3471"><a target="_blank" href="http://marketgid.com/ghits/639866/i/3471/pp/2/6/k/#k13444" class="mctitle3471">ММГ ТТ 7,62 (vgm_tt) </a></div></td></tr><tr><td style="height: 100%; width: 100%;" class="mccc3471" valign="top"><div class="mcimage3471"><a target="_blank" href="http://marketgid.com/ghits/639866/i/3471/pp/2/6/k/#k13444"><img ilo-full-src="http://imgg.dt01.net/639/639866_vb.jpg" class="mcimage3471" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/639866_vb.jpg" width="200" height="200"></a></div></td></tr></tbody></table></td></tr><tr> <td class="mcteaser3471" style="width: 100%; height: 100%;" valign="top"> <table style="width: 100%; height: 100%;" cellpadding="0" cellspacing="1"> <tbody><tr><td class="mctc3471" colspan="1" valign="top"><div class="mcdesc3471"><a target="_blank" href="http://marketgid.com/ghits/1184408/i/3471/pp/3/6/k/#k13444" class="mcdesc3471"><cite> Докажите всему миру, что Ваш стиль ниндзя самый ...</cite></a></div><div class="mctitle3471"><a target="_blank" href="http://marketgid.com/ghits/1184408/i/3471/pp/3/6/k/#k13444" class="mctitle3471">Игра "Naruto Shippuden ...</a></div></td></tr><tr><td style="height: 100%; width: 100%;" class="mccc3471" valign="top"><div class="mcimage3471"><a target="_blank" href="http://marketgid.com/ghits/1184408/i/3471/pp/3/6/k/#k13444"><img ilo-full-src="http://imgg.dt01.net/1184/1184408_vb.jpg" class="mcimage3471" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/1184408_vb.jpg" width="200" height="200"></a></div></td></tr></tbody></table></td></tr><tr> <td class="mcteaser3471" style="width: 100%; height: 100%;" valign="top"> <table style="width: 100%; height: 100%;" cellpadding="0" cellspacing="1"> <tbody><tr><td class="mctc3471" colspan="1" valign="top"><div class="mcdesc3471"><a target="_blank" href="http://marketgid.com/ghits/1204798/i/3471/pp/4/6/k/#k13444" class="mcdesc3471">Выручает в ТРУДНЫХ ситуациях! </a></div><div class="mctitle3471"><a target="_blank" href="http://marketgid.com/ghits/1204798/i/3471/pp/4/6/k/#k13444" class="mctitle3471">Разработан для "СПЕЦСЛУЖБ" </a></div></td></tr><tr><td style="height: 100%; width: 100%;" class="mccc3471" valign="top"><div class="mcimage3471"><a target="_blank" href="http://marketgid.com/ghits/1204798/i/3471/pp/4/6/k/#k13444"><img ilo-full-src="http://imgg.dt01.net/1204/1204798_vb.jpg" class="mcimage3471" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/1204798_vb.jpg" width="200" height="200"></a></div></td></tr></tbody></table></td>  </tr> </tbody></table><table class="MGC0134443471"> <tbody><tr> <td class="mcteaser3471" style="width: 100%; height: 100%;" valign="top"> <table style="width: 100%; height: 100%;" cellpadding="0" cellspacing="1"> <tbody><tr><td class="mctc3471" colspan="1" valign="top"><div class="mcdesc3471"><a target="_blank" href="http://marketgid.com/ghits/954377/i/3471/pp/1/7/k/#k13444" class="mcdesc3471"><cite> Райское местечко </cite> для безумных гонщиков! </a></div><div class="mctitle3471"><a target="_blank" href="http://marketgid.com/ghits/954377/i/3471/pp/1/7/k/#k13444" class="mctitle3471">Игра "Burnout Paradise". ...</a></div></td></tr><tr><td style="height: 100%; width: 100%;" class="mccc3471" valign="top"><div class="mcimage3471"><a target="_blank" href="http://marketgid.com/ghits/954377/i/3471/pp/1/7/k/#k13444"><img ilo-full-src="http://imgg.dt01.net/954/954377_vb.jpg" class="mcimage3471" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/954377_vb.jpg" width="200" height="200"></a></div></td></tr></tbody></table></td></tr><tr> <td class="mcteaser3471" style="width: 100%; height: 100%;" valign="top"> <table style="width: 100%; height: 100%;" cellpadding="0" cellspacing="1"> <tbody><tr><td class="mctc3471" colspan="1" valign="top"><div class="mcdesc3471"><a target="_blank" href="http://marketgid.com/ghits/879289/i/3471/pp/2/7/k/#k13444" class="mcdesc3471"><cite> С высоким уровнем сцепления </cite>  </a></div><div class="mctitle3471"><a target="_blank" href="http://marketgid.com/ghits/879289/i/3471/pp/2/7/k/#k13444" class="mctitle3471">HPI Racing Комплект шин 2 ...</a></div></td></tr><tr><td style="height: 100%; width: 100%;" class="mccc3471" valign="top"><div class="mcimage3471"><a target="_blank" href="http://marketgid.com/ghits/879289/i/3471/pp/2/7/k/#k13444"><img ilo-full-src="http://imgg.dt01.net/879/879289_vb.jpg" class="mcimage3471" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/879289_vb.jpg" width="200" height="200"></a></div></td></tr></tbody></table></td></tr><tr> <td class="mcteaser3471" style="width: 100%; height: 100%;" valign="top"> <table style="width: 100%; height: 100%;" cellpadding="0" cellspacing="1"> <tbody><tr><td class="mctc3471" colspan="1" valign="top"><div class="mcdesc3471"><a target="_blank" href="http://marketgid.com/ghits/1316552/i/3471/pp/3/7/k/#k13444" class="mcdesc3471">Коварные "копы", баснословно дорогие авто! </a></div><div class="mctitle3471"><a target="_blank" href="http://marketgid.com/ghits/1316552/i/3471/pp/3/7/k/#k13444" class="mctitle3471">Игра "Need for Speed: Most ...</a></div></td></tr><tr><td style="height: 100%; width: 100%;" class="mccc3471" valign="top"><div class="mcimage3471"><a target="_blank" href="http://marketgid.com/ghits/1316552/i/3471/pp/3/7/k/#k13444"><img ilo-full-src="http://imgg.dt01.net/1316/1316552_vb.jpg" class="mcimage3471" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/1316552_vb.jpg" width="200" height="200"></a></div></td></tr></tbody></table></td></tr><tr> <td class="mcteaser3471" style="width: 100%; height: 100%;" valign="top"> <table style="width: 100%; height: 100%;" cellpadding="0" cellspacing="1"> <tbody><tr><td class="mctc3471" colspan="1" valign="top"><div class="mcdesc3471"><a target="_blank" href="http://marketgid.com/ghits/1327216/i/3471/pp/4/7/k/#k13444" class="mcdesc3471">Исследуйте возможности своего мозга </a></div><div class="mctitle3471"><a target="_blank" href="http://marketgid.com/ghits/1327216/i/3471/pp/4/7/k/#k13444" class="mctitle3471">IQ тест - самый точный ...</a></div></td></tr><tr><td style="height: 100%; width: 100%;" class="mccc3471" valign="top"><div class="mcimage3471"><a target="_blank" href="http://marketgid.com/ghits/1327216/i/3471/pp/4/7/k/#k13444"><img ilo-full-src="http://imgg.dt01.net/1327/1327216_vb.jpg" class="mcimage3471" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/1327216_vb.jpg" width="200" height="200"></a></div></td></tr></tbody></table></td>  </tr> </tbody></table><table class="MGC0134443471"> <tbody><tr> <td class="mcteaser3471" style="width: 100%; height: 100%;" valign="top"> <table style="width: 100%; height: 100%;" cellpadding="0" cellspacing="1"> <tbody><tr><td class="mctc3471" colspan="1" valign="top"><div class="mcdesc3471"><a target="_blank" href="http://marketgid.com/ghits/1265685/i/3471/pp/1/8/k/#k13444" class="mcdesc3471"><cite> Секреты успешного и доходного бизнеса </cite>  </a></div><div class="mctitle3471"><a target="_blank" href="http://marketgid.com/ghits/1265685/i/3471/pp/1/8/k/#k13444" class="mctitle3471">Выращивание клубники дома ...</a></div></td></tr><tr><td style="height: 100%; width: 100%;" class="mccc3471" valign="top"><div class="mcimage3471"><a target="_blank" href="http://marketgid.com/ghits/1265685/i/3471/pp/1/8/k/#k13444"><img ilo-full-src="http://imgg.dt01.net/1265/1265685_vb.jpg" class="mcimage3471" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/1265685_vb.jpg" width="200" height="200"></a></div></td></tr></tbody></table></td></tr><tr> <td class="mcteaser3471" style="width: 100%; height: 100%;" valign="top"> <table style="width: 100%; height: 100%;" cellpadding="0" cellspacing="1"> <tbody><tr><td class="mctc3471" colspan="1" valign="top"><div class="mcdesc3471"><a target="_blank" href="http://marketgid.com/ghits/1202168/i/3471/pp/2/8/k/#k13444" class="mcdesc3471"><cite> Противник от Вас никуда не спрячется! </cite>  </a></div><div class="mctitle3471"><a target="_blank" href="http://marketgid.com/ghits/1202168/i/3471/pp/2/8/k/#k13444" class="mctitle3471">Бинокль ночного видения ...</a></div></td></tr><tr><td style="height: 100%; width: 100%;" class="mccc3471" valign="top"><div class="mcimage3471"><a target="_blank" href="http://marketgid.com/ghits/1202168/i/3471/pp/2/8/k/#k13444"><img ilo-full-src="http://imgg.dt01.net/1202/1202168_vb.jpg" class="mcimage3471" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/1202168_vb.jpg" width="200" height="200"></a></div></td></tr></tbody></table></td></tr><tr> <td class="mcteaser3471" style="width: 100%; height: 100%;" valign="top"> <table style="width: 100%; height: 100%;" cellpadding="0" cellspacing="1"> <tbody><tr><td class="mctc3471" colspan="1" valign="top"><div class="mcdesc3471"><a target="_blank" href="http://marketgid.com/ghits/1098693/i/3471/pp/3/8/k/#k13444" class="mcdesc3471"><cite> Уникальные возможности гонок нового поколения! ...</cite></a></div><div class="mctitle3471"><a target="_blank" href="http://marketgid.com/ghits/1098693/i/3471/pp/3/8/k/#k13444" class="mctitle3471">Игра "Gran Turismo 5" </a></div></td></tr><tr><td style="height: 100%; width: 100%;" class="mccc3471" valign="top"><div class="mcimage3471"><a target="_blank" href="http://marketgid.com/ghits/1098693/i/3471/pp/3/8/k/#k13444"><img ilo-full-src="http://imgg.dt01.net/1098/1098693_vb.jpg" class="mcimage3471" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/1098693_vb.jpg" width="200" height="200"></a></div></td></tr></tbody></table></td></tr><tr> <td class="mcteaser3471" style="width: 100%; height: 100%;" valign="top"> <table style="width: 100%; height: 100%;" cellpadding="0" cellspacing="1"> <tbody><tr><td class="mctc3471" colspan="1" valign="top"><div class="mcdesc3471"><a target="_blank" href="http://marketgid.com/ghits/633064/i/3471/pp/4/8/k/#k13444" class="mcdesc3471"><cite> Свободно ЗАГОВОРИТЕ на АНГЛИЙСКОМ через 7 дней! ...</cite></a></div><div class="mctitle3471"><a target="_blank" href="http://marketgid.com/ghits/633064/i/3471/pp/4/8/k/#k13444" class="mctitle3471">25 кадр творит чудеса! ...</a></div></td></tr><tr><td style="height: 100%; width: 100%;" class="mccc3471" valign="top"><div class="mcimage3471"><a target="_blank" href="http://marketgid.com/ghits/633064/i/3471/pp/4/8/k/#k13444"><img ilo-full-src="http://imgg.dt01.net/633/633064_vb.jpg" class="mcimage3471" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/633064_vb.jpg" width="200" height="200"></a></div></td></tr></tbody></table></td>  </tr> </tbody></table><table class="MGC0134443471"> <tbody><tr> <td class="mcteaser3471" style="width: 100%; height: 100%;" valign="top"> <table style="width: 100%; height: 100%;" cellpadding="0" cellspacing="1"> <tbody><tr><td class="mctc3471" colspan="1" valign="top"><div class="mcdesc3471"><a target="_blank" href="http://marketgid.com/ghits/1242941/i/3471/pp/1/9/k/#k13444" class="mcdesc3471">Новинки 2011-го года. Хит продаж - ШОКЕР! </a></div><div class="mctitle3471"><a target="_blank" href="http://marketgid.com/ghits/1242941/i/3471/pp/1/9/k/#k13444" class="mctitle3471">Компактное и незаметное ...</a></div></td></tr><tr><td style="height: 100%; width: 100%;" class="mccc3471" valign="top"><div class="mcimage3471"><a target="_blank" href="http://marketgid.com/ghits/1242941/i/3471/pp/1/9/k/#k13444"><img ilo-full-src="http://imgg.dt01.net/1242/1242941_vb.jpg" class="mcimage3471" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/1242941_vb.jpg" width="200" height="200"></a></div></td></tr></tbody></table></td></tr><tr> <td class="mcteaser3471" style="width: 100%; height: 100%;" valign="top"> <table style="width: 100%; height: 100%;" cellpadding="0" cellspacing="1"> <tbody><tr><td class="mctc3471" colspan="1" valign="top"><div class="mcdesc3471"><a target="_blank" href="http://marketgid.com/ghits/1316969/i/3471/pp/2/9/k/#k13444" class="mcdesc3471">Люди страдают от того, что у них ЖЕЛТЫЙ цвет ЗУБОВ! </a></div><div class="mctitle3471"><a target="_blank" href="http://marketgid.com/ghits/1316969/i/3471/pp/2/9/k/#k13444" class="mctitle3471">Всего 21 минута для ...</a></div></td></tr><tr><td style="height: 100%; width: 100%;" class="mccc3471" valign="top"><div class="mcimage3471"><a target="_blank" href="http://marketgid.com/ghits/1316969/i/3471/pp/2/9/k/#k13444"><img ilo-full-src="http://imgg.dt01.net/1316/1316969_vb.jpg" class="mcimage3471" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/1316969_vb.jpg" width="200" height="200"></a></div></td></tr></tbody></table></td></tr><tr> <td class="mcteaser3471" style="width: 100%; height: 100%;" valign="top"> <table style="width: 100%; height: 100%;" cellpadding="0" cellspacing="1"> <tbody><tr><td class="mctc3471" colspan="1" valign="top"><div class="mcdesc3471"><a target="_blank" href="http://marketgid.com/ghits/1262202/i/3471/pp/3/9/k/#k13444" class="mcdesc3471"><cite> Методика для домашнего применения </cite>  </a></div><div class="mctitle3471"><a target="_blank" href="http://marketgid.com/ghits/1262202/i/3471/pp/3/9/k/#k13444" class="mctitle3471">Как в 40 лет выглядеть на ...</a></div></td></tr><tr><td style="height: 100%; width: 100%;" class="mccc3471" valign="top"><div class="mcimage3471"><a target="_blank" href="http://marketgid.com/ghits/1262202/i/3471/pp/3/9/k/#k13444"><img ilo-full-src="http://imgg.dt01.net/1262/1262202_vb.jpg" class="mcimage3471" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/1262202_vb.jpg" width="200" height="200"></a></div></td></tr></tbody></table></td></tr><tr> <td class="mcteaser3471" style="width: 100%; height: 100%;" valign="top"> <table style="width: 100%; height: 100%;" cellpadding="0" cellspacing="1"> <tbody><tr><td class="mctc3471" colspan="1" valign="top"><div class="mcdesc3471"><a target="_blank" href="http://marketgid.com/ghits/1198733/i/3471/pp/4/9/k/#k13444" class="mcdesc3471"><cite> Точная копия классической легендарной модели! </cite> ...</a></div><div class="mctitle3471"><a target="_blank" href="http://marketgid.com/ghits/1198733/i/3471/pp/4/9/k/#k13444" class="mctitle3471">Пневматический пистолет KWC ...</a></div></td></tr><tr><td style="height: 100%; width: 100%;" class="mccc3471" valign="top"><div class="mcimage3471"><a target="_blank" href="http://marketgid.com/ghits/1198733/i/3471/pp/4/9/k/#k13444"><img ilo-full-src="http://imgg.dt01.net/1198/1198733_vb.jpg" class="mcimage3471" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/1198733_vb.jpg" width="200" height="200"></a></div></td></tr></tbody></table></td>  </tr> </tbody></table></div>
+<!-- MComposite End -->
+       
+<style type="text/css">#MarketGidComposite13444 .MGC0134447822, #MarketGidComposite13444 .MGC0134447822 * {margin:0; padding:0; border:0; font-style:normal; font-size:100.01%; line-height:1; text-decoration:none; color:#000; line-height:1.1em;} #MarketGidComposite13444 .MGC0134447822 cite{color:red;} #MarketGidComposite13444 .MGC0134447822{border-spacing:2px; margin:auto !important; font:11px Tahoma, Verdana, Arial;} #MarketGidComposite13444 .MGC0134447822{ font-family: Tahoma,Geneva,sans-serif; width: 100px; border-width: 0px; border-style: solid; border-color: #e6e6fa; } #MarketGidComposite13444 .MGC0134447822 *{ letter-spacing: 0em; } #MarketGidComposite13444 .mctitle7822{ font-weight: bold; font-size: 9px; color: #ffffff; } #MarketGidComposite13444 div.mctitle7822{ text-align: center; } #MarketGidComposite13444 .mctitle7822 *, #MarketGidComposite13444 .mctitle7822 cite{ color: #ffffff; } #MarketGidComposite13444 div.mcimage7822{ text-align: center; } #MarketGidComposite13444 .mcimage7822{ padding: 0px; } #MarketGidComposite13444 img.mcimage7822{ border-width: 0px; border-style: solid; } #MarketGidComposite13444 .mcdesc7822{ font-weight: bold; font-size: 12px; color: #0000cd; } #MarketGidComposite13444 div.mcdesc7822{ text-align: center; } #MarketGidComposite13444 .mcdesc7822 *, #MarketGidComposite13444 .mcdesc7822 cite{ color: #0000cd; } #MarketGidComposite13444 div.mcsource7822{ text-align: center; } #MarketGidComposite13444 .mcsource7822{ text-decoration: underline; color: #4169e1; font-size: 12px; font-weight: bold; } #MarketGidComposite13444 .mcsource7822 *, #MarketGidComposite13444 .mcsource7822 cite{ color: #4169e1; } #MarketGidComposite13444 .mccc7822{ padding: 4px; border-width: 0px; border-style: solid; } #MarketGidComposite13444 .mctc7822{ padding: 10px; } #MarketGidComposite13444 .mcbc7822{ padding: 0px; } </style><style type="text/css">#MarketGidComposite13444 .MGC0134443471, #MarketGidComposite13444 .MGC0134443471 * {margin:0; padding:0; border:0; font-style:normal; font-size:100.01%; line-height:1; text-decoration:none; color:#000; line-height:1.1em;} #MarketGidComposite13444 .MGC0134443471 cite{color:red;} #MarketGidComposite13444 .MGC0134443471{border-spacing:2px; margin:auto !important; font:11px Tahoma, Verdana, Arial;} #MarketGidComposite13444 .MGC0134443471{ font-family: Tahoma,Geneva,sans-serif; width: 100px; border-width: 0px; border-style: solid; border-color: #e6e6fa; } #MarketGidComposite13444 .MGC0134443471 *{ letter-spacing: 0em; } #MarketGidComposite13444 .mctitle3471{ font-weight: bold; font-size: 9px; color: #ffffff; } #MarketGidComposite13444 div.mctitle3471{ text-align: center; } #MarketGidComposite13444 .mctitle3471 *, #MarketGidComposite13444 .mctitle3471 cite{ color: #ffffff; } #MarketGidComposite13444 div.mcimage3471{ text-align: center; } #MarketGidComposite13444 .mcimage3471{ padding: 0px; } #MarketGidComposite13444 img.mcimage3471{ border-width: 0px; border-style: solid; } #MarketGidComposite13444 .mcdesc3471{ font-weight: bold; font-size: 12px; color: #0000cd; } #MarketGidComposite13444 div.mcdesc3471{ text-align: center; } #MarketGidComposite13444 .mcdesc3471 *, #MarketGidComposite13444 .mcdesc3471 cite{ color: #0000cd; } #MarketGidComposite13444 .mcprice3471{ font-weight: bold; color: #f00; } #MarketGidComposite13444 .mcprice3471 *, #MarketGidComposite13444 .mcprice3471 cite{ color: #f00; } #MarketGidComposite13444 div.mcprice3471{ text-align: center; } #MarketGidComposite13444 div.mcsource3471{ text-align: center; } #MarketGidComposite13444 .mcsource3471{ text-decoration: underline; color: #4169e1; font-size: 12px; font-weight: bold; } #MarketGidComposite13444 .mcsource3471 *, #MarketGidComposite13444 .mcsource3471 cite{ color: #4169e1; } #MarketGidComposite13444 .mccc3471{ padding: 4px; border-width: 0px; border-style: solid; } #MarketGidComposite13444 .mctc3471{ padding: 10px; } #MarketGidComposite13444 .mcbc3471{ padding: 0px; } </style><script src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/5_002.js" charset="windows-1251" type="text/javascript"></script><script src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/6.js" type="text/javascript"></script><script src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/7.js" type="text/javascript"></script><script src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/8_002.js" type="text/javascript"></script><script src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/9.js" type="text/javascript"></script></noindex> 
+</td>   
+</tr>
+  <!-- #################################### -->  
+	       </tbody></table>
+		</td>
+ 
+				<td rowspan="2" width="10">&nbsp;</td>
+				<td rowspan="2" valign="top" width="100%" align="left">
+				<table class="tborder" id="table9" width="100%" align="center" border="0" cellpadding="3" cellspacing="1">
+					<tbody><tr>
+						<td class="thead" width="100%"><span class="pathway"><a href="http://pidruchniki.ws/" class="pathway">Головна</a> <img ilo-full-src="http://pidruchniki.ws/templates/paranoia/images/arrow.png" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/arrow.png" alt="arrow" border="0"> <a href="http://pidruchniki.ws/ekonomika/" class="pathway">Економіка</a> <img ilo-full-src="http://pidruchniki.ws/templates/paranoia/images/arrow.png" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/arrow.png" alt="arrow" border="0">   Обгрунтування господарських рішень та оцінювання ризиків - Донець Л.І. </span>						</td>
+</tr>
+
+                    					
+					<!-- ############################################## -->					<!-- ############################################## -->
+					<tr>
+					<td class="vbmainwindow" valign="top" width="100%">
+                                          <div class="openlds">
+                                          				<table class="contentpaneopen">
+			<tbody><tr>
+				 
+                <td class="buttonheading" width="100%" align="center">      
+ <form action="http://pidruchniki.ws/20101014/poshuk" id="cse-search-box">
+  <div>
+    <input name="cx" value="003519254113262656267:wbye2u-q3ie" type="hidden">
+    <input name="cof" value="FORID:9" type="hidden">
+    <input name="ie" value="windows-1251" type="hidden">
+    <input style="background: url(&quot;http://www.google.com/cse/intl/uk/images/google_custom_search_watermark.gif&quot;) no-repeat scroll left center rgb(255, 255, 255);" name="q" size="80" type="text">
+  </div>
+<input value="pidruchniki.ws/17590412/ekonomika/rozvyazannya_matrichnih_igor_metodami_liniynogo_programuvannya" name="siteurl" type="hidden"></form>
+<script type="text/javascript" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/brand"></script>               
+<script type="text/javascript" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/share.js" charset="utf-8"></script>
+<div class="yashare-auto-init" data-yasharetype="link" data-yasharequickservices="vkontakte,odnoklassniki,facebook,lj,twitter"><span class="b-share"><a class="b-share__handle" id="ya-share-0.5703206367122186-1328649954617" data-hdirection="" data-vdirection=""><span class="b-share__text">Поделиться</span></a><a rel="nofollow" target="_blank" title="ВКонтакте" class="b-share__handle b-share__link" href="http://share.yandex.ru/go.xml?service=vkontakte&amp;url=http%3A%2F%2Fpidruchniki.ws%2F17590412%2Fekonomika%2Frozvyazannya_matrichnih_igor_metodami_liniynogo_programuvannya&amp;title=%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%B8%D1%85%20%D1%96%D0%B3%D0%BE%D1%80%20%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D0%B0%D0%BC%D0%B8%20%D0%BB%D1%96%D0%BD%D1%96%D0%B9%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%2C%20%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85%20-%20%D0%9E%D0%B1%D0%B3%D1%80%D1%83%D0%BD%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%B3%D0%BE%D1%81%D0%BF%D0%BE%D0%B4%D0%B0%D1%80%D1%81%D1%8C%D0%BA%D0%B8%D1%85%20%D1%80%D1%96%D1%88%D0%B5%D0%BD%D1%8C%20%D1%82%D0%B0%20%D0%BE%D1%86%D1%96%D0%BD%D1%8E%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%20%D1%80%D0%B8%D0%B7%D0%B8%D0%BA%D1%96%D0%B2%20-%20%D0%94%D0%BE%D0%BD%D0%B5%D1%86%D1%8C%20%D0%9B.%D0%86.%20%D0%91%D1%96%D0%B1%D0%BB%D1%96%D0%BE%D1%82%D0%B5%D0%BA%D0%B0%20%D1%83%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D1%81%D1%8C%D0%BA%D0%B8%D1%85%20%D0%BF%D1%96%D0%B4%D1%80%D1%83%D1%87%D0%BD%D0%B8%D0%BA%D1%96%D0%B2" data-service="vkontakte"><span class="b-share-icon b-share-icon_vkontakte"></span></a><a rel="nofollow" target="_blank" title="Одноклассники" class="b-share__handle b-share__link" href="http://share.yandex.ru/go.xml?service=odnoklassniki&amp;url=http%3A%2F%2Fpidruchniki.ws%2F17590412%2Fekonomika%2Frozvyazannya_matrichnih_igor_metodami_liniynogo_programuvannya&amp;title=%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%B8%D1%85%20%D1%96%D0%B3%D0%BE%D1%80%20%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D0%B0%D0%BC%D0%B8%20%D0%BB%D1%96%D0%BD%D1%96%D0%B9%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%2C%20%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85%20-%20%D0%9E%D0%B1%D0%B3%D1%80%D1%83%D0%BD%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%B3%D0%BE%D1%81%D0%BF%D0%BE%D0%B4%D0%B0%D1%80%D1%81%D1%8C%D0%BA%D0%B8%D1%85%20%D1%80%D1%96%D1%88%D0%B5%D0%BD%D1%8C%20%D1%82%D0%B0%20%D0%BE%D1%86%D1%96%D0%BD%D1%8E%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%20%D1%80%D0%B8%D0%B7%D0%B8%D0%BA%D1%96%D0%B2%20-%20%D0%94%D0%BE%D0%BD%D0%B5%D1%86%D1%8C%20%D0%9B.%D0%86.%20%D0%91%D1%96%D0%B1%D0%BB%D1%96%D0%BE%D1%82%D0%B5%D0%BA%D0%B0%20%D1%83%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D1%81%D1%8C%D0%BA%D0%B8%D1%85%20%D0%BF%D1%96%D0%B4%D1%80%D1%83%D1%87%D0%BD%D0%B8%D0%BA%D1%96%D0%B2" data-service="odnoklassniki"><span class="b-share-icon b-share-icon_odnoklassniki"></span></a><a rel="nofollow" target="_blank" title="Facebook" class="b-share__handle b-share__link" href="http://share.yandex.ru/go.xml?service=facebook&amp;url=http%3A%2F%2Fpidruchniki.ws%2F17590412%2Fekonomika%2Frozvyazannya_matrichnih_igor_metodami_liniynogo_programuvannya&amp;title=%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%B8%D1%85%20%D1%96%D0%B3%D0%BE%D1%80%20%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D0%B0%D0%BC%D0%B8%20%D0%BB%D1%96%D0%BD%D1%96%D0%B9%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%2C%20%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85%20-%20%D0%9E%D0%B1%D0%B3%D1%80%D1%83%D0%BD%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%B3%D0%BE%D1%81%D0%BF%D0%BE%D0%B4%D0%B0%D1%80%D1%81%D1%8C%D0%BA%D0%B8%D1%85%20%D1%80%D1%96%D1%88%D0%B5%D0%BD%D1%8C%20%D1%82%D0%B0%20%D0%BE%D1%86%D1%96%D0%BD%D1%8E%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%20%D1%80%D0%B8%D0%B7%D0%B8%D0%BA%D1%96%D0%B2%20-%20%D0%94%D0%BE%D0%BD%D0%B5%D1%86%D1%8C%20%D0%9B.%D0%86.%20%D0%91%D1%96%D0%B1%D0%BB%D1%96%D0%BE%D1%82%D0%B5%D0%BA%D0%B0%20%D1%83%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D1%81%D1%8C%D0%BA%D0%B8%D1%85%20%D0%BF%D1%96%D0%B4%D1%80%D1%83%D1%87%D0%BD%D0%B8%D0%BA%D1%96%D0%B2" data-service="facebook"><span class="b-share-icon b-share-icon_facebook"></span></a><a rel="nofollow" target="_blank" title="LiveJournal" class="b-share__handle b-share__link" href="http://share.yandex.ru/go.xml?service=lj&amp;url=http%3A%2F%2Fpidruchniki.ws%2F17590412%2Fekonomika%2Frozvyazannya_matrichnih_igor_metodami_liniynogo_programuvannya&amp;title=%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%B8%D1%85%20%D1%96%D0%B3%D0%BE%D1%80%20%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D0%B0%D0%BC%D0%B8%20%D0%BB%D1%96%D0%BD%D1%96%D0%B9%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%2C%20%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85%20-%20%D0%9E%D0%B1%D0%B3%D1%80%D1%83%D0%BD%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%B3%D0%BE%D1%81%D0%BF%D0%BE%D0%B4%D0%B0%D1%80%D1%81%D1%8C%D0%BA%D0%B8%D1%85%20%D1%80%D1%96%D1%88%D0%B5%D0%BD%D1%8C%20%D1%82%D0%B0%20%D0%BE%D1%86%D1%96%D0%BD%D1%8E%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%20%D1%80%D0%B8%D0%B7%D0%B8%D0%BA%D1%96%D0%B2%20-%20%D0%94%D0%BE%D0%BD%D0%B5%D1%86%D1%8C%20%D0%9B.%D0%86.%20%D0%91%D1%96%D0%B1%D0%BB%D1%96%D0%BE%D1%82%D0%B5%D0%BA%D0%B0%20%D1%83%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D1%81%D1%8C%D0%BA%D0%B8%D1%85%20%D0%BF%D1%96%D0%B4%D1%80%D1%83%D1%87%D0%BD%D0%B8%D0%BA%D1%96%D0%B2" data-service="lj"><span class="b-share-icon b-share-icon_lj"></span></a><a rel="nofollow" target="_blank" title="Twitter" class="b-share__handle b-share__link" href="http://share.yandex.ru/go.xml?service=twitter&amp;url=http%3A%2F%2Fpidruchniki.ws%2F17590412%2Fekonomika%2Frozvyazannya_matrichnih_igor_metodami_liniynogo_programuvannya&amp;title=%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%B8%D1%85%20%D1%96%D0%B3%D0%BE%D1%80%20%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D0%B0%D0%BC%D0%B8%20%D0%BB%D1%96%D0%BD%D1%96%D0%B9%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%2C%20%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85%20-%20%D0%9E%D0%B1%D0%B3%D1%80%D1%83%D0%BD%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%B3%D0%BE%D1%81%D0%BF%D0%BE%D0%B4%D0%B0%D1%80%D1%81%D1%8C%D0%BA%D0%B8%D1%85%20%D1%80%D1%96%D1%88%D0%B5%D0%BD%D1%8C%20%D1%82%D0%B0%20%D0%BE%D1%86%D1%96%D0%BD%D1%8E%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%20%D1%80%D0%B8%D0%B7%D0%B8%D0%BA%D1%96%D0%B2%20-%20%D0%94%D0%BE%D0%BD%D0%B5%D1%86%D1%8C%20%D0%9B.%D0%86.%20%D0%91%D1%96%D0%B1%D0%BB%D1%96%D0%BE%D1%82%D0%B5%D0%BA%D0%B0%20%D1%83%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D1%81%D1%8C%D0%BA%D0%B8%D1%85%20%D0%BF%D1%96%D0%B4%D1%80%D1%83%D1%87%D0%BD%D0%B8%D0%BA%D1%96%D0%B2" data-service="twitter"><span class="b-share-icon b-share-icon_twitter"></span></a></span></div>  
+             </td>
+         			<td class="contentheading" width="100%">
+							</td>
+						</tr>
+			</tbody></table>
+					
+		<table class="contentpaneopen">
+<tbody><tr>
+<td>
+
+			<table style="margin-top: 5px;" align="center">
+			<tbody><tr>
+	                               <th class="pagenav_prev">
+                        <a href="http://pidruchniki.ws/10040628/ekonomika/grafichne_rozvyazannya_matrichnih_igor_rozmiru_2xn_mx2">
+                            &lt; Попередня</a>
+                    </th>
+                                        <td width="50">&nbsp;
+                    </td>
+                    					<th class="pagenav_cont">
+						<a href="http://pidruchniki.ws/11750204/ekonomika/obgruntuvannya_gospodarskih_rishen_ta_otsinyuvannya_rizikiv_-_donets_li">
+							ЗМІСТ</a>
+					</th>
+										<td width="50">&nbsp;
+
+					</td>
+										<th class="pagenav_next">
+						<a href="http://pidruchniki.ws/11781025/ekonomika/rozvyazannya_matrichnoyi_gri_seredovischi_macrosoft_excel">
+							Наступна &gt;</a>
+					</th>
+								</tr>
+			</tbody></table>
+			</td>
+</tr>
+		<tr>
+			<td colspan="2" valign="top">
+				
+
+<h2><a name="802"></a>РОЗДІЛ 13. Розв'язання матричних ігор методами лінійного програмування</h2>
+
+<h3><a name="138"></a>13.1. Розв'язання матричної гри в змішаних стратегіях</h3>
+
+<p>Гра розміром m X n в загальному випадку не має геометричної 
+інтерпретації. Її розв'язування трудомістке, але принципових труднощів 
+не має, оскільки може бути зведене до розв'язування пари двоїстих задач 
+лінійного програмування.</p>
+
+<p>Нехай задано матричну гру m X n платіжною матрицею (13.1).</p>
+
+<p><img ilo-full-src="http://pidruchniki.ws/imag/econom/don_obgrish/image295.jpg" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/image295.jpg"></p>
+
+<p><img ilo-full-src="http://pidruchniki.ws/imag/econom/don_obgrish/image296.jpg" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/image296.jpg"></p>
+
+<p>Перетворимо систему (13.2), поділивши всі члени на v , v &gt; 0 і ввівши позначення</p>
+
+<p><img ilo-full-src="http://pidruchniki.ws/imag/econom/don_obgrish/image297.jpg" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/image297.jpg"></p>
+
+<p><img ilo-full-src="http://pidruchniki.ws/imag/econom/don_obgrish/image298.jpg" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/image298.jpg"></p>
+
+<p><img ilo-full-src="http://pidruchniki.ws/imag/econom/don_obgrish/image299.jpg" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/image299.jpg"></p>
+
+<p>Перетворимо систему (13.6), поділивши всі члени на v , v &gt; 0 і ввівши позначення</p>
+
+<p><img ilo-full-src="http://pidruchniki.ws/imag/econom/don_obgrish/image300.jpg" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/image300.jpg"></p>
+
+<p><img ilo-full-src="http://pidruchniki.ws/imag/econom/don_obgrish/image301.jpg" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/image301.jpg"></p>
+
+<p>Задача (13.8), (13.9) є задачею лінійного програмування, розв'язавши яку отримаємо оптимальне рішення матричної гри.</p>
+
+<p>Проаналізував отримані задачі лінійного програмування (13.4), (13.5) і
+ (13.8), (13.9) можна зробити висновок, що вони складають пару взаємно 
+двоїстих задач лінійного програмування. Очевидно, що при знаходженні 
+оптимальних стратегій в конкретних задачах слід розв'язувати ту з 
+взаємно двоїстих задач, розв'язування якої менш трудомістке, а рішення 
+другої знайти за допомогою теорем двоїстості.</p>
+
+<p>Послідовність дій при розв'язанні матричної гри розміром m X n</p>
+
+<p>Скоротити розмірність платіжної матриці гри шляхом виключення заздалегідь невигідних стратегій</p>
+
+<p>Визначити верхню і нижню ціни гри, перевірити матрицю гри на 
+наявність сідлової точки. Якщо є сідлова точка, то відповідні стратегії 
+будуть оптимальними, ціна гри співпаде з верхньою і нижньою цінами гри.</p>
+
+<p>При відсутності сідлової точки, рішення необхідно шукати серед 
+змішаних стратегій шляхом зведення матричної гри пари до двоїстих задач.</p>
+
+<p>Розв'язання однієї з пари двоїстих задач симплексним методом.</p>
+
+<p>Виписування рішення матричної гри в змішаних стратегіях.</p>
+
+<p>Приклад 13.1. Фірма може випускати три види продукції А1, А2, А3, 
+отримуючи при цьому прибуток, який залежить від попиту, який може 
+приймати один з чотирьох станів В1, В2, В3, В4. Прибуток, який отримає 
+фірма при випуску і -го виду продукції</p>
+
+<p><img ilo-full-src="http://pidruchniki.ws/imag/econom/don_obgrish/image302.jpg" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/image302.jpg"></p>
+
+<p>Визначити оптимальні пропорції випуску продукції.</p>
+
+<p>Розв'язання. Скоротити розмірність платіжної матриці гри неможливо, тому що вона не містить заздалегідь невигідних стратегій.</p>
+
+<p>Визначимо верхню і нижню ціни гри за алгоритмом знаходження максиміну (мінімаксу)</p>
+
+<p><img ilo-full-src="http://pidruchniki.ws/imag/econom/don_obgrish/image303.jpg" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/image303.jpg"></p>
+
+<p>Тому цю гру можна розв'язати в змішаних стратегіях шляхом зведення матричної гри пари до двоїстих задач.</p>
+
+<p>Задача лінійного програмування, що відповідає визначенню оптимальної стратегії гравця А, має вигляд:</p>
+
+<p><img ilo-full-src="http://pidruchniki.ws/imag/econom/don_obgrish/image304.jpg" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/image304.jpg"></p>
+
+<p>Задача лінійного програмування, що відповідає визначенню оптимальної стратегії гравця В, має вигляд:</p>
+
+<p><img ilo-full-src="http://pidruchniki.ws/imag/econom/don_obgrish/image305.jpg" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/image305.jpg"></p>
+
+<p><img ilo-full-src="http://pidruchniki.ws/imag/econom/don_obgrish/image306.jpg" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/image306.jpg"></p>
+
+<p>З аналізу пари взаємнодвоїстих задач лінійного програмування (13.10),
+ (13.11) і (13.12), (13.13) випливає, що розв'язувати симплексним 
+методом доцільно задачу (13.12), 13.13), оскільки вона не потребує 
+введення штучних змінних.</p>
+
+<p>Симплекс-метод знаходження оптимальних значень цільової функції це 
+універсальний метод розв'язання задач лінійного програмування (ЗЛП), 
+який розроблено Дж.Данцингом. В його основі лежить алгоритм симплексних 
+перетворень системи лінійних рівнянь, що доповнений правилом, яке 
+забезпечує перехід не до будь-якого, а до "кращого" опорного плану.</p>
+
+<p>Суть симплексного методу полягає в тому, що спочатку отримують 
+допустимий розв'язок, який задовольняє всім обмеженням, але не 
+обов'язково оптимальний (початковий опорний план); оптимальність 
+досягається послідовним поліпшуванням початкового варіанту за декілька 
+ітерацій. Напрямок переходу від одного опорного плану до другого 
+вибирається за критерієм оптимальності (цільової функції).</p>
+
+<p>Симплекс-метод основується на властивостях ЗЛП:</p>
+
+<p>1. Якщо є екстремум, то він єдиний.</p>
+
+<p>2. Множина всіх планів ЗЛП опукла.</p>
+
+<p>3. Цільова функція досягає свого оптимального значення у вершині 
+багатокутника розв'язків. Якщо вона приймає своє оптимальне значення 
+більше чим в одній з вершин, то вона досягає того ж значення в кожній 
+точці, яка є лінійною комбінацією цих точок.</p>
+
+<p>4. Кожній вершині багатокутника розв'язків відповідає опорний план ЗЛП.</p>
+
+<p>Якщо потрібно максимізувати цільову функцію, то можна перейти до мінімуму max Ly = min(-Ly).</p>
+
+<p>Зведемо задачу (13.12), (13.13) до канонічного виду шляхом введення додаткових змінних - y5, y6, y7.</p>
+
+<p>Якщо нерівність в системі обмежень ЗЛП має знак " &#8804; ", то додаткову 
+змінну вводять зі знаком "+"; якщо нерівність має знак " &#8805; ", то 
+додаткову змінну вводять зі знаком "- ".</p>
+
+<p>ЗЛП (13.12), (13.13) в канонічній формі має наступний вигляд</p>
+
+<p><img ilo-full-src="http://pidruchniki.ws/imag/econom/don_obgrish/image307.jpg" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/image307.jpg"></p>
+
+<p>Змінні х1 , х2 , х3 , х4 , є основними, х5 , х6 , х7 - додатковими. 
+Вектори р5, р , р7 утворюють одиничний базис і називаються базисними, 
+причому р5 - перший базисний вектор.</p>
+
+<p>Для здобуття одиничної матриці, яка складена з векторів при базисних 
+змінних, слід вводити штучні змінні в систему обмежень таким чином:</p>
+
+<p>якщо додаткова змінна має знак мінус, то в це рівняння вводять штучну змінну із знаком плюс;</p>
+
+<p>якщо додаткова змінна має знак плюс, то в це рівняння штучну змінну вводити не потрібно.</p>
+
+<p>Штучні змінні одночасно вводять в цільову функцію з невідомим додатнім коефіцієнтом М.</p>
+
+<p>В нашому випадку штучні змінні вводити не слід.</p>
+
+<p>Заповнимо першу симплекс-таблицю. Початкова симплекс-таблиця 
+заповнюється таким чином. У першому рядку записують коефіцієнти цільової
+ функції. У стовпець "Базис" записують базисні вектори. У стовпці "С" 
+записують коефіцієнти цільової функції при базисних векторах. У стовпцях
+ "р0", "р1", "р2", "р3", "р4", "р5", "р6", "р7" записують компоненти 
+відповідних векторів.</p>
+
+<p>Для заповнення клітин таблиці, які знаходяться в двох останніх рядках
+ потрібно елементи стовпця "С" помножити на відповідні елементи стовпця,
+ що розраховується, і відняти число, що стоїть в першому рядку (за 
+винятком стовпця "р0"). Наприклад, для заповнення клітин стовпця "р2" 
+помножимо елементи стовпця "С" на відповідні елементи стовпця "р2" і 
+віднімемо число - 1: 0*3 + 0*4 + 0*5 - (- 1) = 1.</p>
+
+<p>Таблиця 13.1. Перша симплексна таблиця</p>
+
+<p><img ilo-full-src="http://pidruchniki.ws/imag/econom/don_obgrish/image308.jpg" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/image308.jpg" alt="Перша симплексна таблиця"></p>
+
+<p>Останній рядок симплекс-таблиці називається індексним. В ньому, 
+починаючи зі стовпця "р1", містяться оцінки оптимальності, за допомогою 
+яких перевіряють оптимальність опорного плану, що відповідає даній 
+таблиці. Значення складових опорного плану розташовані в стовпці "р0", 
+причому небазисним змінним присвоюють нульові значення.</p>
+
+<p><img ilo-full-src="http://pidruchniki.ws/imag/econom/don_obgrish/image309.jpg" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/image309.jpg"></p>
+
+<p>Оптимальність опорного плану перевіряють за індексним рядком за 
+допомогою критерію оптимальності. Критерій оптимальності опорного плану:</p>
+
+<p>Якщо в індексному рядку серед оцінок оптимальності є хоч би одна, додатна, то опорний план не є оптимальним.</p>
+
+<p>Якщо в індексному рядку всі оцінки оптимальності для небазисних 
+змінних є від'ємними числами, то опорний план є оптимальним і єдиним.</p>
+
+<p>Якщо в індексному рядку небазисним змінним відповідають нульові 
+оцінки, а серед оцінок оптимальності немає додатних, то опорний план є 
+оптимальним, але не єдиним.</p>
+
+<p>У нашому випадку опорний план, що відповідає першій симплекс-таблиці, є не оптимальним.</p>
+
+<p>Для переходу до наступної симплекс-таблиці в індексному рядку вибирають найбільшу додатну оцінку, починаючи із стовпця</p>
+
+<p>У нашому випадку є чотири найбільших додатних оцінок, які 
+співпадають, тому серед них виберемо будь-яку, наприклад це число 1 в 
+стовпці "р3".</p>
+
+<p>Стовпець, який відповідає найбільшій додатній оцінці, називається розв'язувальним. Він показує який вектор слід ввести в базис.</p>
+
+<p>В нашому випадку вектор "р3" слід ввести в базис.</p>
+
+<p>Найдемо симплексне відношення оптимальності вQo: елементи стовпця 
+"р0" поділимо на додатні елементи розв'язувального стовпця. Рядок, який 
+відповідає найменшому відношенню оптимальності вQo, називається 
+розв'язувальним. Він показує який вектор слід вивести з базису.</p>
+
+<p><img ilo-full-src="http://pidruchniki.ws/imag/econom/don_obgrish/image310.jpg" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/image310.jpg"></p>
+
+<p>Генеральний елемент - це елемент, який розташований на перетині 
+розв'язувального стовпця і розв'язувального рядка. У нашому випадку це 
+число 6.</p>
+
+<p>Правила переходу до наступної симплекс-таблиці: Всі елементи розв'язувального рядка поділити на генеральний елемент.</p>
+
+<p>Розв'язувальний стовпець доповнити нулями. Якщо у розв'язувальному рядку є нулі, то відповідні стовпці переписати без змін.</p>
+
+<p>Всі інші елементи розрахувати за допомогою методу прямокутників: якщо
+ г - генеральний елемент, с - старий елемент, то n - новий елемент 
+знаходять за формулою:</p>
+
+<p><img ilo-full-src="http://pidruchniki.ws/imag/econom/don_obgrish/image311.jpg" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/image311.jpg"></p>
+
+<p>Таким чином, друга симплекс-таблиця має вид:</p>
+
+<p>Таблиця 13.2. Друга симплексна таблиця</p>
+
+<p><img ilo-full-src="http://pidruchniki.ws/imag/econom/don_obgrish/image312.jpg" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/image312.jpg" alt="Друга симплексна таблиця"></p>
+
+<p><img ilo-full-src="http://pidruchniki.ws/imag/econom/don_obgrish/image313.jpg" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/image313.jpg"></p>
+
+<p>Він не є оптимальним, оскільки в індексному рядку є додатні оцінки.</p>
+
+<p>За правилам, що описані вище, перейдемо до третьої симплексної таблиці:</p>
+
+<p>Таблиця 13.3. Третя симплексна таблиця</p>
+
+<p><img ilo-full-src="http://pidruchniki.ws/imag/econom/don_obgrish/image314.jpg" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/image314.jpg" alt="Третя симплексна таблиця"></p>
+
+<p><img ilo-full-src="http://pidruchniki.ws/imag/econom/don_obgrish/image315.jpg" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/image315.jpg"></p>
+
+<p>Він є не оптимальним, оскільки в індексному рядку є додатні оцінки.</p>
+
+<p>Перейдемо до четвертої симплексної таблиці:</p>
+
+<p>Таблиця 13.4. Четверта симплексна таблиця</p>
+
+<p><img ilo-full-src="http://pidruchniki.ws/imag/econom/don_obgrish/image316.jpg" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/image316.jpg" alt="Четверта симплексна таблиця"></p>
+
+<p>Симплекс-таблиці 13.4 відповідає опорний план:</p>
+
+<p><img ilo-full-src="http://pidruchniki.ws/imag/econom/don_obgrish/image317.jpg" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/image317.jpg"></p>
+
+<p>Він є оптимальним і єдиним, оскільки в індексному рядку немає додатних оцінок при небазисних векторах.</p>
+
+<p><img ilo-full-src="http://pidruchniki.ws/imag/econom/don_obgrish/image318.jpg" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/image318.jpg"></p>
+
+<p>Таким чином, фірмі (гравцю А) слід випускати 50% продукції А, 50% 
+продукції А3, продукцію А1 не випускати. Це дозволить фірмі отримати 
+гарантовану середню величину прибутку, яка</p>
+
+<p><img ilo-full-src="http://pidruchniki.ws/imag/econom/don_obgrish/image319.jpg" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/image319.jpg"></p>
+
+<p>Щодо станів попиту можна зробити висновок, що оптимальний попит в 75% знаходиться в стані В1 і в 25% - в стані В4.</p>
+
+			</td>
+		</tr>
+				</tbody></table>
+       <span class="article_seperator">&nbsp;</span>     
+		<center><img ilo-full-src="http://pidruchniki.ws/images/warn.gif" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/warn.gif">Якщо Ви помітили помилку в тексті позначте слово та натисніть Shift + Enter <img ilo-full-src="http://pidruchniki.ws/images/warn.gif" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/warn.gif"></center>			<table style="margin-top: 5px;" align="center">
+			<tbody><tr>
+	                               <th class="pagenav_prev">
+                        <a href="http://pidruchniki.ws/10040628/ekonomika/grafichne_rozvyazannya_matrichnih_igor_rozmiru_2xn_mx2">
+                            &lt; Попередня</a>
+                    </th>
+                                        <td width="50">&nbsp;
+                    </td>
+                    					<th class="pagenav_cont">
+						<a href="http://pidruchniki.ws/11750204/ekonomika/obgruntuvannya_gospodarskih_rishen_ta_otsinyuvannya_rizikiv_-_donets_li">
+							ЗМІСТ</a>
+					</th>
+										<td width="50">&nbsp;
+
+					</td>
+										<th class="pagenav_next">
+						<a href="http://pidruchniki.ws/11781025/ekonomika/rozvyazannya_matrichnoyi_gri_seredovischi_macrosoft_excel">
+							Наступна &gt;</a>
+					</th>
+								</tr>
+			</tbody></table>
+			                                           </div>
+<noindex>
+<table style="display: block; border: 0pt none; margin: 0pt; padding: 0pt;">
+<tbody><tr><td valign="top">
+<!-- Ukrainian Banner Network 468x60 START -->
+<center><script>
+//<!--
+ubn_user = "97327";
+ubn_page = "1";
+ubn_pid = Math.round((Math.random() * (10000000 - 1)));
+document.write("<iframe src='http://banner.kiev.ua/cgi-bin/bi.cgi?h" +
+ubn_user + "&amp;"+ ubn_pid + "&amp;" + ubn_page +
+"' frameborder=0 vspace=0 hspace=0 " +
+" width=468 height=60 marginwidth=0 marginheight=0 scrolling=no>");
+document.write("<a href='http://banner.kiev.ua/cgi-bin/bg.cgi?" +
+ubn_user + "&amp;"+ ubn_pid + "&amp;" + ubn_page + "' target=_top>");
+document.write("<img border=0 src='http://banner.kiev.ua/" +
+"cgi-bin/bi.cgi?i" + ubn_user + "&amp;" + ubn_pid + "&amp;" + ubn_page +
+"' width=468 height=60 alt='Украинская Баннерная Сеть'></a>");
+document.write("</iframe>");
+//-->
+</script><iframe src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/bi_005.html" vspace="0" hspace="0" marginwidth="0" marginheight="0" scrolling="no" width="468" frameborder="0" height="60">&lt;a
+ 
+href='http://banner.kiev.ua/cgi-bin/bg.cgi?97327&amp;amp;5896636&amp;amp;1'
+ target=_top&gt;&lt;img border=0 
+src='http://banner.kiev.ua/cgi-bin/bi.cgi?i97327&amp;amp;5896636&amp;amp;1'
+ width=468 height=60 alt='Украинская Баннерная Сеть'&gt;&lt;/a&gt;</iframe><br>
+<small><a href="https://www.bannerka.ua/" target="_top">Медийная реклама</a></small>
+</center>
+<!-- Ukrainian Banner Network 468x60 END -->
+</td>
+<td valign="top">
+<!-- Ukrainian Banner Network 160х60 START -->
+<center><script>
+//<!--
+ubn_user = "97327";
+ubn_page = "1";
+ubn_pid = Math.round((Math.random() * (10000000 - 1)));
+document.write("<iframe src='http://banner.kiev.ua/cgi-bin/bi.cgi?h" +
+ubn_user + "&amp;"+ ubn_pid + "&amp;" + ubn_page +
+"&amp;5' frameborder=0 vspace=0 hspace=0 " +
+" width=160 height=60 marginwidth=0 marginheight=0 scrolling=no>");
+document.write("<a href='http://banner.kiev.ua/cgi-bin/bg.cgi?" +
+ubn_user + "&amp;"+ ubn_pid + "&amp;" + ubn_page + "' target=_top>");
+document.write("<img border=0 src='http://banner.kiev.ua/" +
+"cgi-bin/bi.cgi?i" + ubn_user + "&amp;" + ubn_pid + "&amp;" + ubn_page +
+"&amp;5' width=160 height=60 alt='Ukrainian Banner Network'></a>");
+document.write("</iframe>");
+//-->
+</script><iframe src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/bi_006.html" vspace="0" hspace="0" marginwidth="0" marginheight="0" scrolling="no" width="160" frameborder="0" height="60">&lt;a
+ 
+href='http://banner.kiev.ua/cgi-bin/bg.cgi?97327&amp;amp;5088672&amp;amp;1'
+ target=_top&gt;&lt;img border=0 
+src='http://banner.kiev.ua/cgi-bin/bi.cgi?i97327&amp;amp;5088672&amp;amp;1&amp;amp;5'
+ width=160 height=60 alt='Ukrainian Banner Network'&gt;&lt;/a&gt;</iframe><br>
+<small><a href="https://www.bannerka.ua/" target="_top">Баннерная реклама</a></small>
+</center>
+<!-- Ukrainian Banner Network 160х60 END --></td></tr>
+</tbody></table>
+</noindex>
+
+<noindex>
+<!-- MComposite Start -->
+<div id="MarketGidComposite13458"><a href="http://usr.marketgid.com/demo/goods/?utm_source=popunder&amp;utm_medium=text&amp;utm_campaign=add" class="mg_addad13458" target="_blank">Добавить свое объявление</a><style type="text/css">.mg_addad13458{display:block; padding:1px 0 1px 25px; font:700 11px Tahoma, Arial, sans-serif;background:url(http://img.dt00.net/images/search/2/icon-2.png) 5px 0 no-repeat;color:#009966;}</style><table class="MGC0134586316"> <tbody><tr> <td class="mcteaser6316" style="width: 33.33%; height: 100%;" valign="top"> <table style="width: 100%; height: 100%;" cellpadding="0" cellspacing="1"> <tbody><tr><td style="width: 33.33%;" class="mccc6316" valign="top"><div class="mcimage6316"><a target="_blank" href="http://marketgid.com/ghits/1193465/i/6316/pp/1/10/k/#k13458"><img ilo-full-src="http://imgg.dt01.net/1193/1193465_vb.jpg" class="mcimage6316" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/1193465_vb.jpg" width="200" height="200"></a></div></td></tr><tr><td style="height: 100%;" class="mcbc6316" colspan="1" valign="top"><div class="mctitle6316"><a target="_blank" href="http://marketgid.com/ghits/1193465/i/6316/pp/1/10/k/#k13458" class="mctitle6316">Отличное устройство для защиты себя, детей, близких </a></div><div class="mcdesc6316"><a target="_blank" href="http://marketgid.com/ghits/1193465/i/6316/pp/1/10/k/#k13458" class="mcdesc6316">Отпугиватель СОБАК </a></div></td></tr></tbody></table></td> <td class="mcteaser6316" style="width: 33.33%; height: 100%;" valign="top"> <table style="width: 100%; height: 100%;" cellpadding="0" cellspacing="1"> <tbody><tr><td style="width: 33.33%;" class="mccc6316" valign="top"><div class="mcimage6316"><a target="_blank" href="http://marketgid.com/ghits/1098693/i/6316/pp/2/10/k/#k13458"><img ilo-full-src="http://imgg.dt01.net/1098/1098693_vb.jpg" class="mcimage6316" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/1098693_vb.jpg" width="200" height="200"></a></div></td></tr><tr><td style="height: 100%;" class="mcbc6316" colspan="1" valign="top"><div class="mctitle6316"><a target="_blank" href="http://marketgid.com/ghits/1098693/i/6316/pp/2/10/k/#k13458" class="mctitle6316">Игра "Gran Turismo 5" </a></div><div class="mcdesc6316"><a target="_blank" href="http://marketgid.com/ghits/1098693/i/6316/pp/2/10/k/#k13458" class="mcdesc6316"><cite> Уникальные возможности гонок нового поколения! ...</cite></a></div></td></tr></tbody></table></td> <td class="mcteaser6316" style="width: 33.33%; height: 100%;" valign="top"> <table style="width: 100%; height: 100%;" cellpadding="0" cellspacing="1"> <tbody><tr><td style="width: 33.33%;" class="mccc6316" valign="top"><div class="mcimage6316"><a target="_blank" href="http://marketgid.com/ghits/1242941/i/6316/pp/3/10/k/#k13458"><img ilo-full-src="http://imgg.dt01.net/1242/1242941_vb.jpg" class="mcimage6316" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/1242941_vb.jpg" width="200" height="200"></a></div></td></tr><tr><td style="height: 100%;" class="mcbc6316" colspan="1" valign="top"><div class="mctitle6316"><a target="_blank" href="http://marketgid.com/ghits/1242941/i/6316/pp/3/10/k/#k13458" class="mctitle6316">Компактное и незаметное средство для самозащиты </a></div><div class="mcdesc6316"><a target="_blank" href="http://marketgid.com/ghits/1242941/i/6316/pp/3/10/k/#k13458" class="mcdesc6316">Новинки 2011-го года. Хит продаж - ШОКЕР! </a></div></td></tr></tbody></table></td>  </tr> </tbody></table></div>
+<!-- MComposite End -->
+<style type="text/css">#MarketGidComposite13458 .MGC01345811477, #MarketGidComposite13458 .MGC01345811477 * {margin:0; padding:0; border:0; font-style:normal; font-size:100.01%; line-height:1; text-decoration:none; color:#000; line-height:1.1em;} #MarketGidComposite13458 .MGC01345811477 cite{color:red;} #MarketGidComposite13458 .MGC01345811477{border-spacing:2px; margin:auto !important; font:11px Tahoma, Verdana, Arial;} #MarketGidComposite13458 .MGC01345811477{ font-family: Tahoma,Geneva,sans-serif; width: 100px; border-width: 0px; border-style: solid; border-color: #e6e6fa; } #MarketGidComposite13458 .MGC01345811477 *{ letter-spacing: 0em; } #MarketGidComposite13458 .mctitle11477{ font-weight: bold; font-size: 9px; color: #ffffff; } #MarketGidComposite13458 div.mctitle11477{ text-align: center; } #MarketGidComposite13458 .mctitle11477 *, #MarketGidComposite13458 .mctitle11477 cite{ color: #ffffff; } #MarketGidComposite13458 div.mcimage11477{ text-align: center; } #MarketGidComposite13458 .mcimage11477{ padding: 0px; } #MarketGidComposite13458 img.mcimage11477{ border-width: 0px; border-style: solid; } #MarketGidComposite13458 .mcdesc11477{ font-weight: bold; font-size: 11px; color: #0000ff; } #MarketGidComposite13458 div.mcdesc11477{ text-align: center; } #MarketGidComposite13458 .mcdesc11477 *, #MarketGidComposite13458 .mcdesc11477 cite{ color: #0000ff; } #MarketGidComposite13458 div.mcsource11477{ text-align: center; } #MarketGidComposite13458 .mcsource11477{ text-decoration: underline; color: #4169e1; font-size: 12px; font-weight: bold; } #MarketGidComposite13458 .mcsource11477 *, #MarketGidComposite13458 .mcsource11477 cite{ color: #4169e1; } #MarketGidComposite13458 .mccc11477{ padding: 4px; border-width: 0px; border-style: solid; } #MarketGidComposite13458 .mctc11477{ padding: 0px; } #MarketGidComposite13458 .mcbc11477{ padding: 0px; } </style><style type="text/css">#MarketGidComposite13458 .MGC0134586316, #MarketGidComposite13458 .MGC0134586316 * {margin:0; padding:0; border:0; font-style:normal; font-size:100.01%; line-height:1; text-decoration:none; color:#000; line-height:1.1em;} #MarketGidComposite13458 .MGC0134586316 cite{color:red;} #MarketGidComposite13458 .MGC0134586316{border-spacing:2px; margin:auto !important; font:11px Tahoma, Verdana, Arial;} #MarketGidComposite13458 .MGC0134586316{ font-family: Tahoma,Geneva,sans-serif; width: 100px; border-width: 0px; border-style: solid; border-color: #e6e6fa; } #MarketGidComposite13458 .MGC0134586316 *{ letter-spacing: 0em; } #MarketGidComposite13458 .mctitle6316{ font-weight: bold; font-size: 9px; color: #ffffff; } #MarketGidComposite13458 div.mctitle6316{ text-align: center; } #MarketGidComposite13458 .mctitle6316 *, #MarketGidComposite13458 .mctitle6316 cite{ color: #ffffff; } #MarketGidComposite13458 div.mcimage6316{ text-align: center; } #MarketGidComposite13458 .mcimage6316{ padding: 0px; } #MarketGidComposite13458 img.mcimage6316{ border-width: 0px; border-style: solid; } #MarketGidComposite13458 .mcdesc6316{ font-weight: bold; font-size: 11px; color: #0000ff; } #MarketGidComposite13458 div.mcdesc6316{ text-align: center; } #MarketGidComposite13458 .mcdesc6316 *, #MarketGidComposite13458 .mcdesc6316 cite{ color: #0000ff; } #MarketGidComposite13458 .mcprice6316{ font-weight: bold; color: #f00; } #MarketGidComposite13458 .mcprice6316 *, #MarketGidComposite13458 .mcprice6316 cite{ color: #f00; } #MarketGidComposite13458 div.mcprice6316{ text-align: center; } #MarketGidComposite13458 div.mcsource6316{ text-align: center; } #MarketGidComposite13458 .mcsource6316{ text-decoration: underline; color: #4169e1; font-size: 12px; font-weight: bold; } #MarketGidComposite13458 .mcsource6316 *, #MarketGidComposite13458 .mcsource6316 cite{ color: #4169e1; } #MarketGidComposite13458 .mccc6316{ padding: 4px; border-width: 0px; border-style: solid; } #MarketGidComposite13458 .mctc6316{ padding: 0px; } #MarketGidComposite13458 .mcbc6316{ padding: 0px; } </style><script src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/10.js" charset="windows-1251" type="text/javascript"></script></noindex>
+<br>
+<br>
+
+
+
+</td>
+                                         </tr>
+
+					<!-- ############################################## -->
+					<!-- ############################################## -->
+
+				</tbody></table>
+				</td>
+
+
+
+<td rowspan="2" valign="top"> 
+<noindex> 
+<!-- MComposite Start -->
+<div id="MarketGidComposite13443"><a href="http://usr.marketgid.com/demo/goods/?utm_source=popunder&amp;utm_medium=text&amp;utm_campaign=add" class="mg_addad13443" target="_blank">Добавить свое объявление</a><style type="text/css">.mg_addad13443{display:block; padding:1px 0 1px 25px; font:700 11px Tahoma, Arial, sans-serif;background:url(http://img.dt00.net/images/search/2/icon-2.png) 5px 0 no-repeat;color:#009966;}</style><table class="MGC0134433256"> <tbody><tr> <td style="height: 100%; width: 100%;" class="mcteaser3256 mccc3256" valign="top"><div class="mctitle3256"><a target="_blank" href="http://marketgid.com/ghits/1221474/i/3256/pp/1/2/k/#k13443" class="mctitle3256">Как вылечить артрит? </a></div><div class="mcimage3256"><a target="_blank" href="http://marketgid.com/ghits/1221474/i/3256/pp/1/2/k/#k13443"><img ilo-full-src="http://imgg.dt01.net/1221/1221474_vb.jpg" class="mcimage3256" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/1221474_vb.jpg" width="200" height="200"></a></div></td></tr><tr> <td style="height: 100%; width: 100%;" class="mcteaser3256 mccc3256" valign="top"><div class="mctitle3256"><a target="_blank" href="http://marketgid.com/ghits/1324507/i/3256/pp/2/2/k/#k13443" class="mctitle3256">Вы будете ошарашены, когда узнаете какие продукты образуют ...</a></div><div class="mcimage3256"><a target="_blank" href="http://marketgid.com/ghits/1324507/i/3256/pp/2/2/k/#k13443"><img ilo-full-src="http://imgg.dt01.net/1324/1324507_vb.jpg" class="mcimage3256" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/1324507_vb.jpg" width="200" height="200"></a></div></td></tr><tr> <td style="height: 100%; width: 100%;" class="mcteaser3256 mccc3256" valign="top"><div class="mctitle3256"><a target="_blank" href="http://marketgid.com/ghits/1319790/i/3256/pp/3/2/k/#k13443" class="mctitle3256">БЕЛОЗУБАЯ улыбка через 21 минутку! </a></div><div class="mcimage3256"><a target="_blank" href="http://marketgid.com/ghits/1319790/i/3256/pp/3/2/k/#k13443"><img ilo-full-src="http://imgg.dt01.net/1319/1319790_vb.jpg" class="mcimage3256" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/1319790_vb.jpg" width="200" height="200"></a></div></td></tr><tr> <td style="height: 100%; width: 100%;" class="mcteaser3256 mccc3256" valign="top"><div class="mctitle3256"><a target="_blank" href="http://marketgid.com/ghits/1247361/i/3256/pp/4/2/k/#k13443" class="mctitle3256">"Кипарис" - лечит спину </a></div><div class="mcimage3256"><a target="_blank" href="http://marketgid.com/ghits/1247361/i/3256/pp/4/2/k/#k13443"><img ilo-full-src="http://imgg.dt01.net/1247/1247361_vb.jpg" class="mcimage3256" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/1247361_vb.jpg" width="200" height="200"></a></div></td>  </tr> </tbody></table><table class="MGC0134433256"> <tbody><tr> <td style="height: 100%; width: 100%;" class="mcteaser3256 mccc3256" valign="top"><div class="mctitle3256"><a target="_blank" href="http://marketgid.com/ghits/1288605/i/3256/pp/1/3/k/#k13443" class="mctitle3256">Фееричные серьги по суперцене! Доставка по Украине! </a></div><div class="mcimage3256"><a target="_blank" href="http://marketgid.com/ghits/1288605/i/3256/pp/1/3/k/#k13443"><img ilo-full-src="http://imgg.dt01.net/1288/1288605_vb.jpg" class="mcimage3256" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/1288605_vb.jpg" width="200" height="200"></a></div></td></tr><tr> <td style="height: 100%; width: 100%;" class="mcteaser3256 mccc3256" valign="top"><div class="mctitle3256"><a target="_blank" href="http://marketgid.com/ghits/1272809/i/3256/pp/2/3/k/#k13443" class="mctitle3256">3 кольца в одном! Хиты сезона! Доставка по Украине! </a></div><div class="mcimage3256"><a target="_blank" href="http://marketgid.com/ghits/1272809/i/3256/pp/2/3/k/#k13443"><img ilo-full-src="http://imgg.dt01.net/1272/1272809_vb.jpg" class="mcimage3256" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/1272809_vb.jpg" width="200" height="200"></a></div></td></tr><tr> <td style="height: 100%; width: 100%;" class="mcteaser3256 mccc3256" valign="top"><div class="mctitle3256"><a target="_blank" href="http://marketgid.com/ghits/1262033/i/3256/pp/3/3/k/#k13443" class="mctitle3256">Болезнь пройдет через 14 дней! Бесплатная консультация! </a></div><div class="mcimage3256"><a mg_t="3" style="display: block;" target="_blank" href="http://marketgid.com/ghits/1262033/i/3256/pp/3/3/k/?k=13443faSMTMyODY0OTk1MzY0ODEzNDQzNzE1fbSMTFkfcSMTM1NTliNTYxNzA%3DfdSMTM1NWMwNjkwNDg%3DfeSfgSNDg4fhSYzU%3DfiSNDY3fjSTVRNeU9EQTNOemN4T0RnNU56RXpORFF6TnpFeA%3D%3DfkSNTU%3DflSfmSYzg%3DfnSYzg%3DfoSfpSYzU%3DfqSMjA%3DfrSfsSaHR0cDovL3BpZHJ1Y2huaWtpLndzLzE3NTkwNDEyL2Vrb25vbWlrY%249yb3p2eWF6YW5ueWF*bWF0cmljaG5paF9pZ29yX21ldG9kYW1pX2xpbml5bm9nb19wcm9ncmFtdXZhbm55YQ%3D%3DftSaHR0cDovL3d3dy5nb29nbGUuY29tL3VybD9zYT10JnJjdD1qJnE9JmVzcmM9cyZzb3VyY2U9d2ViJmNkPTUmdmVkPTBDRVFRRmpBR%24Z1cmw9aHR0cCUzQ%24UyRiUyRnBpZHJ1Y2huaWtpLndzJTJGMTc1OTA0MTIlMkZla29ub21pa2ElMkZyb3p2eWF6YW5ueWF*bWF0cmljaG5paF9pZ29yX21ldG9kYW1pX2xpbml5bm9nb19wcm9ncmFtdXZhbm55Y%24ZlaT1oZHNvVDVYMUxaQ0hoUWVkaEx5LUJRJnVzZz1BRlFqQ05GcDVHWTFaZWdDOURDVXlW%24VdhUThvM0d2RG93JnNpZzI9bnFvOTFy%24kNMYTFQeUFLMlJiemlmUQ%3D%3DfuSd3d3Lmdvb2dsZ%245jb20%3DfvSYQ%3D%3DfwSNDg4fxSNzNjfySNDY3fzSNmNj"><img ilo-full-src="http://imgg.dt01.net/1262/1262033_vb.jpg" class="mcimage3256" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/1262033_vb.jpg" width="200" height="200"></a></div></td></tr><tr> <td style="height: 100%; width: 100%;" class="mcteaser3256 mccc3256" valign="top"><div class="mctitle3256"><a target="_blank" href="http://marketgid.com/ghits/1283153/i/3256/pp/4/3/k/#k13443" class="mctitle3256">Элегантные кольца для Вас! Быстрая доставка по Украине! </a></div><div class="mcimage3256"><a target="_blank" href="http://marketgid.com/ghits/1283153/i/3256/pp/4/3/k/#k13443"><img ilo-full-src="http://imgg.dt01.net/1283/1283153_vb.jpg" class="mcimage3256" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/1283153_vb.jpg" width="200" height="200"></a></div></td>  </tr> </tbody></table><table class="MGC0134433256"> <tbody><tr> <td style="height: 100%; width: 100%;" class="mcteaser3256 mccc3256" valign="top"><div class="mctitle3256"><a target="_blank" href="http://marketgid.com/ghits/1309207/i/3256/pp/1/4/k/#k13443" class="mctitle3256">Выращивание клубники в полиэтиленовых мешках дома! </a></div><div class="mcimage3256"><a target="_blank" href="http://marketgid.com/ghits/1309207/i/3256/pp/1/4/k/#k13443"><img ilo-full-src="http://imgg.dt01.net/1309/1309207_vb.jpg" class="mcimage3256" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/1309207_vb.jpg" width="200" height="200"></a></div></td></tr><tr> <td style="height: 100%; width: 100%;" class="mcteaser3256 mccc3256" valign="top"><div class="mctitle3256"><a target="_blank" href="http://marketgid.com/ghits/518366/i/3256/pp/2/4/k/#k13443" class="mctitle3256">25 кадр ЗАВОРАЖИВАЕТ! Нажмите и смотрите </a></div><div class="mcimage3256"><a target="_blank" href="http://marketgid.com/ghits/518366/i/3256/pp/2/4/k/#k13443"><img ilo-full-src="http://imgg.dt01.net/518/518366_vb.jpg" class="mcimage3256" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/518366_vb.jpg" width="200" height="200"></a></div></td></tr><tr> <td style="height: 100%; width: 100%;" class="mcteaser3256 mccc3256" valign="top"><div class="mctitle3256"><a target="_blank" href="http://marketgid.com/ghits/1287654/i/3256/pp/3/4/k/#k13443" class="mctitle3256">Верните Вашей машине идеальный вид </a></div><div class="mcimage3256"><a target="_blank" href="http://marketgid.com/ghits/1287654/i/3256/pp/3/4/k/#k13443"><img ilo-full-src="http://imgg.dt01.net/1287/1287654_vb.jpg" class="mcimage3256" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/1287654_vb.jpg" width="200" height="200"></a></div></td></tr><tr> <td style="height: 100%; width: 100%;" class="mcteaser3256 mccc3256" valign="top"><div class="mctitle3256"><a target="_blank" href="http://marketgid.com/ghits/1260909/i/3256/pp/4/4/k/#k13443" class="mctitle3256">Автовладельцы скупают молниеносно это новое средство </a></div><div class="mcimage3256"><a target="_blank" href="http://marketgid.com/ghits/1260909/i/3256/pp/4/4/k/#k13443"><img ilo-full-src="http://imgg.dt01.net/1260/1260909_vb.jpg" class="mcimage3256" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/1260909_vb.jpg" width="200" height="200"></a></div></td>  </tr> </tbody></table><table class="MGC0134433256"> <tbody><tr> <td style="height: 100%; width: 100%;" class="mcteaser3256 mccc3256" valign="top"><div class="mctitle3256"><a target="_blank" href="http://marketgid.com/ghits/1235520/i/3256/pp/1/5/k/#k13443" class="mctitle3256">Встречайте, такого еще не было! </a></div><div class="mcimage3256"><a target="_blank" href="http://marketgid.com/ghits/1235520/i/3256/pp/1/5/k/#k13443"><img ilo-full-src="http://imgg.dt01.net/1235/1235520_vb.jpg" class="mcimage3256" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/1235520_vb.jpg" width="200" height="200"></a></div></td></tr><tr> <td style="height: 100%; width: 100%;" class="mcteaser3256 mccc3256" valign="top"><div class="mctitle3256"><a target="_blank" href="http://marketgid.com/ghits/1326741/i/3256/pp/2/5/k/#k13443" class="mctitle3256">Секретные техники ОМОЛОЖЕНИЯ! </a></div><div class="mcimage3256"><a target="_blank" href="http://marketgid.com/ghits/1326741/i/3256/pp/2/5/k/#k13443"><img ilo-full-src="http://imgg.dt01.net/1326/1326741_vb.jpg" class="mcimage3256" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/1326741_vb.jpg" width="200" height="200"></a></div></td></tr><tr> <td style="height: 100%; width: 100%;" class="mcteaser3256 mccc3256" valign="top"><div class="mctitle3256"><a target="_blank" href="http://marketgid.com/ghits/954406/i/3256/pp/3/5/k/#k13443" class="mctitle3256">Игра "The Simpsons Game. Classics". Кто не знает Симпсонов? </a></div><div class="mcimage3256"><a target="_blank" href="http://marketgid.com/ghits/954406/i/3256/pp/3/5/k/#k13443"><img ilo-full-src="http://imgg.dt01.net/954/954406_vb.jpg" class="mcimage3256" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/954406_vb.jpg" width="200" height="200"></a></div></td></tr><tr> <td style="height: 100%; width: 100%;" class="mcteaser3256 mccc3256" valign="top"><div class="mctitle3256"><a target="_blank" href="http://marketgid.com/ghits/517908/i/3256/pp/4/5/k/#k13443" class="mctitle3256">ЖМИТЕ на картинку! 25 кадр СДЕЛАЕТ невозможное </a></div><div class="mcimage3256"><a target="_blank" href="http://marketgid.com/ghits/517908/i/3256/pp/4/5/k/#k13443"><img ilo-full-src="http://imgg.dt01.net/517/517908_vb.jpg" class="mcimage3256" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/517908_vb.jpg" width="200" height="200"></a></div></td>  </tr> </tbody></table><table class="MGC0134433256"> <tbody><tr> <td style="height: 100%; width: 100%;" class="mcteaser3256 mccc3256" valign="top"><div class="mctitle3256"><a target="_blank" href="http://marketgid.com/ghits/1202168/i/3256/pp/1/6/k/#k13443" class="mctitle3256">Бинокль ночного видения Wild Planet </a></div><div class="mcimage3256"><a target="_blank" href="http://marketgid.com/ghits/1202168/i/3256/pp/1/6/k/#k13443"><img ilo-full-src="http://imgg.dt01.net/1202/1202168_vb.jpg" class="mcimage3256" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/1202168_vb.jpg" width="200" height="200"></a></div></td></tr><tr> <td style="height: 100%; width: 100%;" class="mcteaser3256 mccc3256" valign="top"><div class="mctitle3256"><a target="_blank" href="http://marketgid.com/ghits/1327216/i/3256/pp/2/6/k/#k13443" class="mctitle3256">IQ тест - самый точный тест! </a></div><div class="mcimage3256"><a target="_blank" href="http://marketgid.com/ghits/1327216/i/3256/pp/2/6/k/#k13443"><img ilo-full-src="http://imgg.dt01.net/1327/1327216_vb.jpg" class="mcimage3256" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/1327216_vb.jpg" width="200" height="200"></a></div></td></tr><tr> <td style="height: 100%; width: 100%;" class="mcteaser3256 mccc3256" valign="top"><div class="mctitle3256"><a target="_blank" href="http://marketgid.com/ghits/954377/i/3256/pp/3/6/k/#k13443" class="mctitle3256">Игра "Burnout Paradise". Добро пожаловать в Парадайз-Сити! </a></div><div class="mcimage3256"><a target="_blank" href="http://marketgid.com/ghits/954377/i/3256/pp/3/6/k/#k13443"><img ilo-full-src="http://imgg.dt01.net/954/954377_vb.jpg" class="mcimage3256" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/954377_vb.jpg" width="200" height="200"></a></div></td></tr><tr> <td style="height: 100%; width: 100%;" class="mcteaser3256 mccc3256" valign="top"><div class="mctitle3256"><a target="_blank" href="http://marketgid.com/ghits/1306052/i/3256/pp/4/6/k/#k13443" class="mctitle3256">Стопроцентная копия по новой цене есть у нас </a></div><div class="mcimage3256"><a target="_blank" href="http://marketgid.com/ghits/1306052/i/3256/pp/4/6/k/#k13443"><img ilo-full-src="http://imgg.dt01.net/1306/1306052_vb.jpg" class="mcimage3256" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/1306052_vb.jpg" width="200" height="200"></a></div></td>  </tr> </tbody></table><table class="MGC0134433256"> <tbody><tr> <td style="height: 100%; width: 100%;" class="mcteaser3256 mccc3256" valign="top"><div class="mctitle3256"><a target="_blank" href="http://marketgid.com/ghits/1204798/i/3256/pp/1/7/k/#k13443" class="mctitle3256">Разработан для "СПЕЦСЛУЖБ" </a></div><div class="mcimage3256"><a target="_blank" href="http://marketgid.com/ghits/1204798/i/3256/pp/1/7/k/#k13443"><img ilo-full-src="http://imgg.dt01.net/1204/1204798_vb.jpg" class="mcimage3256" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/1204798_vb.jpg" width="200" height="200"></a></div></td></tr><tr> <td style="height: 100%; width: 100%;" class="mcteaser3256 mccc3256" valign="top"><div class="mctitle3256"><a target="_blank" href="http://marketgid.com/ghits/1098693/i/3256/pp/2/7/k/#k13443" class="mctitle3256">Игра "Gran Turismo 5" </a></div><div class="mcimage3256"><a target="_blank" href="http://marketgid.com/ghits/1098693/i/3256/pp/2/7/k/#k13443"><img ilo-full-src="http://imgg.dt01.net/1098/1098693_vb.jpg" class="mcimage3256" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/1098693_vb.jpg" width="200" height="200"></a></div></td></tr><tr> <td style="height: 100%; width: 100%;" class="mcteaser3256 mccc3256" valign="top"><div class="mctitle3256"><a target="_blank" href="http://marketgid.com/ghits/1316552/i/3256/pp/3/7/k/#k13443" class="mctitle3256">Игра "Need for Speed: Most Wanted" - мир скорости, риска и ...</a></div><div class="mcimage3256"><a target="_blank" href="http://marketgid.com/ghits/1316552/i/3256/pp/3/7/k/#k13443"><img ilo-full-src="http://imgg.dt01.net/1316/1316552_vb.jpg" class="mcimage3256" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/1316552_vb.jpg" width="200" height="200"></a></div></td></tr><tr> <td style="height: 100%; width: 100%;" class="mcteaser3256 mccc3256" valign="top"><div class="mctitle3256"><a target="_blank" href="http://marketgid.com/ghits/1198733/i/3256/pp/4/7/k/#k13443" class="mctitle3256">Пневматический пистолет KWC PM Makarov </a></div><div class="mcimage3256"><a target="_blank" href="http://marketgid.com/ghits/1198733/i/3256/pp/4/7/k/#k13443"><img ilo-full-src="http://imgg.dt01.net/1198/1198733_vb.jpg" class="mcimage3256" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/1198733_vb.jpg" width="200" height="200"></a></div></td>  </tr> </tbody></table><table class="MGC0134433256"> <tbody><tr> <td style="height: 100%; width: 100%;" class="mcteaser3256 mccc3256" valign="top"><div class="mctitle3256"><a target="_blank" href="http://marketgid.com/ghits/639866/i/3256/pp/1/8/k/#k13443" class="mctitle3256">ММГ ТТ 7,62 (vgm_tt) </a></div><div class="mcimage3256"><a target="_blank" href="http://marketgid.com/ghits/639866/i/3256/pp/1/8/k/#k13443"><img ilo-full-src="http://imgg.dt01.net/639/639866_vb.jpg" class="mcimage3256" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/639866_vb.jpg" width="200" height="200"></a></div></td></tr><tr> <td style="height: 100%; width: 100%;" class="mcteaser3256 mccc3256" valign="top"><div class="mctitle3256"><a target="_blank" href="http://marketgid.com/ghits/1318165/i/3256/pp/2/8/k/#k13443" class="mctitle3256">Как избавиться от большого живота? </a></div><div class="mcimage3256"><a target="_blank" href="http://marketgid.com/ghits/1318165/i/3256/pp/2/8/k/#k13443"><img ilo-full-src="http://imgg.dt01.net/1318/1318165_vb.jpg" class="mcimage3256" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/1318165_vb.jpg" width="200" height="200"></a></div></td></tr><tr> <td style="height: 100%; width: 100%;" class="mcteaser3256 mccc3256" valign="top"><div class="mctitle3256"><a target="_blank" href="http://marketgid.com/ghits/879289/i/3256/pp/3/8/k/#k13443" class="mctitle3256">HPI Racing Комплект шин 2 шт </a></div><div class="mcimage3256"><a target="_blank" href="http://marketgid.com/ghits/879289/i/3256/pp/3/8/k/#k13443"><img ilo-full-src="http://imgg.dt01.net/879/879289_vb.jpg" class="mcimage3256" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/879289_vb.jpg" width="200" height="200"></a></div></td></tr><tr> <td style="height: 100%; width: 100%;" class="mcteaser3256 mccc3256" valign="top"><div class="mctitle3256"><a target="_blank" href="http://marketgid.com/ghits/1218960/i/3256/pp/4/8/k/#k13443" class="mctitle3256">Extreme 1300 - мощнейшая винтовка от Magtech </a></div><div class="mcimage3256"><a target="_blank" href="http://marketgid.com/ghits/1218960/i/3256/pp/4/8/k/#k13443"><img ilo-full-src="http://imgg.dt01.net/1218/1218960_vb.jpg" class="mcimage3256" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/1218960_vb.jpg" width="200" height="200"></a></div></td>  </tr> </tbody></table></div>
+<!-- MComposite End -->
+<style type="text/css">#MarketGidComposite13443 .MGC0134437760, #MarketGidComposite13443 .MGC0134437760 * {margin:0; padding:0; border:0; font-style:normal; font-size:100.01%; line-height:1; text-decoration:none; color:#000; line-height:1.1em;} #MarketGidComposite13443 .MGC0134437760 cite{color:red;} #MarketGidComposite13443 .MGC0134437760{border-spacing:2px; margin:auto !important; font:11px Tahoma, Verdana, Arial;} #MarketGidComposite13443 .MGC0134437760{ font-family: Tahoma,Geneva,sans-serif; width: 100px; border-width: 0px; border-style: solid; border-color: #e6e6fa; } #MarketGidComposite13443 .MGC0134437760 *{ letter-spacing: 0em; } #MarketGidComposite13443 .mctitle7760{ font-weight: bold; font-size: 12px; color: #a52a2a; } #MarketGidComposite13443 div.mctitle7760{ text-align: center; } #MarketGidComposite13443 .mctitle7760 *, #MarketGidComposite13443 .mctitle7760 cite{ color: #a52a2a; } #MarketGidComposite13443 div.mcimage7760{ text-align: center; } #MarketGidComposite13443 .mcimage7760{ padding: 0px; } #MarketGidComposite13443 img.mcimage7760{ border-width: 0px; border-style: solid; } #MarketGidComposite13443 div.mcdesc7760{ text-align: center; } #MarketGidComposite13443 .mcdesc7760{ font-size: 11px; color: #8b4513; } #MarketGidComposite13443 .mcdesc7760 *, #MarketGidComposite13443 .mcdesc7760 cite{ color: #8b4513; } #MarketGidComposite13443 div.mcsource7760{ text-align: center; } #MarketGidComposite13443 .mcsource7760{ text-decoration: underline; color: #4169e1; font-size: 12px; font-weight: bold; } #MarketGidComposite13443 .mcsource7760 *, #MarketGidComposite13443 .mcsource7760 cite{ color: #4169e1; } #MarketGidComposite13443 .mccc7760{ padding: 10px; border-width: 0px; border-style: solid; } #MarketGidComposite13443 .mctc7760{ padding: 0px; } </style><style type="text/css">#MarketGidComposite13443 .MGC0134433256, #MarketGidComposite13443 .MGC0134433256 * {margin:0; padding:0; border:0; font-style:normal; font-size:100.01%; line-height:1; text-decoration:none; color:#000; line-height:1.1em;} #MarketGidComposite13443 .MGC0134433256 cite{color:red;} #MarketGidComposite13443 .MGC0134433256{border-spacing:2px; margin:auto !important; font:11px Tahoma, Verdana, Arial;} #MarketGidComposite13443 .MGC0134433256{ font-family: Tahoma,Geneva,sans-serif; width: 100px; border-width: 0px; border-style: solid; border-color: #e6e6fa; } #MarketGidComposite13443 .MGC0134433256 *{ letter-spacing: 0em; } #MarketGidComposite13443 .mctitle3256{ font-weight: bold; font-size: 12px; color: #a52a2a; } #MarketGidComposite13443 div.mctitle3256{ text-align: center; } #MarketGidComposite13443 .mctitle3256 *, #MarketGidComposite13443 .mctitle3256 cite{ color: #a52a2a; } #MarketGidComposite13443 div.mcimage3256{ text-align: center; } #MarketGidComposite13443 .mcimage3256{ padding: 0px; } #MarketGidComposite13443 img.mcimage3256{ border-width: 0px; border-style: solid; } #MarketGidComposite13443 div.mcdesc3256{ text-align: center; } #MarketGidComposite13443 .mcdesc3256{ font-size: 11px; color: #8b4513; } #MarketGidComposite13443 .mcdesc3256 *, #MarketGidComposite13443 .mcdesc3256 cite{ color: #8b4513; } #MarketGidComposite13443 .mcprice3256{ font-weight: bold; color: #f00; } #MarketGidComposite13443 .mcprice3256 *, #MarketGidComposite13443 .mcprice3256 cite{ color: #f00; } #MarketGidComposite13443 div.mcprice3256{ text-align: center; } #MarketGidComposite13443 div.mcsource3256{ text-align: center; } #MarketGidComposite13443 .mcsource3256{ text-decoration: underline; color: #4169e1; font-size: 12px; font-weight: bold; } #MarketGidComposite13443 .mcsource3256 *, #MarketGidComposite13443 .mcsource3256 cite{ color: #4169e1; } #MarketGidComposite13443 .mccc3256{ padding: 10px; border-width: 0px; border-style: solid; } #MarketGidComposite13443 .mctc3256{ padding: 0px; } </style><script src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/2.js" charset="windows-1251" type="text/javascript"></script><script src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/3.js" type="text/javascript"></script><script src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/4.js" type="text/javascript"></script><script src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/5.js" type="text/javascript"></script><script src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/6_002.js" type="text/javascript"></script><script src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/7_002.js" type="text/javascript"></script><script src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/8.js" type="text/javascript"></script></noindex>
+</td>  
+   
+
+</tr>
+
+<tr>
+<td valign="bottom">
+<!-- Elastic limiter Start-->
+<span id="MGDW13444"></span>
+<!-- Elastic limiter End-->
+<!-- Elastic limiter Start-->
+<span id="MGDW13443"></span>
+<!-- Elastic limiter End-->
+</td>
+</tr>
+
+		</tbody></table>
+	</td>
+	</tr>
+</tbody></table>
+<table width="100%" border="0">
+
+<tbody><tr>
+		<td id="footer"><noindex>
+<table style="border-collapse: collapse;" width="100%" border="0">
+ <tbody><tr>
+<td valign="bottom" width="33%" align="left">  
+<!--LiveInternet counter--><script type="text/javascript"><!--
+document.write("<a href='http://www.liveinternet.ru/click' "+
+"target=_blank><img src='//counter.yadro.ru/hit?t42.3;r"+
+escape(document.referrer)+((typeof(screen)=="undefined")?"":
+";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+";"+Math.random()+
+"' alt='' title='LiveInternet' "+
+"border='0' width='31' height='31'><\/a>")
+//--></script><a href="http://www.liveinternet.ru/click" target="_blank"><img ilo-full-src="http://counter.yadro.ru/hit?t42.3;rhttp%3A//www.google.com/url%3Fsa%3Dt%26rct%3Dj%26q%3D%26esrc%3Ds%26source%3Dweb%26cd%3D5%26ved%3D0CEQQFjAE%26url%3Dhttp%253A%252F%252Fpidruchniki.ws%252F17590412%252Fekonomika%252Frozvyazannya_matrichnih_igor_metodami_liniynogo_programuvannya%26ei%3DhdsoT5X1LZCHhQedhLy-BQ%26usg%3DAFQjCNFp5GY1ZegC9DCUyVIWaQ8o3GvDow%26sig2%3Dnqo91rJCLa1PyAK2RbzifQ;s1366*768*24;uhttp%3A//pidruchniki.ws/17590412/ekonomika/rozvyazannya_matrichnih_igor_metodami_liniynogo_programuvannya;0.9810772326897187" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/hit.gif" alt="" title="LiveInternet" width="31" height="31" border="0"></a><!--/LiveInternet-->
+</td><td width="33%" align="center">   
+<div id="copyright">
+<a rel="nofollow" href="http://pidruchniki.ws/Z59i2A7TjB.html">©</a>
+    Бібліотека українських підручників © 2010 - 2012  <br>admin{aт}pidruchniki.ws 
+</div>
+</td>   
+<td valign="bottom" width="33%" align="right"> 
+ </td>  
+        </tr>      
+        </tbody></table>
+</noindex>		</td>
+	</tr>
+</tbody></table>
+<noindex>
+<script type="text/javascript">
+var MGCD = new Date();
+document.write('<scr'
++'ipt type="text/javascript"'
++' src="http://mg.dt00.net/mgjs/cjs/p/i/pidruchniki.ws.13444.js?t='
++MGCD.getYear()
++MGCD.getMonth()
++MGCD.getDate()
++MGCD.getHours()
++'" charset="windows-1251"></scr'+'ipt>');
+</script><script type="text/javascript" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/pidruchniki_002.js" charset="windows-1251"></script> 
+<script type="text/javascript">
+var MGCD = new Date();
+document.write('<scr'
++'ipt type="text/javascript"'
++' src="http://mg.dt00.net/mgjs/cjs/p/i/pidruchniki.ws.13443.js?t='
++MGCD.getYear()
++MGCD.getMonth()
++MGCD.getDate()
++MGCD.getHours()
++'" charset="windows-1251"></scr'+'ipt>');
+</script><script type="text/javascript" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/pidruchniki_003.js" charset="windows-1251"></script> 
+<script type="text/javascript">
+var MGCD = new Date();
+document.write('<scr'
++'ipt type="text/javascript"'
++' src="http://mg.dt00.net/mgjs/cjs/p/i/pidruchniki.ws.13458.js?t='
++MGCD.getYear()
++MGCD.getMonth()
++MGCD.getDate()
++MGCD.getHours()
++'" charset="windows-1251"></scr'+'ipt>');
+</script><script type="text/javascript" src="%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85_files/pidruchniki.js" charset="windows-1251"></script> 
+</noindex>
+
+<div class="b-share-popup-wrap b-share-popup-wrap_state_hidden" id="ya-share-0.5703206367122186-1328649954617-popup"><div class="b-share-popup b-share-popup_down b-share-popup_to-right"><div class="b-share-popup__i"><div class="b-share-popup__main  b-share-popup_yandexed"><div class="b-share-popup__header b-share-popup__header_first">Поделитесь с друзьями</div><a rel="nofollow" target="_blank" href="http://share.yandex.ru/go.xml?service=yaru&amp;url=http%3A%2F%2Fpidruchniki.ws%2F17590412%2Fekonomika%2Frozvyazannya_matrichnih_igor_metodami_liniynogo_programuvannya&amp;title=%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%B8%D1%85%20%D1%96%D0%B3%D0%BE%D1%80%20%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D0%B0%D0%BC%D0%B8%20%D0%BB%D1%96%D0%BD%D1%96%D0%B9%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%2C%20%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85%20-%20%D0%9E%D0%B1%D0%B3%D1%80%D1%83%D0%BD%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%B3%D0%BE%D1%81%D0%BF%D0%BE%D0%B4%D0%B0%D1%80%D1%81%D1%8C%D0%BA%D0%B8%D1%85%20%D1%80%D1%96%D1%88%D0%B5%D0%BD%D1%8C%20%D1%82%D0%B0%20%D0%BE%D1%86%D1%96%D0%BD%D1%8E%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%20%D1%80%D0%B8%D0%B7%D0%B8%D0%BA%D1%96%D0%B2%20-%20%D0%94%D0%BE%D0%BD%D0%B5%D1%86%D1%8C%20%D0%9B.%D0%86.%20%D0%91%D1%96%D0%B1%D0%BB%D1%96%D0%BE%D1%82%D0%B5%D0%BA%D0%B0%20%D1%83%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D1%81%D1%8C%D0%BA%D0%B8%D1%85%20%D0%BF%D1%96%D0%B4%D1%80%D1%83%D1%87%D0%BD%D0%B8%D0%BA%D1%96%D0%B2" class="b-share-popup__item" data-service="yaru"><span class="b-share-popup__icon"><span class="b-share-icon b-share-icon_yaru"></span></span><span class="b-share-popup__item__text">Я.ру</span></a><a rel="nofollow" target="_blank" href="http://share.yandex.ru/go.xml?service=vkontakte&amp;url=http%3A%2F%2Fpidruchniki.ws%2F17590412%2Fekonomika%2Frozvyazannya_matrichnih_igor_metodami_liniynogo_programuvannya&amp;title=%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%B8%D1%85%20%D1%96%D0%B3%D0%BE%D1%80%20%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D0%B0%D0%BC%D0%B8%20%D0%BB%D1%96%D0%BD%D1%96%D0%B9%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%2C%20%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85%20-%20%D0%9E%D0%B1%D0%B3%D1%80%D1%83%D0%BD%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%B3%D0%BE%D1%81%D0%BF%D0%BE%D0%B4%D0%B0%D1%80%D1%81%D1%8C%D0%BA%D0%B8%D1%85%20%D1%80%D1%96%D1%88%D0%B5%D0%BD%D1%8C%20%D1%82%D0%B0%20%D0%BE%D1%86%D1%96%D0%BD%D1%8E%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%20%D1%80%D0%B8%D0%B7%D0%B8%D0%BA%D1%96%D0%B2%20-%20%D0%94%D0%BE%D0%BD%D0%B5%D1%86%D1%8C%20%D0%9B.%D0%86.%20%D0%91%D1%96%D0%B1%D0%BB%D1%96%D0%BE%D1%82%D0%B5%D0%BA%D0%B0%20%D1%83%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D1%81%D1%8C%D0%BA%D0%B8%D1%85%20%D0%BF%D1%96%D0%B4%D1%80%D1%83%D1%87%D0%BD%D0%B8%D0%BA%D1%96%D0%B2" class="b-share-popup__item" data-service="vkontakte"><span class="b-share-popup__icon"><span class="b-share-icon b-share-icon_vkontakte"></span></span><span class="b-share-popup__item__text">ВКонтакте</span></a><a rel="nofollow" target="_blank" href="http://share.yandex.ru/go.xml?service=odnoklassniki&amp;url=http%3A%2F%2Fpidruchniki.ws%2F17590412%2Fekonomika%2Frozvyazannya_matrichnih_igor_metodami_liniynogo_programuvannya&amp;title=%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%B8%D1%85%20%D1%96%D0%B3%D0%BE%D1%80%20%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D0%B0%D0%BC%D0%B8%20%D0%BB%D1%96%D0%BD%D1%96%D0%B9%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%2C%20%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85%20-%20%D0%9E%D0%B1%D0%B3%D1%80%D1%83%D0%BD%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%B3%D0%BE%D1%81%D0%BF%D0%BE%D0%B4%D0%B0%D1%80%D1%81%D1%8C%D0%BA%D0%B8%D1%85%20%D1%80%D1%96%D1%88%D0%B5%D0%BD%D1%8C%20%D1%82%D0%B0%20%D0%BE%D1%86%D1%96%D0%BD%D1%8E%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%20%D1%80%D0%B8%D0%B7%D0%B8%D0%BA%D1%96%D0%B2%20-%20%D0%94%D0%BE%D0%BD%D0%B5%D1%86%D1%8C%20%D0%9B.%D0%86.%20%D0%91%D1%96%D0%B1%D0%BB%D1%96%D0%BE%D1%82%D0%B5%D0%BA%D0%B0%20%D1%83%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D1%81%D1%8C%D0%BA%D0%B8%D1%85%20%D0%BF%D1%96%D0%B4%D1%80%D1%83%D1%87%D0%BD%D0%B8%D0%BA%D1%96%D0%B2" class="b-share-popup__item" data-service="odnoklassniki"><span class="b-share-popup__icon"><span class="b-share-icon b-share-icon_odnoklassniki"></span></span><span class="b-share-popup__item__text">Одноклассники</span></a><a rel="nofollow" target="_blank" href="http://share.yandex.ru/go.xml?service=twitter&amp;url=http%3A%2F%2Fpidruchniki.ws%2F17590412%2Fekonomika%2Frozvyazannya_matrichnih_igor_metodami_liniynogo_programuvannya&amp;title=%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%B8%D1%85%20%D1%96%D0%B3%D0%BE%D1%80%20%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D0%B0%D0%BC%D0%B8%20%D0%BB%D1%96%D0%BD%D1%96%D0%B9%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%2C%20%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85%20-%20%D0%9E%D0%B1%D0%B3%D1%80%D1%83%D0%BD%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%B3%D0%BE%D1%81%D0%BF%D0%BE%D0%B4%D0%B0%D1%80%D1%81%D1%8C%D0%BA%D0%B8%D1%85%20%D1%80%D1%96%D1%88%D0%B5%D0%BD%D1%8C%20%D1%82%D0%B0%20%D0%BE%D1%86%D1%96%D0%BD%D1%8E%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%20%D1%80%D0%B8%D0%B7%D0%B8%D0%BA%D1%96%D0%B2%20-%20%D0%94%D0%BE%D0%BD%D0%B5%D1%86%D1%8C%20%D0%9B.%D0%86.%20%D0%91%D1%96%D0%B1%D0%BB%D1%96%D0%BE%D1%82%D0%B5%D0%BA%D0%B0%20%D1%83%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D1%81%D1%8C%D0%BA%D0%B8%D1%85%20%D0%BF%D1%96%D0%B4%D1%80%D1%83%D1%87%D0%BD%D0%B8%D0%BA%D1%96%D0%B2" class="b-share-popup__item" data-service="twitter"><span class="b-share-popup__icon"><span class="b-share-icon b-share-icon_twitter"></span></span><span class="b-share-popup__item__text">Twitter</span></a><a rel="nofollow" target="_blank" href="http://share.yandex.ru/go.xml?service=facebook&amp;url=http%3A%2F%2Fpidruchniki.ws%2F17590412%2Fekonomika%2Frozvyazannya_matrichnih_igor_metodami_liniynogo_programuvannya&amp;title=%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%B8%D1%85%20%D1%96%D0%B3%D0%BE%D1%80%20%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D0%B0%D0%BC%D0%B8%20%D0%BB%D1%96%D0%BD%D1%96%D0%B9%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%2C%20%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85%20-%20%D0%9E%D0%B1%D0%B3%D1%80%D1%83%D0%BD%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%B3%D0%BE%D1%81%D0%BF%D0%BE%D0%B4%D0%B0%D1%80%D1%81%D1%8C%D0%BA%D0%B8%D1%85%20%D1%80%D1%96%D1%88%D0%B5%D0%BD%D1%8C%20%D1%82%D0%B0%20%D0%BE%D1%86%D1%96%D0%BD%D1%8E%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%20%D1%80%D0%B8%D0%B7%D0%B8%D0%BA%D1%96%D0%B2%20-%20%D0%94%D0%BE%D0%BD%D0%B5%D1%86%D1%8C%20%D0%9B.%D0%86.%20%D0%91%D1%96%D0%B1%D0%BB%D1%96%D0%BE%D1%82%D0%B5%D0%BA%D0%B0%20%D1%83%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D1%81%D1%8C%D0%BA%D0%B8%D1%85%20%D0%BF%D1%96%D0%B4%D1%80%D1%83%D1%87%D0%BD%D0%B8%D0%BA%D1%96%D0%B2" class="b-share-popup__item" data-service="facebook"><span class="b-share-popup__icon"><span class="b-share-icon b-share-icon_facebook"></span></span><span class="b-share-popup__item__text">Facebook</span></a><a rel="nofollow" target="_blank" href="http://share.yandex.ru/go.xml?service=moimir&amp;url=http%3A%2F%2Fpidruchniki.ws%2F17590412%2Fekonomika%2Frozvyazannya_matrichnih_igor_metodami_liniynogo_programuvannya&amp;title=%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%B8%D1%85%20%D1%96%D0%B3%D0%BE%D1%80%20%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D0%B0%D0%BC%D0%B8%20%D0%BB%D1%96%D0%BD%D1%96%D0%B9%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%2C%20%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85%20-%20%D0%9E%D0%B1%D0%B3%D1%80%D1%83%D0%BD%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%B3%D0%BE%D1%81%D0%BF%D0%BE%D0%B4%D0%B0%D1%80%D1%81%D1%8C%D0%BA%D0%B8%D1%85%20%D1%80%D1%96%D1%88%D0%B5%D0%BD%D1%8C%20%D1%82%D0%B0%20%D0%BE%D1%86%D1%96%D0%BD%D1%8E%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%20%D1%80%D0%B8%D0%B7%D0%B8%D0%BA%D1%96%D0%B2%20-%20%D0%94%D0%BE%D0%BD%D0%B5%D1%86%D1%8C%20%D0%9B.%D0%86.%20%D0%91%D1%96%D0%B1%D0%BB%D1%96%D0%BE%D1%82%D0%B5%D0%BA%D0%B0%20%D1%83%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D1%81%D1%8C%D0%BA%D0%B8%D1%85%20%D0%BF%D1%96%D0%B4%D1%80%D1%83%D1%87%D0%BD%D0%B8%D0%BA%D1%96%D0%B2" class="b-share-popup__item" data-service="moimir"><span class="b-share-popup__icon"><span class="b-share-icon b-share-icon_moimir"></span></span><span class="b-share-popup__item__text">Мой Мир</span></a><a rel="nofollow" target="_blank" href="http://share.yandex.ru/go.xml?service=lj&amp;url=http%3A%2F%2Fpidruchniki.ws%2F17590412%2Fekonomika%2Frozvyazannya_matrichnih_igor_metodami_liniynogo_programuvannya&amp;title=%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%B8%D1%85%20%D1%96%D0%B3%D0%BE%D1%80%20%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D0%B0%D0%BC%D0%B8%20%D0%BB%D1%96%D0%BD%D1%96%D0%B9%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%2C%20%D0%A0%D0%BE%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D1%97%20%D0%B3%D1%80%D0%B8%20%D0%B2%20%D0%B7%D0%BC%D1%96%D1%88%D0%B0%D0%BD%D0%B8%D1%85%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D1%96%D1%8F%D1%85%20-%20%D0%9E%D0%B1%D0%B3%D1%80%D1%83%D0%BD%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%B3%D0%BE%D1%81%D0%BF%D0%BE%D0%B4%D0%B0%D1%80%D1%81%D1%8C%D0%BA%D0%B8%D1%85%20%D1%80%D1%96%D1%88%D0%B5%D0%BD%D1%8C%20%D1%82%D0%B0%20%D0%BE%D1%86%D1%96%D0%BD%D1%8E%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%20%D1%80%D0%B8%D0%B7%D0%B8%D0%BA%D1%96%D0%B2%20-%20%D0%94%D0%BE%D0%BD%D0%B5%D1%86%D1%8C%20%D0%9B.%D0%86.%20%D0%91%D1%96%D0%B1%D0%BB%D1%96%D0%BE%D1%82%D0%B5%D0%BA%D0%B0%20%D1%83%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D1%81%D1%8C%D0%BA%D0%B8%D1%85%20%D0%BF%D1%96%D0%B4%D1%80%D1%83%D1%87%D0%BD%D0%B8%D0%BA%D1%96%D0%B2" class="b-share-popup__item" data-service="lj"><span class="b-share-popup__icon"><span class="b-share-icon b-share-icon_lj"></span></span><span class="b-share-popup__item__text">LiveJournal</span></a><a href="http://api.yandex.ru/share/" class="b-share-popup__yandex">Яндекс</a></div></div><div class="b-share-popup__tail"></div></div></div><div style="position: absolute; display: none; width: 375px; height: 380px; top: 50px; left: 50px; z-index: 999;" id="MistWindow"></div><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAYlJREFUeNrMVD1rwlAUPfkwBBxFKQQlDhmjqzj4F9w7FfwThZaW9n8UnDrrn1BEXNTBRQQhEE1ERRR0Sd990A7VaKJJ6YHzEu4N99z3zrsRGo2GAuCF8YFRQzSwGOuM7zJb3hgfES2o0SdGSWRLDfGhRgLpGAXS4q0VCoUCBEHwzd8skM/nUSqVoCjKybz8O1CtVn2LeZ4H27YxnU6xXC6x3+95PJPJoFKpoN1uY7vdnhfww3w+x3A4xGaz4d3quo5sNvuTTyaTXKTb7cJ13csCzWbzKKaqKj/zXC4HSZKO8iRcLpcxGAwwmUzC7UDTNBSLRSQSiVAeyUGNpM4v4XA4oNfr8eMMLJBKpWCaJn9fLBawLAur1Qq73Y6b/H0pyNyrTDYMA7PZDKPRCOv1+uQ3ZCqZe9UcOI6DTqfjW5zMbLVa3Bu6RaE9GI/HZ/P9fp8/qfipYROj+ukEnuQgEx0GImKGHGSC//UO/kTAibG+QwIfMQrUyeRXusaM94x3ERW2GT8Zn78EGACRmoKUJhB1TQAAAABJRU5ErkJggg==" style="position: fixed; bottom: 14px; right: 14px; z-index: 99; cursor: pointer; border: 0px none; visibility: visible; width: 24px; height: 24px; max-height: 24px; max-width: 24px; overflow: hidden; display: block; padding: 0px; opacity: 0.35;" title="feedly mini" id="feedlyMiniIcon" width="24" height="24"></body></html>

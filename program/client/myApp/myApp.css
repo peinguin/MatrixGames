@@ -1,0 +1,68 @@
+/*.strategies .blankblock{
+    display:inline-block;
+    width:20px;
+    height:20px;
+}*/
+.strategies{
+    height: 100px;
+    width:100px;
+}
+.strategies input{
+    width:20px;
+}
+.strategies .label1{
+    display:block;
+    width:100%;
+    height:20px;
+    margin:0 20px;
+}
+.strategies .label2{
+    display:inline-block;
+    width:20px;
+    height:50%;
+    margin:0px 0;
+    clear:left;
+    vertical-align: top;
+}
+.strategies table{
+    display:inline-block;
+}
+.strategies .addV{
+    display:inline-block;
+    height:50%;
+    width:20px;
+    margin: 0 0 0px 0;
+    vertical-align: top;
+}
+.strategies .addH{
+    display: block;
+    width:50%;
+    height:20px;
+    margin: 0 auto;
+}
+
+.goButton{
+    margin:20px 150px;
+    clear:left;
+}
+.resultArea{
+    margin: 10px auto;
+    border:1px solid red;
+    border-radius:5px;
+    width:80%;
+}
+#params{
+    width:100%;
+    float:left;
+}
+#params_method, #params_where{
+    margin:30px 20px 5px;
+    border:1px solid gray;
+    border-radius: 3px;
+    padding:3px;
+    width: 170px;
+    float:left;
+}
+#params_method div div{
+    margin:5px 0;
+}

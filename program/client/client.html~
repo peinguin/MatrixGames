@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <title>Дипломна робота "Матричні ігри"</title>
+    <script src="enyojs/enyo.js" type="text/javascript"></script>
+    <link rel=stylesheet href="enyojs/enyo.css">
+  </head>
+  <body>
+    <h1>Введіть умову гри</h1>
+    <p>Стратегії для кожного гравця</p>
+    <div class="strategies">
+      <div class="blankblock">&nbsp;</div>
+      <div class="label1">Player A</div>
+      <div class="label2">Player B</div>
+      <table>
+      </table>
+    </div>
+  </body>
+</html>

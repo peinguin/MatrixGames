@@ -1,0 +1,1094 @@
+BODY {
+
+	color: #000000;
+	margin: 5px 10px 10px 0px;
+	color: #000000;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+/*font-family: Verdana, Arial, Helvetica, sans-serif; */
+	font-size: 0.75em;
+
+	padding-left: 10px;
+	background-color : #FDFDFF;
+/*	background-image : url(../images/fon.jpg);*/
+
+	
+
+	}
+	
+.leftmenu {
+	border : 1px solid #00008B;
+	}
+
+td.mainWindow {
+	background: #E1E1E1;
+	color: #000000;
+	border: 1px solid #373737;
+	}	
+
+td,tr,div {
+
+	margin-top : 0px;
+	margin-bottom : 0px;
+	list-style : circle;
+/*	font-family: Verdana, Arial, Helvetica, sans-serif;*/
+	font-size: 15px;
+	color: #656565;
+	
+	}
+
+div.submenu {
+	font-size: 11px;
+	}
+	
+p{
+	
+	list-style : circle;
+	font-size: 15px;
+	/* color: #666666; */
+        color: #000000;
+	text-indent: 15px;
+	}	
+	
+
+/* Styles for dhtml tabbed-pages */
+.ontab {
+	background-color: #323A15;
+	border-left: outset 2px #5B7122;
+	border-right: outset 2px #808080;
+	border-top: outset 2px #5B7122;
+	border-bottom: solid 1px #d5d5d5;
+	text-align: center;
+	cursor: hand;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+.offtab {
+	background-color : #e5e5e5;
+	border-left: outset 2px #E0E0E0;
+	border-right: outset 2px #E0E0E0;
+	border-top: outset 2px #E0E0E0;
+	border-bottom: solid 1px #d5d5d5;
+	text-align: center;
+	cursor: hand;
+	font-weight: normal;
+}
+.tabpadding {
+}
+
+.tabheading {
+	background-color: #CCE197;
+	text-align: left;
+}
+
+.pagetext {
+	visibility: hidden;
+	display: none;
+	position: relative;
+	top: 0;
+}
+
+h1 {
+	color: #000000;
+	font-size: 20px;
+	font-weight: bold;
+	 text-align: left;	
+	}
+
+
+h2 {
+
+	color: #000000;
+	font-size: 18px;
+	font-weight: bold;
+	 text-align: left;	
+
+	}
+	
+
+h3 {
+	color: #000000;
+	font-size: 16px;
+	font-weight: bold;
+     text-align: left;		
+	
+	}	
+	
+	
+	
+
+h4 {
+	color: #000000;
+	font-size: 14px;
+	font-weight: bold;
+	text-align: left;
+	text-decoration: underline;	
+	}
+
+h5 {
+	color: #666666;
+	font-size: 13px;
+	font-weight: bold;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+	padding-top: 10px;
+	text-decoration:underline;
+	
+	}
+
+h6 {
+	color: #333333; font-family: tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	font-size: 12px; font-weight: bold;
+	}	
+/* Links */
+a:link, a:visited {
+	font-size: 11px;
+	color: #333333;
+	text-decoration: none;
+	
+	}
+	
+
+a:hover {
+	color: #000000;
+	text-decoration: none;
+   
+
+	}
+	
+	
+
+/* Horizontal Line */
+hr {
+	background: #333333; height:2px; border: 1px solid;
+	}
+
+hr.separator {
+	background: #333333;
+	height: 1px;
+	width: 75px;
+	border: 0px;
+}
+
+hr.fullline {
+	height: 1px;
+	width: 100%;
+	color : #CBD1E0;
+	}
+
+/* --Default Class Settings-- */
+
+a.mainlevel:link, a.mainlevel:visited  {
+
+
+background-position: left;
+text-align: left;
+border-left: 5px solid #656565;
+display: block;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 12px;
+
+list-style-type: none;
+
+list-style-image: none;
+
+list-style-position: outside;
+
+margin-top: 0.5em;
+
+margin-right: 0.5em;
+
+margin-bottom: 0.5em;
+
+margin-left: 0.5em;
+
+padding-top: 0pt;
+
+padding-right: 0.5em;
+
+padding-bottom: 0pt;
+
+padding-left: 0.5em;
+
+border-bottom-width: 1px;
+
+border-bottom-style: dotted;
+
+border-bottom-color: #000000;
+
+ }
+ 
+
+
+
+a.mainlevel:hover {
+	color: #000000;
+	border-left: 5px solid #000000;
+	text-decoration: none;	
+	font-weight: normal;
+	
+}
+
+	
+	a.mainlevel#active_menu {
+	font-weight: bold;
+	color: #000000;
+	border-left: 5px solid #000000;
+	
+}	
+
+
+
+
+a.mainmenu:link, a.mainmenu:visited {
+	color: #333333; 
+	font-family: tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	font-weight: normal;
+	}
+
+a.mainmenu:hover {
+	color: #0099CC; text-decoration: underline;
+	}
+	
+a.sublevel:hover {
+	color: #0099CC; text-decoration: underline;
+	}
+
+a.sublevel:link, a.sublevel:visited {
+	color: #333333; font-family: tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	font-weight: normal;
+}
+
+/* Content - Sections & Categories */
+.contentpane {
+	background-color : #FFFFFF;
+	}
+
+.contentpaneopen {
+	border : 0px solid White;
+	text-align : justify;
+	text-indent : 10px;
+	width : 100%;
+	}
+
+.contentheading {
+	font-family: tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	color: #000000;
+	text-align:left;
+	line-height: 16px;
+	height: 15px;
+	background-color : #FFFFFF;
+	font : normal bold 12px;
+	
+	
+	}
+	
+	
+	.contable {
+
+	padding : 20px;
+
+	
+	}
+
+	
+.main_title {
+	color : #39548D;
+	font : bold 11px;
+}
+.contentpagetitle {
+	font-family: tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+ 	color: #566E9E;
+	text-align:left;
+	}
+
+table.contenttoc {
+	color: #333300;
+	background-color: #e0e0e0;
+    }
+
+table.contenttoc td {
+	font-family: tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+    font-size: 8pt;
+    font-weight: normal;
+    text-align:left;
+}
+
+.contentdescription {
+	font-family: tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	font-size: 11px;
+	color: #666666;
+	text-align: left;
+		padding-top: 15px;	
+	
+	}
+	
+.contentdescription p {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	font-weight: normal;
+	color: #666666;
+
+	
+}	
+
+
+p.mod_rel_items
+{
+	color: #666666;
+	font-family: "Times New Roman", Times, serif;
+	font-size: 18px;
+	font-weight: bold;
+	font-style:italic;
+
+}
+	
+	
+
+/* Links */
+a.blogsection:link, a.blogsection:visited {
+	color: #435A76; text-decoration: none; font-weight: normal;
+	font-family:  tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	font-size: 10px;
+	}
+
+a.blogsection:hover {
+	color: #0099CC;
+	text-decoration: underline;
+	font-weight: normal;
+	font-size: 10px;
+	}
+
+a.weblinks:link, a.weblinks:visited {
+	color: #405115; text-decoration: none; font-weight: normal;
+	font-family:  tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	}
+
+a.weblinks:hover {
+	color: #759328;	text-decoration: underline;
+	}
+
+a.readon:link, a.readon:visited {
+	color: #435A76; text-decoration: none; font-family:  tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	font-size: 11px;
+	list-style: inside url(/templates/orthodoxy/images/read.gif);
+	list-style-type: disc;
+	display: list-item;
+	white-space: normal;
+	font-weight: normal;
+	}
+
+a.readon:hover {
+	color: #0099CC;	
+	text-decoration: underline;
+	font-weight: normal;
+	font-family:  tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	font-size: 11px;
+	list-style-type: disc;
+	display: list-item;
+	white-space: normal;
+	}
+
+table.moduletable {
+	margin: 0px 0px 0px 0px;
+	width: 100%;
+	border-left: solid 0px #000000;
+	border-right: solid 0px #000000;
+	border-top: solid 0px #000000;
+	border-bottom: solid 0px #000000;
+	}
+
+table.moduletable th {
+	font-family: tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #32405F;
+	text-align: left;
+	width: 100%;
+	height: 20px;
+	/* border-bottom: 1px solid #333333; */
+	 line-height: 20px; *
+	}
+
+table.moduletable td {
+	font-family: tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	font-size: 11px;
+	
+	}
+
+.componentheading {
+	font-family: tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+/*	font-size: x-small;*/
+	font-weight: bold;
+ 	color: #333333;
+	text-align:left;
+	background-repeat: no-repeat;
+	/*
+	list-style: none inside url(/templates/orthodoxy/images/arrow.png);
+	*/
+	list-style: none inside;
+	white-space: normal;
+	display: list-item;
+	border-bottom: 1px solid #666666;
+	
+	}
+
+.button {
+	 font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	margin-top: 4px;
+	text-align: center;
+	font-size: 11px;
+	background: #CCCCCC;
+	border: 2px solid #999999;
+	height: 20px;
+	font : bold;
+	color : White;
+	}
+
+.inputbox {
+	font-family: tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	font-size: 12px;
+	color: Black;
+	background: #FBFBFB;
+	border: 1px solid #515151;
+	}
+
+/** category text format and links **/
+.category {
+	color: #666666;
+/*	font-weight: bold; 
+	font-variant: small-caps;
+	font-size: 14px; */
+    font-size: 12px;
+	}
+
+a.category:link, a.category:visited {
+	color: #666666;
+/*	font-weight: bold; 
+	font-variant: small-caps;
+	font-size: 14x; */
+    font-size: 16px;
+
+	}
+
+a.category:hover {
+	color: #000000;
+	/*font-weight: bold;*/
+	font-weight: normal;
+	
+	
+	}
+	
+	
+a.gn_categ:link, a.gn_categ:visited {
+
+	color: #666666;
+/*	font-weight: bold; 
+	font-variant: small-caps;
+	font-size: 14px; */
+    font-size: 12px;
+}	
+
+a.gn_categ:hover {
+	color: #000000;
+	/*font-weight: bold;*/
+	font-weight: normal;
+	
+	}
+
+
+a.gn_section:link, a.gn_section:visited  {
+	color: #000000;
+	font-family: Verdana,Arial,Helvetica,sans-serif;
+	font-size: 15px;
+	padding: 10 10 10 10;
+}	
+
+a.gn_section:hover {
+	color: #000000;
+	font-weight: bold;
+	
+	}
+
+
+
+
+
+
+	
+
+.poll {
+	font-family: tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #333333;
+	line-height: 14px
+	}
+
+.pollstableborder {
+	border: 1px solid #333333;
+}
+
+.sectiontableentry1 {
+	background-color : #FFFFFF;
+	}
+	
+.sectiontableentry2 {
+	background-color : #FFFFFF;
+	}
+
+.sectiontableheader {
+	background-color : #6B6B6B;
+	font-weight : bold;
+	color : White;
+	}
+
+.small {
+	font-family: tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	font-size: 10px;
+	color: #D1D1D1;
+	text-decoration: none;
+	font-weight: normal;
+	}
+
+.smalldark {
+        font-family: tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+        font-size: 10px;
+        color: #FFFFFF;
+        text-decoration: none;
+        font-weight: normal;
+        }
+
+
+.newsfeedheading {
+        font-family: tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+        font-size: 12px;
+        color: #FF4500;
+        text-align:left;
+    /*   font-weight : bold; */
+        }
+
+.newsfeeddate {
+	font-family: tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	font-size: 10px;
+	/* color: #00008B; */
+}
+.newsfeedDescription {
+	color : Blue;
+}
+.newsheader {
+	width : 100%;
+	height : 20px;
+	background-color : #FDF5E6;
+	padding-top : 5px;
+	padding-right : 5px;
+	padding-left : 5px;
+	padding-bottom : 5px;
+	}
+.feeds_desc {
+	text-align : justify;
+	text-indent : 20px;
+	padding-left : 20px;
+	}
+.createdate {
+	font-family: tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	font-size: 9px;
+	color: #ABABAB;
+	text-decoration: none;
+	font-weight: normal;
+	}
+
+.modifydate {
+	font-family: tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	font-size: 10px;
+	color: #666666;
+	text-decoration: none;
+	font-weight: normal;
+	}
+
+ul {
+	margin: 0px 0px 0px 0px;
+	padding:15px;
+	padding-top : 0px;
+	}
+
+li {
+	line-height: 15px;
+	padding-left: 2px;
+	padding-top: 5px;
+	background-repeat: no-repeat;
+	background-position: 0px 3px;
+	list-style:none;
+
+
+}
+
+.fase4rdf {
+	font-family: tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	font-size: 11px; color: #242D0C; font-weight: normal;
+	}
+
+a.fase4rdf:link {
+	font-size: 11px; font-weight: normal; color: #405115;
+	}
+
+a.fase4rdf:hover {
+	font-weight: bold; color: #759328;
+	}
+
+table.searchintro {
+  	background-color: #FFFFFF;
+	border: 1px solid #759328;
+	}
+
+table.contact {
+	background-color: #FFFFFF;
+	}
+
+table.contact td.icons {
+	background-color: #B5C4D7;
+	}
+
+table.contact td.details {
+	background-color: #EDF5FE;
+	font-size: 11px;
+	font-family: tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	}
+
+.pagenav {
+	color : #999999;
+	font-size: 11px;
+	}
+
+a.pagenav, a.pagenav:visited {
+	color : #999999;
+	}
+
+a.pagenav:hover {
+	color: Black;
+	}
+
+.pagenavbar {
+	}
+
+/* Content voting */
+.content_rating {
+	font-weight: normal;
+	font-size: 8pt;
+}
+
+.content_vote {
+	font-weight: normal;
+	font-size: 8pt;
+}
+
+
+a.bar:link, a.bar:visited {
+        color: Green; text-decoration: none; font-weight: normal;
+        font-family:  tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+        font-size: 10px;
+        }
+
+a.bar:hover {
+        color: #A7CF43;
+		 text-decoration: none;
+        }
+		  
+.searchbox {
+	font-family: tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	font-size: x-small;
+	color: #333333;
+	background: #FFFFFF;
+	border: 1px solid;
+	height: 18px;
+	line-height: 13px;
+	}
+	
+.title {
+	font: bold larger;
+	letter-spacing: 4px;
+}
+
+
+.pathway {
+color: #000000;
+font-weight: bold;
+
+}
+a.pathway, a.pathway:visited {
+	font: tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	font-size: 11px;
+	color: Green;
+	font-weight: normal;
+	}
+
+a.pathway:hover {
+	font: tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #000000;	
+}
+/*Main Orthodoxy CSS*/
+
+.smallfont
+{
+	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.tborder
+{
+	background: transparent;
+	color: #000000;
+	border: 1px solid #CBD1E0;
+}
+.thead
+{
+/*	background: #6D7687 repeat-x top left;
+	font: bold 11px tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	color: White;
+	padding-top : 2px;
+	padding-bottom : 2px;
+	padding-left : 6px;
+	margin-top : 2px;
+	margin-bottom : 2px;
+	float: left;                */
+
+background-color: transparent;
+
+background-image: url(../images/bg_menu.gif);
+
+background-repeat: repeat;
+
+background-attachment: scroll;
+
+background-x-position: 0%;
+
+background-y-position: 0%;
+
+width: 100%;
+border-bottom-width: 0px;
+
+border-bottom-style: solid;
+
+border-bottom-color: #999999;
+
+border-top-width: 0px;
+
+border-top-style: solid;
+
+border-top-color: #999999;
+	
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 15px;	
+	
+
+	}
+.thead a:link
+{
+	color: #656565;
+	text-decoration: none;
+    font-size: 15px;	
+}
+.thead a:visited
+{
+
+	color: #656565;
+	text-decoration: none;
+	font-size: 15px;	
+}
+.thead a:hover, .thead a:active
+{
+
+
+	color: #000000;
+	text-decoration: none;
+	font-size: 15px;		
+}	
+
+a.searchl:visited, a.searchl:link  {
+
+font-weight: normal;
+color: #999999;
+
+}
+
+a.searchl:hover  {
+
+font-weight: normal;
+color: #000000;
+
+}
+
+
+
+a.mod_rel:visited, a.mod_rel:link  {
+
+font-weight: normal;
+color: #999999;
+
+}
+
+a.mod_rel:hover  {
+
+font-weight: normal;
+color: #000000;
+
+}
+
+
+
+
+
+
+.vbmainwindow
+{
+	background : #FFFFFF;
+}
+
+#copyright 
+
+{
+
+padding-top: 8px;
+
+text-align: center;
+
+font-size: 11px;
+
+color: #FFFFFF;
+
+}
+
+
+#footer 
+{
+
+height: 0px;
+
+background-color: transparent;
+
+background-image: url(../images/footr.jpg);
+
+background-repeat: repeat-x;
+
+background-attachment: scroll;
+
+background-x-position: left;
+
+background-y-position: top;
+
+}
+
+/*	поиск-----заокругленные рамки ------------------------------------ */
+
+#leftcol div.module  {
+  width: 800px;
+  background: url(../images/search_middle.jpg) repeat-y;
+  margin-bottom: 15px;
+  
+}
+
+#leftcol div.module div {
+  background: url(../images/search_bottom.jpg) bottom left no-repeat;
+}
+
+#leftcol div.module div div {
+  background: url(../images/search_top.jpg) top left no-repeat;
+  padding: 10px 10px 10px 10px;
+ 
+}
+#leftcol div.module div div div {
+  background: url(../images/px.gif) no-repeat; /** Внес изменения для ИЕ7, раньше было background: none; **/
+  background: none;
+  padding : 0px 0px 10px 0px; 
+  width: auto !important;
+  width: 100%;
+}
+
+#leftcol div.module div div div h3 {
+display: block; 
+padding : 0px 0px 10px 0px; 
+margin : 0;
+font-family      : Arial, Verdana;
+font-size        : 12px;
+font-weight      : bold;
+color            : #527a33;
+text-transform   : uppercase;
+text-align       : center;
+letter-spacing   : 1px;
+
+}
+
+
+/*	стиль уровней содержания книги ------------------------------------ */
+
+a.contlk_lev1, a.contlk_lev1:link, a.contlk_lev1:visited {
+	color: #000000;
+	font-weight: bold;
+	font-size: 16px;
+	padding: 1px 0px 1px 20px;	
+        margin: 0px 0px 0px 0px;	
+        display:block;
+ 	text-indent: 0px;
+}
+
+a.contlk_lev1:hover {
+	color: #000000;
+text-decoration: underline;
+}
+
+
+a.contlk_lev2, a.contlk_lev2:link, a.contlk_lev2:visited {
+	padding: 1px 0px 1px 40px;	
+        margin: 0px 0px 0px 0px;	
+        color: #000000;
+        font-size: 14px;
+	font-weight: bold;
+        display:block;
+        text-indent: 0px;
+ 
+}
+
+a.contlk_lev2:hover {
+	color: #000000;
+text-decoration: underline;
+}
+
+a.contlk_lev3, a.contlk_lev3:link, a.contlk_lev3:visited {
+	
+	padding: 1px 0px 1px 60px;	
+        margin: 0px 0px 0px 0px;	
+        text-indent: 0px;
+	font-size: 14px;
+	color: #000000; 
+        display:block;
+  
+}
+
+a.contlk_lev3:hover {
+	color: #000000;
+text-decoration: underline;
+}
+
+
+a.contlk_lev4, a.contlk_lev4:link, a.contlk_lev4:visited {
+	
+	padding: 1px 0px 1px 80px;	
+        margin: 0px 0px 0px 0px;	
+	font-size: 14px;
+	 color: #000000;
+         display:block;
+}
+
+a.contlk_lev4:hover {
+	color: #000000;
+text-decoration: underline;
+}
+
+/*	граница в картинках ----------------------------------- */
+
+img {
+	margin-right: 10px;
+	}
+
+/*	Зміст ----------------------------------- */
+p.contt
+{font-size: Large;
+text-align: center;
+}
+
+div#intrtext p {
+	font-size: 14px;
+	font-style: italic;	
+	
+}
+
+.blog .contentpaneopen img {
+	width: 100px;
+	float:left;
+	position	       : relative;
+	top			: 0px;
+	z-index		       : 5;
+
+}
+
+.blog .contentpagetitle {
+	padding-left	    : 110px;
+		position	       : relative;
+	top			: 25px;
+	z-index		       : 5;
+
+
+}
+
+.blog #intrtext p  {
+	
+	font-size: 12px;
+	font-style: italic;	
+	
+}
+
+div#url_inform {
+          text-align: left;
+          border: 1px double #cccccc;
+          width: 500px;
+          background: url(../images/button_bg.png) repeat-x;
+          padding: 5px 10px 5px 5px;
+          line-height: 20px;
+          margin: 10px;
+          font-size: 14px;
+}
+
+p.intrd {
+          font-size: 16px;
+          font-family:'Book Antiqua', arial, helvetica, sans-serif;
+	  padding: 5px 5px 5px 5px;
+          margin: 10px 150px 10px 5px;
+          border-style:double;  
+
+	}
+
+p.intrd1 {
+          font-size: 12px;
+          font-family: Verdana,Arial,Helvetica,sans-serif;
+	  padding: 0px 0px 0px 0px;
+          margin: 0px 100px 10px 0px;
+          line-height: 1.5;
+	}
+/* ----------------стиль уровней поиска похожих статей  -------------------------- */
+a.hed_lev, a.hed_lev:link, a.hed_lev:visited {
+      
+        background: url(../images/arr.png) no-repeat 0 8px;   
+	padding: 5px 1px 5px 15px;	
+        margin: 0px 0px 0px 0px;	
+	font-size: 12px;
+	 color: #003399;
+         display:block;
+         
+}
+
+a.hed_lev:hover {
+	/* color: #000000;   */ 
+text-decoration: underline;
+    background: url(../images/arr_sel.png) no-repeat 0 8px;  
+}
+
+ 
+p.rel_items {
+    color: #45688E;   
+    font-size: 12px;
+    margin: 0 5px 3px;
+    padding: 0 0 3px;
+    font-weight: bold;
+    text-indent: 5px;
+}
+hr.rel_items  {
+
+    background: #DAE1E8;  
+    border: 0px solid;
+    border-bottom: 1px solid #DAE1E8;
+    height: 0px;
+    }
+/* --------------------------------------------------- */
