@@ -57,9 +57,25 @@ var matrix = new enyo.Control({
         { name:'matrixTable', tag: "table", components: [
             {tag: 'tr', components: [
                 {tag: 'td', components: [{tag: 'input'}]},
+                {tag: 'td', components: [{tag: 'input'}]},
+                {tag: 'td', components: [{tag: 'input'}]},
                 {tag: 'td', components: [{tag: 'input'}]}
             ]},
             {tag: 'tr', components: [
+                {tag: 'td', components: [{tag: 'input'}]},
+                {tag: 'td', components: [{tag: 'input'}]},
+                {tag: 'td', components: [{tag: 'input'}]},
+                {tag: 'td', components: [{tag: 'input'}]}
+            ]},
+            {tag: 'tr', components: [
+                {tag: 'td', components: [{tag: 'input'}]},
+                {tag: 'td', components: [{tag: 'input'}]},
+                {tag: 'td', components: [{tag: 'input'}]},
+                {tag: 'td', components: [{tag: 'input'}]}
+            ]},
+            {tag: 'tr', components: [
+                {tag: 'td', components: [{tag: 'input'}]},
+                {tag: 'td', components: [{tag: 'input'}]},
                 {tag: 'td', components: [{tag: 'input'}]},
                 {tag: 'td', components: [{tag: 'input'}]}
             ]}
@@ -135,7 +151,9 @@ $(document).ready(function(){
         $('#Matrix_matrixTable tr').each(function(){
             var arr = Array();
             $(this).children('td').each(function(){
-                arr.push($(this).children('input').val());
+                if($(this).children('input').val()=='')
+                    $(this).children('input').val()=0;
+                arr.push(parseFloat($(this).children('input').val()));
             });
             matrix.push(arr);
         });
@@ -172,14 +190,47 @@ $(document).ready(function(){
             
             while(!is_FcoefPositive(matrix[matrix.length-1])){
                 var min = matrix[matrix.length-1][0];
+                var minPos = 0
                 
                 for(i=1;i<matrix[matrix.length-1].length;i++)
-                    if(min<matrix[matrix.length-1][i])
+                    if(min>matrix[matrix.length-1][i]){
                         min = matrix[matrix.length-1][i];
-                        
+                        minPos = i;
+                    }
 
+                var minDiv = undefined;
+                var minDivPos;
+
+                for(j=0;j<matrix.length-1;j++){
+                    if(matrix[j][minPos]>0){
+                        var div = matrix[j][matrix[j].length-1]/matrix[j][minPos];
+                        alert(div);
+                        if(minDiv == undefined || minDiv>div){
+                            minDiv = div;
+                            minDivPos = j;
+                        }
+                    }
+                }
+                
+                for(i=0;i<matrix.length;i++)
+                    for(j=0;j<matrix.length;j++)
+                        if(i != minDivPos){
+                            var div = matrix[j][matrix[j].length-1]/matrix[j][minPos];
+                            alert(div);
+                            if(minDiv == undefined || minDiv>div){
+                                minDiv = div;
+                                minDivPos = j;
+                            }
+                        }else{
+                            
+                        }
+                
+                alert('Min: '+min);
+                alert('MinPos: '+minPos);
+                alert('MinDiv: '+minDiv);
+                alert('MinDivPos: '+minDivPos);
+                alert(dump(matrix));
             }
-            alert(dump(matrix));
         }
         
         var output = '<pre>';
