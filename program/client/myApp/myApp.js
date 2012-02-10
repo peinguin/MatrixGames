@@ -33,6 +33,9 @@ function dump(arr,level) {
 	}
 	return dumped_text;
 }
+function round(x){
+    return Math.round(x*100)/100;
+}
 
 var title = new enyo.Control({
   name: "Title",
@@ -158,6 +161,31 @@ $(document).ready(function(){
             matrix.push(arr);
         });
         
+        var output = '<pre>';
+        output += 'Resolving:' + "\n";
+        output += "\n";
+        output += 'For first player:' + "\n";
+        output += 'F = ';
+        for(i=0;i<matrix.length;i++)
+            output += ' -y<sub>'+i+'</sub> ';
+        output += ' → max' + "\n";
+        output += "\n";
+        output += 'For secong player:' + "\n";
+        output += 'F = ';
+        for(i=0;i<matrix.length;i++)
+            output += (i>0?'+':'')+' y<sub>'+i+'</sub> ';
+        output += '→ min' + "\n";
+        output += "\n";
+        output += 'With constraints:' + "\n";
+        output += "\n";
+        for(i=0;i<matrix.length;i++){
+            for(j=0;j<matrix[i].length;j++)
+                output += matrix[i][j]+'y<sub>'+j+'</sub>' + ((j+1)<matrix[i].length?" + ":'');
+            output += ' >= 1' + "\n";
+        }
+        output += 'x<sub>j</sub> >= 0. x = 1..' + j + "\n";
+        output += "\n";
+
         var method = $('#params_method input[type="radio"]:checked').val();
 
         if(method=='br'){}
@@ -189,8 +217,9 @@ $(document).ready(function(){
             }
             
             while(!is_FcoefPositive(matrix[matrix.length-1])){
-                var min = matrix[matrix.length-1][0];
-                var minPos = 0
+                
+                var min = matrix[matrix.length-1][0]; // minimal coefficient
+                var minPos = 0; // column to search minimal division
                 
                 for(i=1;i<matrix[matrix.length-1].length;i++)
                     if(min>matrix[matrix.length-1][i]){
@@ -198,62 +227,50 @@ $(document).ready(function(){
                         minPos = i;
                     }
 
-                var minDiv = undefined;
-                var minDivPos;
+                var minDiv = undefined; // minimal division
+                var minDivPos; // row with minimal division
 
-                for(j=0;j<matrix.length-1;j++){
+                for(j=0;j<matrix.length-1;j++)
                     if(matrix[j][minPos]>0){
                         var div = matrix[j][matrix[j].length-1]/matrix[j][minPos];
-                        alert(div);
                         if(minDiv == undefined || minDiv>div){
                             minDiv = div;
                             minDivPos = j;
                         }
                     }
-                }
                 
+                basis[minDivPos] = minPos;
+                
+                var tmpMatrix = $.extend(true, [], matrix);
+
                 for(i=0;i<matrix.length;i++)
-                    for(j=0;j<matrix.length;j++)
-                        if(i != minDivPos){
-                            var div = matrix[j][matrix[j].length-1]/matrix[j][minPos];
-                            alert(div);
-                            if(minDiv == undefined || minDiv>div){
-                                minDiv = div;
-                                minDivPos = j;
-                            }
-                        }else{
-                            
-                        }
+                    for(j=0;j<matrix[i].length;j++)
+                        if(i != minDivPos)
+                            matrix[i][j] = (tmpMatrix[i][j]*tmpMatrix[minDivPos][minPos]-tmpMatrix[minDivPos][j]*tmpMatrix[i][minPos])/tmpMatrix[minDivPos][minPos];
+                        else
+                            matrix[i][j] = tmpMatrix[i][j]/tmpMatrix[minDivPos][minPos];
                 
-                alert('Min: '+min);
-                alert('MinPos: '+minPos);
-                alert('MinDiv: '+minDiv);
-                alert('MinDivPos: '+minDivPos);
-                alert(dump(matrix));
+                /*
+                 Show steps
+                 
+                 var str = "<table border=1>";
+                for(i=0;i<matrix.length;i++){
+                    str += "<tr><td>";
+                    str += matrix[i].map(round).join('</td><td>');
+                    str += "</td></tr>";
+                }
+                str += "</table>";
+                $("#resultArea").html($("#resultArea").html()+str+"<br />");*/
             }
         }
         
-        var output = '<pre>';
-        output += 'Resolving:' + "\n";
-        output += "\n";
-        output += 'For first player:' + "\n";
-        output += 'F=-y1-y2-y3-y4→max' + "\n";
-        output += "\n";
-        output += 'For secong player:' + "\n";
-        output += 'F=y1+y2+y3+y4→min' + "\n";
-        output += "\n";
-        output += 'With constraints:' + "\n";
-        output += "\n";
-        for(i=0;i<matrix.length;i++){
-            for(j=0;j<matrix[i].length;j++)
-                output += matrix[i][j]+'y<sub>'+j+'</sub>' + ((j+1)<matrix[i].length?" + ":'');
-            output += ' >= 1' + "\n";
-        }
-        output += 'x<sub>j</sub> >= 0. x = 1..' + j + "\n";
-        output += "\n";
-        
         if(method=='br')output += 'Using Braun-Robinson method' + "\n";
         else if(method=='symplex')output += 'Using symplex method' + "\n";
+        
+        output += "\n"+'Result:' + "\n";
+        for(i=0;i<basis.length;i++)
+            output += 'x<sub>'+basis[i]+'</sub> = '+ matrix[i][matrix.length-1] + "\n";
+        
         //output += '' + "\n";
         $('#resultArea').html(output+'</pre>');
     });
