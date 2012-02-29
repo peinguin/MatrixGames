@@ -493,7 +493,7 @@ $(document).ready(function(){
                     var player1_strategies = Array();
                     player1_strategies.push(-Math.round(maxX*100)/100);
                     player1_strategies.push(1+Math.round(maxX*100)/100);
-                    var Game_price = maxY;
+                    var Game_price = Math.round(maxY*100)/100;
                     
                     var player2_strategies = Array(matrix[0].length);
                     for(i=0;i<matrix[0].length;i++)
@@ -501,6 +501,12 @@ $(document).ready(function(){
                     
                     player2_strategies[ActiveStrategy2] = Math.round((-(Game_price-matrix[0][ActiveStrategy1]*(Game_price/matrix[1][ActiveStrategy1]))/(matrix[0][ActiveStrategy1]*(matrix[1][ActiveStrategy2]/matrix[1][ActiveStrategy1])+matrix[0][ActiveStrategy2]))*100)/100;
                     player2_strategies[ActiveStrategy1] = Math.round(((Game_price-matrix[1][ActiveStrategy2]*player2_strategies[ActiveStrategy2])/matrix[1][ActiveStrategy1])*100)/100;
+                
+                    if(n2){
+                        var tmp = $.extend(true, [], player1_strategies);
+                        player1_strategies = player2_strategies;
+                        player2_strategies = tmp;
+                    }
                 }  
             }else{
                 output += 'The system has not the form 2*n or n*2' + "\n";
