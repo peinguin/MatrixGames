@@ -33,9 +33,6 @@ function dump(arr,level) {
 	}
 	return dumped_text;
 }
-function round(x){
-    return Math.round(x*100)/100;
-}
 
 var title = new enyo.Control({
   name: "Title",
@@ -50,9 +47,6 @@ var matrix = new enyo.Control({
     name:"Matrix",
     tag: "div",
     classes : 'strategies',
-    /*handlers: {
-        init: "initHandler"
-    },*/
     components: [
         { tag: "div", classes: "blankblock", content: '&nbsp' },
         { tag: "div", classes: "label1", content: 'Player A' },
@@ -103,6 +97,10 @@ new enyo.Control({
             { components:[
                 {tag: 'input type="radio" name="method" value="br"' },
                 { tag: 'label', content: 'Braun-Robinson' }
+            ]},
+            { components:[
+                {tag: 'input type="radio" name="method" value="graph"' },
+                { tag: 'label', content: 'Graphical method' }
             ]}
         ]},
         {name:"where",
@@ -150,46 +148,81 @@ $(document).ready(function(){
     $('#GoButton').click(function(){
         
         var matrix = new Array();
-        
+
         $('#Matrix_matrixTable tr').each(function(){
             var arr = Array();
             $(this).children('td').each(function(){
                 if($(this).children('input').val()=='')
-                    $(this).children('input').val()=0;
+                    $(this).children('input').val(0);
                 arr.push(parseFloat($(this).children('input').val()));
             });
             matrix.push(arr);
         });
         
-        var output = '<pre>';
-        output += 'Resolving:' + "\n";
-        output += "\n";
-        output += 'For first player:' + "\n";
-        output += 'F = ';
-        for(i=0;i<matrix.length;i++)
-            output += ' -y<sub>'+i+'</sub> ';
-        output += ' → max' + "\n";
-        output += "\n";
-        output += 'For secong player:' + "\n";
-        output += 'F = ';
-        for(i=0;i<matrix.length;i++)
-            output += (i>0?'+':'')+' y<sub>'+i+'</sub> ';
-        output += '→ min' + "\n";
-        output += "\n";
-        output += 'With constraints:' + "\n";
-        output += "\n";
-        for(i=0;i<matrix.length;i++){
+        /* Deleting null-lines */
+        for(i=matrix.length-1;i>=0;i--){
+            free = true;
             for(j=0;j<matrix[i].length;j++)
-                output += matrix[i][j]+'y<sub>'+j+'</sub>' + ((j+1)<matrix[i].length?" + ":'');
-            output += ' >= 1' + "\n";
+                if(matrix[i][j] != 0) free = false;
+            if(free)
+                matrix.splice(i, 1);
         }
-        output += 'x<sub>j</sub> >= 0. x = 1..' + j + "\n";
-        output += "\n";
+        
+        for(i=matrix[0].length-1;i>=0;i--){
+            free = true;
+            for(j=0;j<matrix.length;j++)
+                if(matrix[j][i] != 0) free = false;
+            if(free)
+                for(j=0;j<matrix.length;j++)
+                    matrix[j].splice(i, 1);
+        }
+  
+        /* find infinity */
+        /*var infinity = 0;
+        for(i=0;i<matrix.length;i++)
+            for(j=0;j<matrix[i].length;j++)
+                if(matrix[i][j]>infinity)infinity = matrix[i][j];
+        infinity++;*/
 
         var method = $('#params_method input[type="radio"]:checked').val();
-
-        if(method=='br'){}
-        else if(method=='symplex'){
+        
+        var output = '<pre>';
+        
+        var basis = Array(matrix.length);
+        if(method=='symplex'){
+            
+            output += 'Resolving:' + "\n";
+            output += "\n";
+            output += 'For first player:' + "\n";
+            output += 'F = ';
+            for(i=0;i<matrix.length;i++)
+                output += '- y<sub>'+(i+1)+'</sub> ';
+            output += ' → max' + "\n";
+            output += "\n";
+            output += 'With constraints:' + "\n";
+            output += "\n";
+            for(i=0;i<matrix[0].length;i++){
+                for(j=0;j<matrix.length;j++)
+                    output += matrix[j][i]+'y<sub>'+(j+1)+'</sub>' + ((j+1)<matrix.length?" + ":'');
+                output += ' >= 1' + "\n";
+            }
+            output += 'y<sub>j</sub> >= 0. j = 1..' + j + "\n";
+            output += "\n";
+            output += 'For secong player:' + "\n";
+            output += 'F = ';
+            for(i=0;i<matrix.length;i++)
+                output += (i>0?'+':'')+' x<sub>'+(i+1)+'</sub> ';
+            output += '→ max' + "\n";
+            output += "\n";
+            output += 'With constraints:' + "\n";
+            output += "\n";
+            for(i=0;i<matrix.length;i++){
+                for(j=0;j<matrix[i].length;j++)
+                    output += matrix[i][j]+'x<sub>'+j+'</sub>' + ((j+1)<matrix[i].length?" + ":'');
+                output += ' <= 1' + "\n";
+            }
+            output += 'x<sub>j</sub> >= 0. j = 1..' + j + "\n";
+            output += "\n";
             
             var basis = Array(matrix.length);
             var F = Array(matrix.length);
@@ -251,26 +284,243 @@ $(document).ready(function(){
                             matrix[i][j] = tmpMatrix[i][j]/tmpMatrix[minDivPos][minPos];
                 
                 /*
-                 Show steps
+                 //Show steps
                  
                  var str = "<table border=1>";
                 for(i=0;i<matrix.length;i++){
                     str += "<tr><td>";
-                    str += matrix[i].map(round).join('</td><td>');
+                    str += matrix[i].map(function(x){return Math.round(x*100)/100;}).join('</td><td>');
                     str += "</td></tr>";
                 }
                 str += "</table>";
                 $("#resultArea").html($("#resultArea").html()+str+"<br />");*/
             }
+
+            var sum = 0;
+            for(i=0;i<basis.length;i++)
+                sum += matrix[i][matrix[i].length-1];
+            var u = 1/sum;
+
+            var player1_strategies = Array(basis.length);
+            for(i=0;i<basis.length;i++)
+                player1_strategies[basis[i]] = Math.round((matrix[i][matrix[i].length-1] * u)*100)/100;
+                
+            var player2_strategies = Array(basis.length);
+            for(i=0;i<basis.length;i++)
+                player2_strategies[i] = Math.round((matrix[matrix.length-1][matrix.length+i-1] * u)*100)/100;
+                
+            var Game_price = Math.round(u*100)/100;
+        }else
+        if(method=='br'){
+            
+            var parties_count = 10000;
+            
+            var player1_strategy = undefined;
+            var player2_strategy = undefined;
+            var u = undefined;
+            var w = undefined;
+            
+            var player1_strategies = Array(matrix[0].length);
+                for(i=0;i<player1_strategies.length;i++)player1_strategies[i] = 0;
+            var player2_strategies = Array(matrix.length);
+                for(i=0;i<player2_strategies.length;i++)player2_strategies[i] = 0;
+                
+            var player1_sums = Array(matrix.length);
+                for(i=0;i<player1_sums.length;i++)player1_sums[i] = 0;
+            var player2_sums = Array(matrix[0].length);
+                for(i=0;i<player2_sums.length;i++)player2_sums[i] = 0;
+                
+            var part_number;
+            for(part_number=0;part_number<parties_count;part_number++){
+                
+                var max = 0;
+                if(player1_strategy == undefined){
+                    for(i=0;i<matrix.length;i++)
+                        for(j=0;j<matrix[i].length;j++)
+                            if(matrix[i][j]>max){
+                                player2_strategy = i;
+                                max = matrix[i][j];
+                            }
+                    player1_strategy = 0;
+                }else{
+                    for(i=0;i<player1_sums.length;i++)
+                        if(player1_sums[i]>player1_sums[player2_strategy]){
+                            player2_strategy = i;
+                        }
+                }
+                
+                player2_strategies[player2_strategy]++;
+                for(i=0;i<matrix[player2_strategy].length;i++)
+                    player2_sums[i]+=matrix[player2_strategy][i];
+                
+                for(i=0;i<player2_sums.length;i++){
+                    if(player2_sums[i]<player2_sums[player1_strategy]){
+                        player1_strategy = i;
+                    }
+                }
+                
+                player1_strategies[player1_strategy]++;
+                    
+                for(i=0;i<matrix.length;i++)
+                    player1_sums[i]+=matrix[i][player1_strategy];
+            }
+
+            player1_strategies = player1_strategies.map(function(x){return Math.round((x/parties_count)*100)/100;});
+            player2_strategies = player2_strategies.map(function(x){return Math.round((x/parties_count)*100)/100;});
+            var Game_price = (Math.round(((Math.max.apply(null, player2_sums) + Math.min.apply(null, player1_sums))/(parties_count*2))*100)/100);
+        }else
+        if(method == "graph"){
+            /* Check for 2*n or n*2 */
+            if(matrix.length == 2 || matrix[0].length == 2){
+                /*  */
+                var n2 = false;
+                if(matrix[0].length == 2){
+                    var tmpMatrix = Array();
+                    for(i=0;i<2;i++){
+                        var tmp = Array();
+                        for(j=0;j<matrix.length;j++){
+                            tmp.push(matrix[j][i]);
+                        }
+                        tmpMatrix.push(tmp);
+                    }
+                    n2 = true;
+                    matrix = tmpMatrix;
+                }
+                
+                var min = (Math.min.apply(null, matrix[0].concat(matrix[1])));
+                var max = (Math.max.apply(null, matrix[0].concat(matrix[1])));
+                
+                var maxX;
+                var maxY = min-1;
+                var ActiveStrategy1, ActiveStrategy2;
+                
+                $.fancybox('<canvas id="graph" width="300" height="400"></canvas>');
+                
+                var canvas = document.getElementById('graph');
+                var ctx = canvas.getContext('2d');
+                if (canvas.getContext){
+                  
+                    ctx.fillStyle="#000";
+                  
+                    ctx.moveTo(20,20);
+                    ctx.lineTo(20,390);
+                    setTimeout(function() {ctx.stroke();},500);
+                    ctx.moveTo(20,20);
+                    ctx.lineTo(17,27);
+                    ctx.moveTo(20,20);
+                    ctx.lineTo(23,27);
+                    setTimeout(function() {ctx.stroke();},1000);
+                    ctx.font = "15px Arial";
+                    ctx.fillText("u", 0, 30);
+                    setTimeout(function() {ctx.stroke();},1500);
+                    
+                    ctx.moveTo(280,20);
+                    ctx.lineTo(280,390);
+                    setTimeout(function() {ctx.stroke();},2000);
+               
+                    var price = 280/(max-min);
+                    if(max>0 && min<0){
+                        ctx.moveTo(0,  380+min*price);
+                        ctx.lineTo(300,380+min*price);
+                        setTimeout(function() {ctx.stroke();},2500);
+                        ctx.moveTo(300,380+min*price);
+                        ctx.lineTo(287,380+min*price-3);
+                        ctx.moveTo(300,380+min*price);
+                        ctx.lineTo(287,380+min*price+3);
+                        setTimeout(function() {ctx.stroke();},3000);
+                    }
+                    
+                    for(i=0;i<2;i++)
+                        for(j=0;j<matrix[i].length;j++){
+                            ctx.moveTo(20+i*260-3,380+(-matrix[i][j]+min)*price);
+                            ctx.lineTo(20+i*260+3,380+(-matrix[i][j]+min)*price);
+                            ctx.fillText(matrix[i][j], 20+i*260-20,380+(-matrix[i][j]+min)*price);
+                            setTimeout(function() {ctx.stroke();},3500+500*i);
+                        }
+                        
+                    for(i=0;i<matrix[0].length;i++){
+                        ctx.moveTo(20,380+(-matrix[0][i]+min)*price);
+                        ctx.lineTo(280,380+(-matrix[1][i]+min)*price);
+                        setTimeout(function() {ctx.stroke();},4000+500*i);
+                    }
+                    
+                    /* find all points of intersection */
+                    for(i=0;i<matrix[0].length;i++){
+                        for(j=0;j<matrix[0].length;j++){
+                            if(i!=j){
+                                /* not parallel */
+                                if(matrix[0][i]-matrix[0][j] != matrix[1][i]-matrix[1][j]){
+                                    var x1 = 0;
+                                    var x2 = 1;
+                                    var x3 = 0;
+                                    var x4 = 1;
+                                    
+                                    var y1 = matrix[0][i];
+                                    var y2 = matrix[1][i];
+                                    var y3 = matrix[0][j];
+                                    var y4 = matrix[1][j];
+                                    
+                                    var x = ((x1*y2-x2*y1)*(x4-x3)-(x3*y4-x4*y3)*(x2-x1))/((y1-y2)*(x4-x3)-(y3-y4)*(x2-x1));
+                                    var y = ((y3-y4)*x-(x3*y4-x4*y3))/(x4-x3);
+                                    
+                                    /* in minimals */
+                                    var in_minimals = true;
+                                    for(k=0;k<matrix[0].length;k++){
+                                        var x1 = 0;
+                                        var x2 = 1;
+                                        
+                                        var y1 = matrix[0][k];
+                                        var y2 = matrix[1][k];
+                                        
+                                        if(((y1-y2)*x-(x1*y2-x2*y1))/(x2-x1) < y || -x<0 || -x>1)
+                                            in_minimals = false;
+                                    }
+
+                                    if(in_minimals && y>maxY){
+                                        maxY = y;
+                                        maxX = x;
+                                        ActiveStrategy1 = i;
+                                        ActiveStrategy2 = j;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    ctx.fillStyle="#ff0000";
+                    ctx.moveTo(280/(1-maxX)+14, 380+(-maxY+min)*price);
+                    ctx.arc(280/(1-maxX)+14, 380+(-maxY+min)*price, 3, 0, 2*Math.PI, false);
+                    setTimeout(function() {ctx.fill();},5000);
+                    var player1_strategies = Array();
+                    player1_strategies.push(-Math.round(maxX*100)/100);
+                    player1_strategies.push(1+Math.round(maxX*100)/100);
+                    var Game_price = maxY;
+                    
+                    var player2_strategies = Array(matrix[0].length);
+                    for(i=0;i<matrix[0].length;i++)
+                        player2_strategies[i] = 0;
+                    
+                    player2_strategies[ActiveStrategy2] = Math.round((-(Game_price-matrix[0][ActiveStrategy1]*(Game_price/matrix[1][ActiveStrategy1]))/(matrix[0][ActiveStrategy1]*(matrix[1][ActiveStrategy2]/matrix[1][ActiveStrategy1])+matrix[0][ActiveStrategy2]))*100)/100;
+                    player2_strategies[ActiveStrategy1] = Math.round(((Game_price-matrix[1][ActiveStrategy2]*player2_strategies[ActiveStrategy2])/matrix[1][ActiveStrategy1])*100)/100;
+                }  
+            }else{
+                output += 'The system has not the form 2*n or n*2' + "\n";
+            }
         }
         
-        if(method=='br')output += 'Using Braun-Robinson method' + "\n";
-        else if(method=='symplex')output += 'Using symplex method' + "\n";
-        
-        output += "\n"+'Result:' + "\n";
-        for(i=0;i<basis.length;i++)
-            output += 'x<sub>'+basis[i]+'</sub> = '+ matrix[i][matrix.length-1] + "\n";
-        
+        if(method=='br'){
+            output += 'Using Braun-Robinson method' + "\n";
+            output += 'After ' + parties_count + ' iterations we have:' + "\n";
+        }else if(method=='symplex'){
+            output += 'Using symplex method' + "\n";
+            output += "\n"+'Result:' + "\n";
+        }
+        if(player1_strategies != undefined)
+            output += 'x<sup>*</sup>(' + player1_strategies.join('; ')+ ')'+"\n";
+        if(player2_strategies != undefined)
+            output += 'y<sup>*</sup>(' + player2_strategies.join('; ')+ ')'+"\n";
+        if(Game_price != undefined)
+            output += 'Game price = ' + Game_price + "\n";
+
         //output += '' + "\n";
         $('#resultArea').html(output+'</pre>');
     });
