@@ -1,3 +1,5 @@
+var show_steps = true;
+
 /**
  * Function : dump()
  * Arguments: The data - array,hash(associative array),object
@@ -92,7 +94,7 @@ new enyo.Control({
         components: [
             { components:[
                 { tag: 'input type="radio" name="method" value="symplex"' },
-                { tag: 'label', content: 'symplex' }
+                { tag: 'label', content: 'Symplex' }
             ]},
             { components:[
                 {tag: 'input type="radio" name="method" value="br"' },
@@ -196,32 +198,32 @@ $(document).ready(function(){
             output += 'For first player:' + "\n";
             output += 'F = ';
             for(i=0;i<matrix.length;i++)
-                output += '- y<sub>'+(i+1)+'</sub> ';
-            output += ' → max' + "\n";
+                output += (i>0?'+':'')+' x<sub>'+(i+1)+'</sub> ';
+            output += ' → min' + "\n";
             output += "\n";
             output += 'With constraints:' + "\n";
             output += "\n";
             for(i=0;i<matrix[0].length;i++){
                 for(j=0;j<matrix.length;j++)
-                    output += matrix[j][i]+'y<sub>'+(j+1)+'</sub>' + ((j+1)<matrix.length?" + ":'');
+                    output += matrix[j][i]+'x<sub>'+(j+1)+'</sub>' + ((j+1)<matrix.length?" + ":'');
                 output += ' >= 1' + "\n";
             }
-            output += 'y<sub>j</sub> >= 0. j = 1..' + j + "\n";
+            output += 'x<sub>j</sub> >= 0. j = 1..' + j + "\n";
             output += "\n";
             output += 'For secong player:' + "\n";
-            output += 'F = ';
+            output += 'Ф = ';
             for(i=0;i<matrix.length;i++)
-                output += (i>0?'+':'')+' x<sub>'+(i+1)+'</sub> ';
+                output += (i>0?'+':'')+' y<sub>'+(i+1)+'</sub> ';
             output += '→ max' + "\n";
             output += "\n";
             output += 'With constraints:' + "\n";
             output += "\n";
             for(i=0;i<matrix.length;i++){
                 for(j=0;j<matrix[i].length;j++)
-                    output += matrix[i][j]+'x<sub>'+j+'</sub>' + ((j+1)<matrix[i].length?" + ":'');
+                    output += matrix[i][j]+'y<sub>'+j+'</sub>' + ((j+1)<matrix[i].length?" + ":'');
                 output += ' <= 1' + "\n";
             }
-            output += 'x<sub>j</sub> >= 0. j = 1..' + j + "\n";
+            output += 'y<sub>j</sub> >= 0. j = 1..' + j + "\n";
             output += "\n";
             
             var basis = Array(matrix.length);
@@ -247,6 +249,20 @@ $(document).ready(function(){
                 for(i=0;i<Arr.length;i++)
                     if(Arr[i]<0) return false;
                 return true;
+            }
+            
+            if(show_steps == 1){
+                var str = "<table border=1>";
+                
+                for(i=0;i<matrix.length;i++){
+                    str += "<tr>";
+                    str += "<td>"+basis[i]+"</td>";
+                    str += "<td>";
+                    str += matrix[i].map(function(x){return Math.round(x*100)/100;}).join('</td><td>');
+                    str += "</td></tr>";
+                }
+                str += "</table>";
+                $("#resultArea").html($("#resultArea").html()+str+"<br />");
             }
             
             while(!is_FcoefPositive(matrix[matrix.length-1])){
@@ -283,17 +299,20 @@ $(document).ready(function(){
                         else
                             matrix[i][j] = tmpMatrix[i][j]/tmpMatrix[minDivPos][minPos];
                 
-                /*
+                
                  //Show steps
-                 
-                 var str = "<table border=1>";
-                for(i=0;i<matrix.length;i++){
-                    str += "<tr><td>";
-                    str += matrix[i].map(function(x){return Math.round(x*100)/100;}).join('</td><td>');
-                    str += "</td></tr>";
+                if(show_steps == 1){
+                    var str = "<table border=1>";
+                    for(i=0;i<matrix.length;i++){
+                        str += "<tr>";
+                        str += "<td>"+basis[i]+"</td>";
+                        str += "<td>";
+                        str += matrix[i].map(function(x){return Math.round(x*100)/100;}).join('</td><td>');
+                        str += "</td></tr>";
+                    }
+                    str += "</table>";
+                    $("#resultArea").html($("#resultArea").html()+str+"<br />");
                 }
-                str += "</table>";
-                $("#resultArea").html($("#resultArea").html()+str+"<br />");*/
             }
 
             var sum = 0;
@@ -374,7 +393,7 @@ $(document).ready(function(){
             if(matrix.length == 2 || matrix[0].length == 2){
                 /*  */
                 var n2 = false;
-                if(matrix[0].length == 2){
+                if(matrix[0].length == 2 && matrix.length != 2){
                     var tmpMatrix = Array();
                     for(i=0;i<2;i++){
                         var tmp = Array();
@@ -462,7 +481,7 @@ $(document).ready(function(){
                                     
                                     var x = ((x1*y2-x2*y1)*(x4-x3)-(x3*y4-x4*y3)*(x2-x1))/((y1-y2)*(x4-x3)-(y3-y4)*(x2-x1));
                                     var y = ((y3-y4)*x-(x3*y4-x4*y3))/(x4-x3);
-                                    
+
                                     /* in minimals */
                                     var in_minimals = true;
                                     for(k=0;k<matrix[0].length;k++){
@@ -478,7 +497,7 @@ $(document).ready(function(){
 
                                     if(in_minimals && y>maxY){
                                         maxY = y;
-                                        maxX = x;
+                                        maxX = -x;
                                         ActiveStrategy1 = i;
                                         ActiveStrategy2 = j;
                                     }
@@ -487,21 +506,30 @@ $(document).ready(function(){
                         }
                     }
                     ctx.fillStyle="#ff0000";
-                    ctx.moveTo(280/(1-maxX)+14, 380+(-maxY+min)*price);
-                    ctx.arc(280/(1-maxX)+14, 380+(-maxY+min)*price, 3, 0, 2*Math.PI, false);
-                    setTimeout(function() {ctx.fill();},5000);
+
+                    ctx.moveTo(280*maxX+11, 380+(-maxY+min)*price);
+                    ctx.arc(280*maxX+11, 380+(-maxY+min)*price, 3, 0, 2*Math.PI, false);
+                    setTimeout(function() {ctx.fill();},4500);
                     var player1_strategies = Array();
-                    player1_strategies.push(-Math.round(maxX*100)/100);
-                    player1_strategies.push(1+Math.round(maxX*100)/100);
+                    player1_strategies.push(1-Math.round(maxX*100)/100);
+                    player1_strategies.push(Math.round(maxX*100)/100);
                     var Game_price = Math.round(maxY*100)/100;
                     
                     var player2_strategies = Array(matrix[0].length);
                     for(i=0;i<matrix[0].length;i++)
                         player2_strategies[i] = 0;
                     
-                    player2_strategies[ActiveStrategy2] = Math.round((-(Game_price-matrix[0][ActiveStrategy1]*(Game_price/matrix[1][ActiveStrategy1]))/(matrix[0][ActiveStrategy1]*(matrix[1][ActiveStrategy2]/matrix[1][ActiveStrategy1])+matrix[0][ActiveStrategy2]))*100)/100;
-                    player2_strategies[ActiveStrategy1] = Math.round(((Game_price-matrix[1][ActiveStrategy2]*player2_strategies[ActiveStrategy2])/matrix[1][ActiveStrategy1])*100)/100;
-                
+                    
+                    delta  = matrix[0][ActiveStrategy1]*matrix[1][ActiveStrategy2]-matrix[0][ActiveStrategy2]*matrix[1][ActiveStrategy1];
+                    deltax = Game_price*matrix[1][ActiveStrategy2]-matrix[0][ActiveStrategy2]*Game_price;
+                    deltay = Game_price*matrix[0][ActiveStrategy1]-matrix[1][ActiveStrategy1]*Game_price;
+                    
+                    player2_strategies[ActiveStrategy2] = Math.round(deltay*100/delta)/100;
+                    player2_strategies[ActiveStrategy1] = Math.round(deltax*100/delta)/100;;
+                    
+                    /*player2_strategies[ActiveStrategy2] = Math.round((-(Game_price-matrix[0][ActiveStrategy1]*(Game_price/matrix[1][ActiveStrategy1]))/(matrix[0][ActiveStrategy1]*(matrix[1][ActiveStrategy2]/matrix[1][ActiveStrategy1])+matrix[0][ActiveStrategy2]))*100)/100;
+                    player2_strategies[ActiveStrategy1] = Math.round(((Game_price-matrix[1][ActiveStrategy2]*player2_strategies[ActiveStrategy2])/matrix[1][ActiveStrategy1])*100)/100;*/
+ 
                     if(n2){
                         var tmp = $.extend(true, [], player1_strategies);
                         player1_strategies = player2_strategies;
