@@ -1,0 +1,24 @@
+BODY {
+	margin : 15mm;
+	font : normal normal 14pt "Times New Roman", Times, serif;
+	text-align : justify;
+}
+
+H3, H2{
+	text-align : center;
+	font : 15pt  "Times New Roman", Times, serif;
+}
+
+
+P{
+	text-indent: 20px;
+}
+
+span.symvol{
+	font-family : Symbol;
+	font-style : italic;
+}
+
+em{
+    font :  italic 14pt  "Times New Roman", Times, serif;
+}

@@ -341,8 +341,8 @@ $(document).ready(function(){
                         }
                     }
                 }
-                
-                $("#resultArea").html($("#resultArea").html()+'<p>'+minRow+' '+minCell+"</p>");
+                if(show_steps)
+                    $("#resultArea").html($("#resultArea").html()+'<p>'+minRow+' '+minCell+"</p>");
                 
                 basis[minRow] = minCell;
                 //Next step
@@ -370,21 +370,25 @@ $(document).ready(function(){
                 }
             }
             
-            alert(dump(matrix));
+            //alert(dump(matrix));
+            
+            var Game_price = 0;
             
             var player1_strategies = Array(matrix.length-1);
             for(i=0;i<matrix.length-1;i++)
                 player1_strategies[i] = 0;
             for(i=0;i<matrix.length-1;i++)
-                if(basis[i]<significant_elements)
+                if(basis[i]<significant_elements){
                     player1_strategies[basis[i]] = Math.round((matrix[i][matrix[i].length-1] )*100)/100;
+                    Game_price += matrix[i][matrix[i].length-1];
+                }
             
             player2_strategies_len = matrix[0].length-matrix.length+1;
             var player2_strategies = Array(player2_strategies_len);
             for(i=0;i<player2_strategies_len;i++)
                 player2_strategies[i] = -Math.round((matrix[matrix.length-1][significant_elements+i])*100)/100;
                 
-            var Game_price = Math.round(matrix[matrix.length-1][0]*100)/100;
+            var Game_price = Math.round(1/Game_price*100)/100;
     
         }else
         if(method=='br'){

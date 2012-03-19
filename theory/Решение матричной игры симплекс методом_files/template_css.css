@@ -1,0 +1,852 @@
+/**
+author: rgb(raduga) http://mambasana.ru
+**/
+
+/**#################### DEFAULT and FORMS CSS ####################**/
+
+body,html {
+  padding          : 0;
+  margin           : 0 15px !important;
+  margin           : 0 30px;
+           }
+
+td, tr, p, div {
+  font-family      :  Arial, Helvetica, sans-serif;
+  color            : #333333;
+  font-size        : 13px;
+  line-height      : 16px;
+}
+
+hr {
+  color            : #999999;
+  height           : 1px;
+  width            : 100%;
+}
+
+a:link, a:visited {
+  color            : #669900;
+  text-decoration  : underline;
+  
+}
+a:hover {
+  color            : #999999;
+  text-decoration  : underline;
+  
+}
+
+ul {
+  margin           : 2px;
+  padding-left     : 10px;
+  list-style       : none;
+}
+
+li {  
+  line-height      : 14px;
+  padding-left     : 14px;
+  padding-top      : 2px;
+  background-image : url(../images/strelka.gif) ;
+  background-repeat: no-repeat;
+  background-position: 0px 5px;
+}
+
+ol li {
+background-image: none;
+}
+
+form {
+margin           : 0; 
+padding          : 0;
+}
+
+.inputbox {
+ color        : #000000;
+ background   : #E2E7EA;
+ border       : 1px solid #D3DBDF;
+ margin       : 3px 0;
+
+}
+
+form select.button{
+ color        : #000000;
+ background   : #E2E7EA;
+}
+
+option {
+background   : #E2E7EA;
+}
+
+h1 {
+  font-size        : 16px;
+  color            : #669900;
+    }
+
+h2 {
+  font-size        : 15px;
+  color            :#303A43;
+  padding        :0px;
+  margin         :0px;
+  border          :0px;
+    }
+
+h3 {
+  font-size        : 14px;
+  color            : #669900;
+    }
+
+/**#################### Joomla CSS ####################**/
+
+/** Buttons **/
+
+.back_button {
+  font-size        : 12px;
+  font-weight      : normal;
+  padding-bottom   : 3px;
+  margin-right     : 4px;
+  float            : right;
+  line-height      : 20px;
+    
+  }
+div.back_button a{
+text-decoration  : none;
+  }
+
+
+.button {
+  font-size        : 11px;
+  color            : #EDF1F3;
+  border           : 1px solid #5B6D7E;
+  margin           : 3px 0;
+  padding          : 2px;
+  cursor           : pointer;
+  background       : #303A43;
+}
+
+
+/** Contact **/
+
+.contact_email  {
+  width            : 100%;
+}
+
+.contact_email .inputbox {
+}
+
+
+
+/** Module table  **/
+
+
+table.moduletable {
+	margin           : 0 0 8px 0;
+      width            : 100%;
+      	}
+
+table.moduletable th {
+      
+    font-family          : Arial, Verdana,  Helvetica, sans-serif;
+	font-size          : 14px;
+	font-weight        : bold;
+	text-align         : center;
+	width              : 100%;
+      color              : #303A43;
+	padding            : 2px;
+      line-height        : 25px;
+	height             : 29px;
+      background         : #E3EBF0;    
+	}
+
+table.moduletable td {
+    padding-top: 2px;
+    	}
+
+
+
+div.module{
+    text-align: left;
+    margin           : 0 0 20px 0;
+    	}
+
+div.module h3 {
+      
+      font-family        : Arial, Verdana,  Helvetica, sans-serif;
+	font-size          : 14px;
+	font-weight        : bold;
+	text-align         : center;
+	width              : 100%;
+      color              : #303A43;
+	line-height        : 27px;
+	border-left        : 4px solid #303A43;
+      height             : 29px;
+      margin             : 0 0 15px 0;
+       }
+
+.rightcol div.module h3{
+      border-right  : 4px solid #303A43;
+      border-left   : none;
+		}
+
+
+.contentmod {
+text-align   : left;
+padding      : 0px 0;
+
+}
+
+.contentmod td {
+padding      : 0px;
+}
+
+.contentmod table.moduletable {
+margin           : 0 0 0px 0;
+width            : 100%;
+/**background       : url(../images/content.jpg) repeat-x top left;**/
+}
+
+
+.contentmod table.moduletable th{
+      font-size          : 14px;
+	font-weight        : bold;
+	text-align         : center;
+	width              : 100%;
+      color              : #313C40;
+	padding            : 0px;
+      line-height        : 25px;
+      background         : none;
+      /**border-bottom      : 1px solid #D0DDE3;*/
+}
+
+
+
+/** Read more **/
+
+a.readon:link, a.readon:visited {
+  color            : #999999;
+  font-size        : 12px;
+  white-space      : normal;
+  font-weight      : normal;
+  padding          : 1px 0px 1px 12px;
+  float            : right;
+  line-height      : 15px;
+  text-decoration  : none;
+  border-left  :2px solid #999999;
+  border-bottom:1px solid #999999;
+  
+}
+a.readon:hover {
+  color            : #669900;
+  font-size        : 12px;
+  background       : url(../images/indent1.png) no-repeat;
+  white-space      : normal;
+  font-weight      : normal;
+  padding          : 1px 0 1px 12px;
+  line-height      : 15px;
+  text-decoration  : none;
+  border-left      : 2px solid #669900;
+  border-bottom:1px solid #669900;
+ }
+
+
+
+
+/** Pagenavigation **/
+
+.pagenavcounter {
+  font-size        : 11px;
+  color            : #999999;
+}
+
+.pagenavbar {
+  border-top       : 1px solid #999999;
+  padding          : 2px;
+}
+
+.pagenav, .pagenav_prev, .pagenav_next {
+  font-weight      : normal;
+  }
+
+a.pagenav:link, a.pagenav:visited {
+  font-size        : 12px;
+  color            : #999999;
+  text-decoration  : none;
+}
+
+a.pagenav:hover {
+  font-size        : 12px;
+  color            : #669900;
+  text-decoration  : none;
+}
+
+table.contenttoc {
+  border           : 1px solid #dcdcdc;
+  background       : #f3f5f6;
+  padding          : 0;
+  margin-left      : 2px;
+  margin-bottom    : 2px;
+}
+
+table.contenttoc th{
+  margin           : 0;
+  padding          : 2px;
+  background       : #E3ECF0;
+  color            : #333333;
+ }
+table.contenttoc td{
+ margin           : 0;
+ padding          : 3px 4px;
+ border-bottom    : 1px solid #dcdcdc;
+ background-image   : url(../images/strelka.gif) ;
+ background-repeat  : no-repeat;
+ background-position: 4px 7px;
+   }
+
+
+table.contenttoc td a:link, table.contenttoc td a:visited{
+padding-left        : 12px !important;
+padding-left        : 0;
+text-indent         : 12px;
+text-decoration     : none;
+
+}
+
+
+/** Pathway **/
+
+
+.pathway {
+  font-size        : 12px;
+  color            : #333333;
+  padding-left     : 0;
+  font-weight      : bold;
+}
+
+a.pathway:link, a.pathway:visited {
+  font-size        : 12px;
+  padding-left     : 0;
+  font-weight      : bold;
+  text-decoration  : underline;
+  
+}
+
+a.pathway:hover {
+  font-size        : 12px;
+  padding-left     : 0;
+  font-weight      : bold;
+
+}
+.pathway img{
+  }
+
+
+
+
+/** Content **/
+
+
+.sectiontableheader {
+  
+  font-weight      : bold;
+  letter-spacing   : 1px;
+  color            : #ffffff;
+  background       : #414141; 
+  padding          : 3px 5px;
+  border           : 1px solid #ffffff;
+}
+
+
+.sectiontableentry1 {
+  vertical-align   : top;
+  background       : #EFF4F8;
+  border-bottom    : 1px solid #ffffff;
+  line-height      : 20px;
+
+}
+
+.sectiontableentry1 td, .sectiontableentry2 td{
+  padding          : 2px 5px;
+  border-bottom    : 1px solid #ffffff;
+  line-height      : 20px;
+
+}
+
+.sectiontableentry2 {
+  vertical-align   : top;
+  border-bottom    : 1px solid #ffffff;
+  background       : #F3F7FA;
+  line-height      : 20px;
+}
+.sectiontableentry1 img{
+margin: 0 4px;
+}
+.sectiontableentry2 img{
+margin: 0 4px;
+}
+
+
+a.category:link, a.category:visited {
+  font-size        : 12px;
+  font-weight      : normal;
+  padding: 5px;
+}
+
+
+.small {
+  font-size        : 11px;
+  color            : #999999;
+}
+.smalldark {
+  font-size        : 11px;
+  color            : #666666;
+}
+.createdate, .modifydate {
+  font-size        : 11px;
+  color            : #666666;
+  font-weight      : normal;
+  text-align       : left;
+  width            : 100%;
+}
+.content_vote {
+  font-size        : 11px;
+  height           : 22px;
+  padding          : 2px 0;
+  }
+.content_rating {
+  font-size        : 11px;
+  color            : #999999;
+}
+
+table.content{
+  width            : 100%;
+  padding          : 0;
+  border-collapse  : collapse;
+  border-spacing   : 0;
+  margin-bottom    : 10px;
+}
+
+table.contentpane {
+  width            : 100%;
+  border-spacing   : 0;
+  padding-left     : 5px;
+  padding-right    : 5px;
+  margin-bottom    : 5px;
+}
+table.contentpaneopen {
+  width            : 100%;
+  border-spacing   : 0;
+  padding-left     : 5px;
+  padding-right    : 5px;
+  margin-bottom    : 5px;
+}
+
+.contentheading{
+  font-family      : Arial,Tahoma,Helvetica, sans-serif;
+  width            : 100%;
+  font-size        : 15px;
+  font-weight      : bold;
+  line-height      : 18px;
+  text-align       : left;
+  color            : #9fafb4;
+  padding          : 3px 0 3px 5px;
+  margin           : 3px 0px;
+  border-left      : 4px solid #9fafb4;
+  border-bottom    : 1px solid #9fafb4;
+  background       : #e3ecf0;
+}
+
+.contentheading a {
+text-decoration:none;
+}
+.componentheading {
+  font-family      : Arial, Verdana, Helvetica, sans-serif;
+  width            : auto;
+  font-size        : 16px;
+  font-weight      : bold;
+  line-height      : 21px;
+  text-align       : left;
+  color            : #669900;
+  padding          : 3px;
+  margin           : 5px 1px;
+  background       : #F4F7F9;
+  }
+
+
+.contentdescription { 
+  width          : auto !important;
+  margin         : 0;
+  padding        : 0;
+  padding-top    : 5px;
+  text-align     : left;
+}
+
+ .blog_more {
+margin   : 10px 0 7px 7px;
+}
+
+.buttonheading {
+padding  : 0 2px;
+}
+
+.blog {
+width:100%;
+}
+
+
+/** Polls **/
+
+
+.poll {
+	color       : #333333;
+	line-height : 13px;
+	font-weight : normal;
+      text-align  : left;
+}
+
+.pollstableborder{
+  border-color     : #999999;
+}
+
+
+/** CSS for Mainmenu **/
+
+a.mainlevel  {
+ display           : block;
+ width             : auto !important;
+ width             : 100%;
+  margin           : 1px 0;
+  padding          : 0;
+  font-size        : 12px;
+  background       : none;
+  
+}
+
+a.mainlevel:link, a.mainlevel:visited {
+  display          : block;
+  font-size        : 14px;
+  border-bottom    : 1px solid #DCDFE1;
+  font-weight      : normal;
+  padding          : 2px 0;
+  color            : #666666;
+  padding-left     : 10px;
+  text-decoration  : none;
+
+}
+a.mainlevel:hover {
+  border-bottom    : 1px solid #DCDFE1;
+  font-size        : 14px;
+  font-weight      : normal;
+  color            : #666666;
+  text-decoration  : none;
+  padding-left     : 10px;
+  text-decoration	 : none;
+  background       : #E3ECF0;
+
+}
+#active_menu {
+  color            : #669900;
+  border-bottom    : 1px solid #DCDFE1;
+  background       : url(../images/menu.gif) #E3ECF0 96% 50% no-repeat;
+  text-decoration	 : none;
+
+}
+a#active_menu:hover {
+  color            : #333333;
+  border-bottom    : 1px solid #DCDFE1;
+}
+
+
+/** Sublevel for Mainmenu **/
+
+.sublevel {
+   font-family      : Arial, Helvetica, sans-serif;
+   font-size        : 13px;
+   color            : #999999;
+   padding    	  : 3px 1px 3px 5px;
+   margin		  : 3px;
+}
+a.sublevel:link, a.sublevel:visited {
+  color	      : #666666;
+  text-decoration	: none;
+}
+a.sublevel:hover {
+  color            : #669900;
+  text-decoration  : none;
+}
+a.sublevel#active_menu  {
+	background      : transparent;
+	color           : #669900;
+	border          : 0;
+      
+}
+
+
+
+/** Topmenu styles for BOTTOM navigation **/
+
+ul#mainlevel-nav {
+  list-style       : none;
+  padding-right    : 10px;
+  padding-top      : 5px;
+  margin           : 0;
+     
+}
+
+#mainlevel-nav li {
+  
+  display          : inline;
+  list-style       : none;
+  background-image : none;
+  padding          : 0;
+  margin           : 0;
+  width            : auto !important;
+  font-size        : 13px;
+  white-space      : nowrap;
+  
+
+}
+#mainlevel-nav li a {
+  display          : inline;
+  padding-left     : 10px;
+  padding-right    : 0;
+  font-size        : 13px;
+  color            : #669900;
+  text-decoration  : underline;
+  
+}
+
+#mainlevel-nav li a:hover {
+  
+  font-size        : 13px;
+  color            : #999999;
+    
+}
+
+
+
+/** images **/
+
+.mosimage {
+  border     : 1px solid #D6E3EC;
+  margin     : 5px;
+  padding-top:  3px;
+
+}
+
+.mosimage_caption {
+  margin-top: 3px;
+  padding   :  2px;
+  color     : #666666;
+  font-size : 10px;
+  background: #D6E3EC;
+}
+
+
+
+/******************* Top Menu************************/
+
+.moduletable-topnav {
+    
+    width				: auto;
+    padding				: 0;
+        	}
+
+
+.topnav {       
+	 width				: 0; 
+       text-decoration		      : none; 
+       color				: #ffffff;
+       font-size                    : 14px;
+	}
+
+a.topnav {
+	position			: relative;
+	width				: auto;
+	background			: none;
+ 	padding			: 11px 6px 11px 6px;
+	color				: #ffffff;
+      text-decoration		: none;
+	font-weight			: normal;
+      line-height             : 38px !important; 
+      line-height             : 16px; 
+      _height:0;
+      
+	}
+a.topnav:hover{
+	width				: auto;
+	color				: #FFFFFF;
+	padding			: 11px 6px 11px 6px;
+	font-weight			: normal;
+	text-decoration		: none;
+	background: none;
+		}
+a.topnav#current {
+	cursor			: default;
+	position			: relative;
+	width				: auto;
+	padding			: 11px 6px 11px 6px;
+	color				: #FFFFFF;
+	text-decoration		: none;
+	background: none;
+	}
+ 
+a.topnav#current:hover {
+	cursor			: pointer;
+	position			: relative;
+	width				: auto;
+	background			: none;
+ 	padding			: 11px 6px 11px 6px;
+	color				: #ffffff;
+    text-decoration		: none;
+	
+	}
+
+
+a.topnav:visited, .topnav a:link {
+text-decoration		: none;
+color	                  : #fff;
+}
+
+
+
+
+/** #################### index.php #################### **/
+
+#body {
+background: url(../images/top_bg.jpg) #FFFFFF repeat-x top left;
+}
+
+.main { 
+  text-align       : left; 
+  width            : 100%;
+ }
+
+div.mod {
+  background       : none;
+  width            : 6px;
+}
+
+#clear {
+clear: both;
+height: 30px;
+}
+
+#centertb {
+background: none;
+}
+
+#contenttb{
+padding    : 0 15px 10px 15px;
+
+}
+
+td.pw {
+width            : 100%;
+padding          : 5px 5px 5px 0px !important;
+border-top       : 2px solid #D0DDE3;
+}
+
+.foot {
+  height           : 97px;
+  background       : url(../images/footer_repeat.gif) repeat-x top left;
+  
+}
+   
+.footer_left {
+  float            : left;
+  font-size        : 12px;
+  color            : #3F4446;
+  font-weight      : normal;
+  height           : 97px;
+   
+ }
+
+div.footer_left p{
+margin           :0;
+padding-left     : 10px;
+padding-top      : 25px;
+
+}
+
+.footer_right {
+  width            : 410px; 
+  float            : right;
+  font-size        : 12px;
+  color            : #3F4446;
+  font-weight      : normal;
+  padding-top      : 20px;
+  text-align       : right;
+     
+ }
+
+.footer_right p{
+padding-right: 10px;
+margin       : 0;
+}
+
+
+.leftcol{
+   vertical-align   : top;
+   padding          : 10px;
+   padding-top      : 0;
+   text-align       : left;
+   width            : 190px;
+   background       :url(../images/dot.gif) repeat-y top right;
+
+}
+.rightcol {
+   vertical-align   : top;
+   padding          : 10px;
+   padding-top      : 0;
+   text-align       : left;
+   width            : 190px;
+   background       :url(../images/dot.gif) repeat-y top left;
+
+}
+
+.leftcol div, .rightcol div{ 
+width          : 185px;
+}
+
+
+
+#logo {
+  background     : url(../images/logo.jpg) no-repeat 30px 0;
+  height         : 82px;
+    }
+
+
+#top_bar {
+  position       : absolute;
+  top            : 11px;
+  right          : 30px;
+  height         : 82px; 
+  
+ }
+ 
+.tablenews {
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #000000;
+	border-right-color: #000000;
+	border-bottom-color: #000000;
+	border-left-color: #000000;
+} 
+.tablenews td {
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: none;
+	border-left-style: none;
+	border-top-color: #000000;
+	border-right-color: #000000;
+	border-bottom-color: #000000;
+	border-left-color: #000000;
+}  
+
