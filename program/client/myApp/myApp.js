@@ -1,4 +1,46 @@
-var show_steps = true;
+var show_steps = false;
+
+/**
+ * Transposes a given array.
+ * @id Array.prototype.transpose
+ * @author Shamasis Bhattacharya
+ *
+ * @type Array
+ * @return The Transposed Array
+ * @compat=ALL
+ */
+function transpose(a) {
+ 
+  // Calculate the width and height of the Array
+    w = a.length ? a.length : 0,
+    h = a[0] instanceof Array ? a[0].length : 0;
+ 
+  // In case it is a zero matrix, no transpose routine needed.
+  if(h === 0 || w === 0) { return []; }
+ 
+  /**
+   * @var {Number} i Counter
+   * @var {Number} j Counter
+   * @var {Array} t Transposed data is stored in this array.
+   */
+  var i, j, t = [];
+ 
+  // Loop through every item in the outer array (height)
+  for(i=0; i<h; i++) {
+ 
+    // Insert a new row (array)
+    t[i] = [];
+ 
+    // Loop through every item per item in outer array (width)
+    for(j=0; j<w; j++) {
+ 
+      // Save transposed data.
+      t[i][j] = a[j][i];
+    }
+  }
+ 
+  return t;
+};
 
 /**
  * Function : dump()
@@ -226,30 +268,41 @@ $(document).ready(function(){
             output += 'y<sub>j</sub> >= 0. j = 1..' + j + "\n";
             output += "\n";
             
+            //Приведем систему ограничений к системе неравенств смысла ≤, умножив соответствующие строки на (-1).
+            for(i=0;i<matrix.length;i++)
+                for(j=0;j<matrix[i].length;j++)
+                    matrix[i][j] *= -1;
+            //Transpose (for dual simplex method)
+            matrix = transpose(matrix);
+            
             var basis = Array(matrix.length);
             var F = Array(matrix.length);
             var l = matrix.length;
+            var significant_elements = matrix[0].length;
             for(i=0;i<l;i++)
                 for(j=0;j<l;j++){
                     if(j==i){
                         matrix[i].push(1);
-                        basis[i] = j+l;
+                        basis[i] = significant_elements+j;
                     }else
                         matrix[i].push(0);
                     if(j==(l-1))
-                        matrix[i].push(1);
+                        matrix[i].push(-1);
                 }
             var arr = Array(matrix[0].length);
             for(i=0;i<matrix[0].length;i++)
-                if(i<l)arr[i] = -1;
+                if(i<significant_elements)arr[i] = -1;
                 else arr[i] = 0;
             matrix.push(arr);
             
             function is_FcoefPositive(Arr){
-                for(i=0;i<Arr.length;i++)
-                    if(Arr[i]<0) return false;
+                for(i=0;i<Arr.length;i++){
+                    if(Arr[i][Arr[i].length-1]<0) return false;
+                }
                 return true;
             }
+            
+           //alert(dump(matrix));
             
             if(show_steps == 1){
                 var str = "<table border=1>";
@@ -265,42 +318,44 @@ $(document).ready(function(){
                 $("#resultArea").html($("#resultArea").html()+str+"<br />");
             }
             
-            while(!is_FcoefPositive(matrix[matrix.length-1])){
+            while(!is_FcoefPositive(matrix)){
                 
-                var min = matrix[matrix.length-1][0]; // minimal coefficient
-                var minPos = 0; // column to search minimal division
+                var max    = undefined; // minimal coefficient
+                var minRow = undefined; // column to search minimal division
                 
-                for(i=1;i<matrix[matrix.length-1].length;i++)
-                    if(min>matrix[matrix.length-1][i]){
-                        min = matrix[matrix.length-1][i];
-                        minPos = i;
-                    }
+                for(i=0;i<matrix.length-1;i++)
+                    if(matrix[i][matrix[i].length-1]<0)
+                        if(minRow == undefined || max<Math.abs(matrix[i][matrix[i].length-1])){
+                            max = Math.abs(matrix[matrix.length-1][i]);
+                            minRow = i;
+                        }
 
-                var minDiv = undefined; // minimal division
-                var minDivPos; // row with minimal division
+                var min     = undefined; // minimal division
+                var minCell = undefined; // row with minimal division
 
-                for(j=0;j<matrix.length-1;j++)
-                    if(matrix[j][minPos]>0){
-                        var div = matrix[j][matrix[j].length-1]/matrix[j][minPos];
-                        if(minDiv == undefined || minDiv>div){
-                            minDiv = div;
-                            minDivPos = j;
+                for(j=0;j<matrix[minRow].length-1;j++){
+                    if(matrix[minRow][j] < 0){
+                        if(minCell == undefined || min>Math.abs(matrix[matrix.length-1][j]/matrix[minRow][j])){
+                            min = Math.abs(matrix[matrix.length-1][j]/matrix[minRow][j]);
+                            minCell = j;
                         }
                     }
+                }
                 
-                basis[minDivPos] = minPos;
+                $("#resultArea").html($("#resultArea").html()+'<p>'+minRow+' '+minCell+"</p>");
                 
+                basis[minRow] = minCell;
+                //Next step
                 var tmpMatrix = $.extend(true, [], matrix);
-
                 for(i=0;i<matrix.length;i++)
-                    for(j=0;j<matrix[i].length;j++)
-                        if(i != minDivPos)
-                            matrix[i][j] = (tmpMatrix[i][j]*tmpMatrix[minDivPos][minPos]-tmpMatrix[minDivPos][j]*tmpMatrix[i][minPos])/tmpMatrix[minDivPos][minPos];
+                    for(j=0;j<matrix[i].length;j++){
+                        if(i != minRow)
+                            matrix[i][j] = (tmpMatrix[i][j]*tmpMatrix[minRow][minCell]-tmpMatrix[minRow][j]*tmpMatrix[i][minCell])/tmpMatrix[minRow][minCell];
                         else
-                            matrix[i][j] = tmpMatrix[i][j]/tmpMatrix[minDivPos][minPos];
+                            matrix[i][j] = tmpMatrix[i][j]/tmpMatrix[minRow][minCell];
+                    }
                 
-                
-                 //Show steps
+                //Show steps
                 if(show_steps == 1){
                     var str = "<table border=1>";
                     for(i=0;i<matrix.length;i++){
@@ -314,21 +369,23 @@ $(document).ready(function(){
                     $("#resultArea").html($("#resultArea").html()+str+"<br />");
                 }
             }
-
-            var sum = 0;
-            for(i=0;i<basis.length;i++)
-                sum += matrix[i][matrix[i].length-1];
-            var u = 1/sum;
-
-            var player1_strategies = Array(basis.length);
-            for(i=0;i<basis.length;i++)
-                player1_strategies[basis[i]] = Math.round((matrix[i][matrix[i].length-1] * u)*100)/100;
+            
+            alert(dump(matrix));
+            
+            var player1_strategies = Array(matrix.length-1);
+            for(i=0;i<matrix.length-1;i++)
+                player1_strategies[i] = 0;
+            for(i=0;i<matrix.length-1;i++)
+                if(basis[i]<significant_elements)
+                    player1_strategies[basis[i]] = Math.round((matrix[i][matrix[i].length-1] )*100)/100;
+            
+            player2_strategies_len = matrix[0].length-matrix.length+1;
+            var player2_strategies = Array(player2_strategies_len);
+            for(i=0;i<player2_strategies_len;i++)
+                player2_strategies[i] = -Math.round((matrix[matrix.length-1][significant_elements+i])*100)/100;
                 
-            var player2_strategies = Array(basis.length);
-            for(i=0;i<basis.length;i++)
-                player2_strategies[i] = Math.round((matrix[matrix.length-1][matrix.length+i-1] * u)*100)/100;
-                
-            var Game_price = Math.round(u*100)/100;
+            var Game_price = Math.round(matrix[matrix.length-1][0]*100)/100;
+    
         }else
         if(method=='br'){
             
@@ -394,16 +451,8 @@ $(document).ready(function(){
                 /*  */
                 var n2 = false;
                 if(matrix[0].length == 2 && matrix.length != 2){
-                    var tmpMatrix = Array();
-                    for(i=0;i<2;i++){
-                        var tmp = Array();
-                        for(j=0;j<matrix.length;j++){
-                            tmp.push(matrix[j][i]);
-                        }
-                        tmpMatrix.push(tmp);
-                    }
                     n2 = true;
-                    matrix = tmpMatrix;
+                    matrix = transpose(matrix);
                 }
                 
                 var min = (Math.min.apply(null, matrix[0].concat(matrix[1])));
@@ -556,6 +605,7 @@ $(document).ready(function(){
             output += 'Game price = ' + Game_price + "\n";
 
         //output += '' + "\n";
-        $('#resultArea').html(output+'</pre>');
+        if(!show_steps)
+            $('#resultArea').html(output+'</pre>');
     });
 });
