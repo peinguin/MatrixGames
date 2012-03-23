@@ -1,0 +1,175 @@
+
+
+
+
+a{         
+	color: #ffffff;
+	text-decoration: none;
+        
+        
+}
+
+a:hover{
+	color: #ffffff;
+	text-decoration: underline;
+        
+}
+
+a.hidden {
+	text-decoration: none;
+	color: #ffffff;
+	cursor:default;
+        
+}
+
+
+.menu {
+	color: #237ab2;
+	font-size: 14px;
+	text-decoration: underline;
+        text-align: center;
+        font-weight: normal;
+         
+        
+}
+.menu:active {
+	color: #237ab2;
+	text-decoration: underline;
+        font-size: 14px;
+        font-weight: normal;
+        
+} 
+.menu:hover {
+	color: #b2237a;
+	text-decoration: underline;
+        font-size: 14px;
+        font-weight: normal;
+        
+}
+.menu1 {
+	color: #000000;
+	font-size: 14px;
+	text-decoration: underline;
+        text-align: center;
+        font-weight: normal;
+        
+         
+        
+}
+.menu1:active {
+	color: #000000;
+	text-decoration: underline;
+        font-size: 14px;
+        font-weight: normal;
+        
+} 
+.menu1:hover {
+	color: #b2237a;
+	text-decoration: underline;
+        
+        font-size: 14px;
+}
+.menu2 {
+	color: #ffffff;
+	font-size: 12px;
+	
+        text-align: center;
+        
+        
+         
+        
+}
+.menu2:active {
+	color: #ffffff;
+	text-decoration: underline;
+        font-size: 12px;
+       
+
+        
+} 
+.menu2:hover {
+	color: #ffffff;
+	text-decoration: underline;
+        
+        
+}
+
+.menu3 {
+	color: #000000;
+	font-size: 11px;
+	text-decoration: underline;
+        text-align: center;
+        font-weight: normal;
+        
+         
+        
+}
+.menu3:active {
+	color: #000000;
+	text-decoration: underline;
+        font-size: 11px;
+        font-weight: normal;
+        
+} 
+.menu3:hover {
+	color: #000000;
+	text-decoration: underline;
+        
+        font-size: 11px;
+}
+.body_txt {
+	color: #494949;
+	text-align: justify;
+        font-size: 14px;
+	font-weight: normal;
+	
+        
+}
+
+.body_txt2{
+	color: #ffffff;
+	text-align: center;
+        font-size: 14px;
+	font-weight: normal;
+	
+        
+}
+.body_txt3{
+	color: #494949;
+	
+        font-size: 11px;
+	font-weight: normal;
+	
+        
+}
+.body_txt4{
+	color: #000000;
+	
+        font-size: 14px;
+	font-weight: normal;
+	
+        
+}
+.body_txt5{
+	color: #ffffff;
+	text-align: left;
+        font-size: 14px;
+	font-weight: normal;
+	
+        
+}
+.body_txt6{
+	color: #ffffff;
+	background-color:566a44;
+        font-size: 14px;
+	font-weight: normal;
+	
+        
+}
+.body_txt1{
+	color: #494949;
+        font-size: 14px;
+	font-weight: normal;
+	text-align: left;
+        
+}

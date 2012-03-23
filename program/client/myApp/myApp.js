@@ -220,6 +220,24 @@ $(document).ready(function(){
                 for(j=0;j<matrix.length;j++)
                     matrix[j].splice(i, 1);
         }
+        
+        /* remove the negative items */
+        var maxNegative = 0;
+        for(i=0;i<matrix.length;i++){
+            for(j=0;j<matrix[i].length;j++){
+                if(matrix[i][j]<0 && matrix[i][j]<maxNegative)
+                    maxNegative = matrix[i][j];
+            }
+        }
+        
+        if(maxNegative<0){
+            var summand = -maxNegative;
+            for(i=0;i<matrix.length;i++){
+                for(j=0;j<matrix[i].length;j++){
+                    matrix[i][j]+= summand;
+                }
+            }
+        }
   
         /* find infinity */
         /*var infinity = 0;
@@ -262,7 +280,7 @@ $(document).ready(function(){
             output += "\n";
             for(i=0;i<matrix.length;i++){
                 for(j=0;j<matrix[i].length;j++)
-                    output += matrix[i][j]+'y<sub>'+j+'</sub>' + ((j+1)<matrix[i].length?" + ":'');
+                    output += matrix[i][j]+'y<sub>'+(j+1)+'</sub>' + ((j+1)<matrix[i].length?" + ":'');
                 output += ' <= 1' + "\n";
             }
             output += 'y<sub>j</sub> >= 0. j = 1..' + j + "\n";
@@ -301,8 +319,6 @@ $(document).ready(function(){
                 }
                 return true;
             }
-            
-           //alert(dump(matrix));
             
             if(show_steps == 1){
                 var str = "<table border=1>";
@@ -373,29 +389,33 @@ $(document).ready(function(){
             //alert(dump(matrix));
             
             var Game_price = 0;
-            
-            var player1_strategies = Array(significant_elements);
+            var player2_strategies = Array(significant_elements);
             for(i=0;i<significant_elements;i++)
-                player1_strategies[i] = 0;
-            for(i=0;i<significant_elements;i++)
+                player2_strategies[i] = 0;
+            for(i=0;i<matrix.length;i++){
                 if(basis[i]<significant_elements){
-                    player1_strategies[basis[i]] = matrix[i][matrix[i].length-1];
+                    player2_strategies[basis[i]] = matrix[i][matrix[i].length-1];
                     Game_price += matrix[i][matrix[i].length-1];
                 }
+            }
 
-            player2_strategies_len = matrix[0].length-significant_elements-1;
-            var player2_strategies = Array(player2_strategies_len);
-            for(i=0;i<player2_strategies_len;i++)
-                player2_strategies[i] = -matrix[matrix.length-1][significant_elements+i];
-                
+            player1_strategies_len = matrix[0].length-significant_elements-1;
+            var player1_strategies = Array(player1_strategies_len);
+            for(i=0;i<player1_strategies_len;i++)
+                player1_strategies[i] = -matrix[matrix.length-1][significant_elements+i];
+
             Game_price = 1/Game_price;
                 
             for(i=0;i<significant_elements;i++)
-                player1_strategies[i] = Math.round((Game_price * player1_strategies[i] )*100)/100;
-            for(i=0;i<player2_strategies_len;i++)
                 player2_strategies[i] = Math.round((Game_price * player2_strategies[i] )*100)/100;
+            for(i=0;i<player1_strategies_len;i++)
+                player1_strategies[i] = Math.round((Game_price * player1_strategies[i] )*100)/100;
 
             Game_price = Math.round(Game_price*100)/100;
+            
+            if(maxNegative<0){
+                Game_price -= summand;
+            }
     
         }else
         if(method=='br'){
@@ -454,7 +474,11 @@ $(document).ready(function(){
 
             player1_strategies = player1_strategies.map(function(x){return Math.round((x/parties_count)*100)/100;});
             player2_strategies = player2_strategies.map(function(x){return Math.round((x/parties_count)*100)/100;});
-            var Game_price = (Math.round(((Math.max.apply(null, player2_sums) + Math.min.apply(null, player1_sums))/(parties_count*2))*100)/100);
+            var Game_price = (Math.round(((Math.min.apply(null, player2_sums) + Math.max.apply(null, player1_sums))/(parties_count*2))*100)/100);
+            
+            if(maxNegative<0){
+                Game_price -= summand;
+            }
         }else
         if(method == "graph"){
             /* Check for 2*n or n*2 */
@@ -574,6 +598,10 @@ $(document).ready(function(){
                     player1_strategies.push(1-Math.round(maxX*100)/100);
                     player1_strategies.push(Math.round(maxX*100)/100);
                     var Game_price = Math.round(maxY*100)/100;
+                    
+                    if(maxNegative<0){
+                        Game_price -= summand;
+                    }
                     
                     var player2_strategies = Array(matrix[0].length);
                     for(i=0;i<matrix[0].length;i++)

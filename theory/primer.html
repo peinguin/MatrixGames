@@ -1,0 +1,94 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=KOI8-R">
+	<title>Примеры матричных игр</title>
+<link type="text/css" href="primer_files/news.css" rel="stylesheet"><style>
+body a:Hover {color :  Yellow}
+.group1 {text-decoration: none; font-family: arial; font-size: 10pt; color: black}
+a:hover.group1 {text-decoration: none; font-family: arial, font-size: 8pt; color:Yellow}
+</style><style type="text/css">@media print { #feedlyMiniIcon { display: none; } }</style></head>
+
+
+<body data-feedly-processed="yes" bgcolor="#330099">
+<table class="lili" cellpadding="10" cellspacing="10" align="center" width="700">
+<tbody><tr>
+<td class="lili" valign="top">
+<p>  Содержание: </p>
+<a href="http://igpu.wavelink.ilimnet.ru/ksimt20042005/lili2/annot.html" class="group1">Краткая аннотация отдельных частей</a><br><br>
+<a href="http://igpu.wavelink.ilimnet.ru/ksimt20042005/lili2/vved.html" class="group1">Введение</a><br><br>
+<a href="http://igpu.wavelink.ilimnet.ru/ksimt20042005/lili2/osnpon.html" class="group1">
+1 Основные понятия<br> теории игр </a><br><br>
+<font color="Yellow" size="+1">2Матричные игры<br> разрешимые в чистых <br>стратегиях</font><br><br>
+<a href="http://igpu.wavelink.ilimnet.ru/ksimt20042005/lili2/smesh.html" class="group1">3 Матричные игры <br>в смешанных стратегиях</a><br><br>
+<a href="http://igpu.wavelink.ilimnet.ru/ksimt20042005/lili2/lit.html" class="group1">Список литературы</a><br><br>
+<a href="http://igpu.wavelink.ilimnet.ru/ksimt20042005/lili2/ia.html" class="group1">Об авторе</a><br><br>
+<a href="http://igpu.wavelink.ilimnet.ru/ksimt20042005/lili2/shist.html" class="group1">Назад</a><br><br>
+</td>
+<td>
+<font color="Yellow" size="+3">
+2.3 Примеры матричных игр<br></font>
+Рассмотрим несколько конфликтных ситуаций, моделями которых являются 
+матричные игры. 
+     Пример 1. (конкуренция фирм на рынке) Две фирмы конкурируют на 
+рынке. Первая фирма (игрок1) выпускает 3 вида продукции, а вторая фирма 
+(игрок 2)- 4 вида продукции. Каждая из них хотела бы продавать на рынке 
+один из своих товаров, но в зависимости от того, какой товар будет 
+продавать её конкурент, она может получить прибыль или потерпеть убытки.
+      Известна матрица А=(aij) выигрышей первой фирмы в зависимости от 
+ситуации , сложившейся на рынке. 
+                                 А=(52   -20   -30   34)
+                                      (38   10     25    15)
+                                      (28   -30    15    22)
+В i-ой строке этой матрицы находятся размеры аij прибыли (млн. руб.), 
+которую получит первая фирма при продаже i-ого товара, если вторая фирма
+ будет  представлена на рынке j-м товаром. Отрицательная величина аij 
+говорит о том , что в данной ситуации первая фирма терпит убытки, а 
+прибыль получает вторая. 
+     Первая фирма имеет три чистых стратегии {A1, A2,A3 }, где Ai- 
+продажа на рынке i-го вида продукции, соответствующие строкам матрицы А.
+ Вторая фирма имеет четыре чистых стратегии {В1, В2, В3, В4}, где Вj - 
+продажа на рынке j-ого вида продукции, которые соответствуют столбцам 
+матрицы А. Нужно определить оптимальную стратегию 
+ каждой из фирм . 
+Пример 2 (учёт потребительского спроса) Фирма планирует выпустить новую 
+модель одежды. Спрос потребителей на эту модель точно не известен, но 
+можно предположить, что его величина характеризуется 4-мя  возможными 
+состояниями (В1, В2, В3, В4). С учётом этих состояний проводится анализ 
+трёх возможных вариантов выпуска модели (А1, А2, А3). Каждый из них 
+требует определённых затрат и обеспечивает различный эффект. Прибыль 
+(млн. руб.), которую получит фирма при выборе данного варианта выпуска 
+модели и соответствующем уровне спроса определяется матрицей:
+                              А=(32    25   30   15) 
+                                   (35    26   32   27) 
+                                   (28    26   30   26)
+Нужно определить, какую модель следует выпускать фирме.
+    Эту ситуацию также можно рассматривать как игру двух лиц, в которой 
+игрок 1- фирма, а игрок 2- покупательский  спрос. Чистыми стратегиями 
+игрока 1 являются варианты выпуска моделей {А1, А2, А3}, которым 
+соответствуют строки матрицы А. Чистые стратегии игрока2- уровни спроса 
+на продукцию фирмы {В1, В2, В3, В4} (столбцы матрицы А). Если игрок 1 
+выберет строку i (i=1,3), а игрок 2 столбец j (j=1,4) матрицы А, то 
+выигрыш игрока 1 (проигрыш игрока2) будет равен значению элемента аij
+     Пример3 (игра в орлянку) Игроки одновременно показывают друг другу 
+по одной монете. Если их выборы совпадают, т. е. оба игрока показывают 
+"орёл" или "решку", то игрок 1 выигрывает единицу. В противном случае 
+такую же величину выигрывает игрок 2. Предполагается, что игра 
+повторяется несколько раз. Нужно определить, какой тактики должен 
+придерживаться каждый игрок, чтобы максимизировать свой средний выигрыш.
+ В этой игре игрок 1 имеет только два возможных хода: показать "орёл" 
+(А1) или показать "решку" (А2). Они являются его чистыми стратегиями. 
+Такие же чистые стратегии (В1- "орёл" и В2- "решка") имеет и игрок 2. 
+Матрица этой игры имеет такой вид: 
+                             А =(1   -1)
+                                   (-1  1)
+Игрок 1 выбирает строку, а игрок 2 - столбец матрицы А.. Пусть, 
+например, игрок 1 выбрал первую строку: показал "орёл". Тогда, если 
+игрок 2 выбрал первый столбец ("орёл"), то игрок 1 выигрывает величину 
+а11=1, а игрок 2 проигрывает эту величину. Если же игрок 2 выбрал второй
+ столбец ("решка"), то игрок 1 выигрывает величину а12=-1 т. е.   
+проигрывает 1, а игрок 2 выигрывает 1. Аналогично определяется результат
+ партии, если игрок 1 выберет вторую строку.
+
+
+
+
+</td></tr></tbody></table><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAYlJREFUeNrMVD1rwlAUPfkwBBxFKQQlDhmjqzj4F9w7FfwThZaW9n8UnDrrn1BEXNTBRQQhEE1ERRR0Sd990A7VaKJJ6YHzEu4N99z3zrsRGo2GAuCF8YFRQzSwGOuM7zJb3hgfES2o0SdGSWRLDfGhRgLpGAXS4q0VCoUCBEHwzd8skM/nUSqVoCjKybz8O1CtVn2LeZ4H27YxnU6xXC6x3+95PJPJoFKpoN1uY7vdnhfww3w+x3A4xGaz4d3quo5sNvuTTyaTXKTb7cJ13csCzWbzKKaqKj/zXC4HSZKO8iRcLpcxGAwwmUzC7UDTNBSLRSQSiVAeyUGNpM4v4XA4oNfr8eMMLJBKpWCaJn9fLBawLAur1Qq73Y6b/H0pyNyrTDYMA7PZDKPRCOv1+uQ3ZCqZe9UcOI6DTqfjW5zMbLVa3Bu6RaE9GI/HZ/P9fp8/qfipYROj+ukEnuQgEx0GImKGHGSC//UO/kTAibG+QwIfMQrUyeRXusaM94x3ERW2GT8Zn78EGACRmoKUJhB1TQAAAABJRU5ErkJggg==" style="position: fixed; bottom: 14px; right: 14px; z-index: 99; cursor: pointer; border: 0px none; visibility: visible; width: 24px; height: 24px; max-height: 24px; max-width: 24px; overflow: hidden; display: block; padding: 0px; opacity: 0.35;" title="feedly mini" id="feedlyMiniIcon" height="24" width="24"></body></html>

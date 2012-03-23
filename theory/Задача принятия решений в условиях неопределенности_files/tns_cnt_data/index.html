@@ -1,0 +1,29 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"></head>
+<body>
+<span id="p">+7(777)7777777</span>
+<script type="text/javascript">
+try{
+	var ar_ok = 'http://ad.adriver.ru/cgi-bin/rle.cgi?sid=1&ad=315811&bt=21&pid=738067&bid=1484339&bn=1484339&rnd=1757480455';
+
+	function send_pix(src){
+		if(document.createElement&&document.body){
+			var i=document.createElement('img');
+			i.style.position='absolute';i.style.width=i.style.height='0px';
+			i.src=src;
+			document.body.insertBefore(i, document.body.firstChild);
+		}
+		else{new Image().src = src}
+	}
+
+	window.onload = function(){
+		setTimeout(function(){
+			var hasSkype = document.getElementById('p').firstChild.nodeType;
+			if (1 == hasSkype) send_pix(ar_ok);
+		}, 1000);
+	}
+}catch(e){}
+</script>
+
+
+</body></html>

@@ -1,0 +1,49 @@
+.lili {border-color: #009933;
+	border-width:1px;
+	border-style: solid;}
+
+.zag{
+	border-width:1px;
+	border-style:  solid solid none solid;
+	font-magenta: 20px;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#FF0033;
+	font-weight:bold;
+	background-color:blue;
+	text-align:center;
+	text-decoration: underline blink;
+	font-size: 20px;
+	font-style: italic;
+	border-color: #009933;
+	border-width:1px;
+	border-style: solid;
+table{
+	font-size: 12px;
+	font-style: normal;
+}
+ol{font-magenta:12px;font-family:Comic Sans MS; color:red;}
+content{text-align:left;}
+.foot{
+	text-align:right;
+	font-size:14px;
+	background-color: #000066;
+	color:#FFFFFF;
+	font-style: italic;
+	text-decoration: overline;
+	border: medium dotted;
+	font-family: "Times New Roman", Times, serif;
+}
+.razdel{
+	font-magenta:11px;
+	color:#6600ee;
+	background-color:#000066;
+	font-family: "Times New Roman", Times, serif;
+	font-size: 14px;
+	border: medium dotted;
+	text-decoration: underline;
+}
+a{font-magenta:15px;font-family:Comic Sans MS; color:green;}
+<STYLE TYPE="text/css">
+<!--
+a:hover {color: greenyellow; mso-bidi-font-size:12pt}
+--></STYLE>
