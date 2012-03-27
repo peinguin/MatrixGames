@@ -221,24 +221,25 @@ $(document).ready(function(){
                     matrix[j].splice(i, 1);
         }
         
-        /* remove the negative items */
-        var maxNegative = 0;
-        for(i=0;i<matrix.length;i++){
-            for(j=0;j<matrix[i].length;j++){
-                if(matrix[i][j]<0 && matrix[i][j]<maxNegative)
-                    maxNegative = matrix[i][j];
-            }
-        }
-        
-        if(maxNegative<0){
-            var summand = -maxNegative;
+        if(method=='graph'){
+            /* remove the negative items */
+            var maxNegative = 0;
             for(i=0;i<matrix.length;i++){
                 for(j=0;j<matrix[i].length;j++){
-                    matrix[i][j]+= summand;
+                    if(matrix[i][j]<0 && matrix[i][j]<maxNegative)
+                        maxNegative = matrix[i][j];
+                }
+            }
+            
+            if(maxNegative<0){
+                var summand = -maxNegative;
+                for(i=0;i<matrix.length;i++){
+                    for(j=0;j<matrix[i].length;j++){
+                        matrix[i][j]+= summand;
+                    }
                 }
             }
         }
-  
         /* find infinity */
         /*var infinity = 0;
         for(i=0;i<matrix.length;i++)
@@ -340,14 +341,27 @@ $(document).ready(function(){
                 var minRow = undefined; // column to search minimal division
                 
                 for(i=0;i<matrix.length-1;i++)
-                    if(matrix[i][matrix[i].length-1]<0)
-                        if(minRow == undefined || max<Math.abs(matrix[i][matrix[i].length-1])){
-                            max = Math.abs(matrix[matrix.length-1][i]);
-                            minRow = i;
+                    if(matrix[i][matrix[i].length-1]<0){
+                        if(matrix[i][matrix[i].length-1] < 0){
+                            is_neg = false;
+                            for(j=0;j<matrix[i].length-1;j++){
+                                if(matrix[i][j]<0)is_neg = true;
+                                break;
+                            }
+                            if(is_neg && minRow == undefined || max<Math.abs(matrix[i][matrix[i].length-1])){
+                                max = Math.abs(matrix[matrix.length-1][i]);
+                                minRow = i;
+                            }
                         }
+                    }
 
                 var min     = undefined; // minimal division
                 var minCell = undefined; // row with minimal division
+                
+                if(minRow == undefined){
+                    alert ('Has no solution by simplex method');
+                    return;
+                }
 
                 for(j=0;j<matrix[minRow].length-1;j++){
                     if(matrix[minRow][j] < 0){
@@ -386,7 +400,7 @@ $(document).ready(function(){
                 }
             }
             
-            //alert(dump(matrix));
+            alert(dump(matrix));
             
             var Game_price = 0;
             var player2_strategies = Array(significant_elements);
