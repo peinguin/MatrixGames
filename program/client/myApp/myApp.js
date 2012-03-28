@@ -221,7 +221,45 @@ $(document).ready(function(){
                     matrix[j].splice(i, 1);
         }
         
-        if(method=='graph'){
+        /* find dominant colls and rows */
+        for(i=0;i<matrix.length;i++){
+            for(k=0;k<matrix.length;k++){
+                if(i!=k){
+                    dominant = true;
+                    for(j=0;j<matrix[i].length;j++){
+                        if(matrix[i][j] > matrix[k][j]){
+                            dominant = false;
+                            break;
+                        }
+                    }
+                    if(dominant){
+                        matrix.splice(k, 1);
+                        k = k - 1;
+                    }
+                }
+            }
+        }
+        
+        for(i=0;i<matrix[0].length;i++){
+            for(k=0;k<matrix[0].length;k++){
+                if(i!=k){
+                    dominant = true;
+                    for(j=0;j<matrix.length;j++){
+                        if(matrix[j][i] > matrix[j][k]){
+                            dominant = false;
+                            break;
+                        }
+                    }
+                    if(dominant){
+                        for(j=0;j<matrix.length;j++){
+                            matrix[j].splice(k, 1);
+                        }
+                        k = k - 1;
+                    }
+                }
+            }
+        }
+
             /* remove the negative items */
             var maxNegative = 0;
             for(i=0;i<matrix.length;i++){
@@ -239,7 +277,7 @@ $(document).ready(function(){
                     }
                 }
             }
-        }
+
         /* find infinity */
         /*var infinity = 0;
         for(i=0;i<matrix.length;i++)
@@ -400,8 +438,6 @@ $(document).ready(function(){
                 }
             }
             
-            alert(dump(matrix));
-            
             var Game_price = 0;
             var player2_strategies = Array(significant_elements);
             for(i=0;i<significant_elements;i++)
@@ -496,7 +532,7 @@ $(document).ready(function(){
         }else
         if(method == "graph"){
             /* Check for 2*n or n*2 */
-            if(matrix.length == 2 || matrix[0].length == 2){
+            if((matrix.length == 2 && matrix[0].length > 1) || (matrix[0].length == 2 && matrix.length>1)){
                 /*  */
                 var n2 = false;
                 if(matrix[0].length == 2 && matrix.length != 2){
@@ -508,7 +544,12 @@ $(document).ready(function(){
                 var max = (Math.max.apply(null, matrix[0].concat(matrix[1])));
                 
                 var maxX;
-                var maxY = min-1;
+                if(!n2){
+                    var targY = min-1;
+                }else{
+                    var targY = max+1;
+                }
+                
                 var ActiveStrategy1, ActiveStrategy2;
                 
                 $.fancybox('<canvas id="graph" width="300" height="400"></canvas>');
@@ -580,21 +621,35 @@ $(document).ready(function(){
                                     var x = ((x1*y2-x2*y1)*(x4-x3)-(x3*y4-x4*y3)*(x2-x1))/((y1-y2)*(x4-x3)-(y3-y4)*(x2-x1));
                                     var y = ((y3-y4)*x-(x3*y4-x4*y3))/(x4-x3);
 
-                                    /* in minimals */
-                                    var in_minimals = true;
-                                    for(k=0;k<matrix[0].length;k++){
-                                        var x1 = 0;
-                                        var x2 = 1;
-                                        
-                                        var y1 = matrix[0][k];
-                                        var y2 = matrix[1][k];
-                                        
-                                        if(((y1-y2)*x-(x1*y2-x2*y1))/(x2-x1) < y || -x<0 || -x>1)
-                                            in_minimals = false;
+                                    if(!n2){
+                                        /* in minimals */
+                                        var cond = true;
+                                        for(k=0;k<matrix[0].length;k++){
+                                            var x1 = 0;
+                                            var x2 = 1;
+                                            
+                                            var y1 = matrix[0][k];
+                                            var y2 = matrix[1][k];
+                                            
+                                            if(((y1-y2)*x-(x1*y2-x2*y1))/(x2-x1) < y || -x<0 || -x>1)
+                                                cond = false;
+                                        }
+                                    }else{
+                                        /* in maximals */
+                                        var cond = true;
+                                        for(k=0;k<matrix[0].length;k++){
+                                            var x1 = 0;
+                                            var x2 = 1;
+                                            
+                                            var y1 = matrix[0][k];
+                                            var y2 = matrix[1][k];
+                                            
+                                            if(((y1-y2)*x-(x1*y2-x2*y1))/(x2-x1) > y || -x<0 || -x>1)
+                                                cond = false;
+                                        }
                                     }
-
-                                    if(in_minimals && y>maxY){
-                                        maxY = y;
+                                    if(cond && ((y<targY && n2) || (y>targY && !n2))){
+                                        targY = y;
                                         maxX = -x;
                                         ActiveStrategy1 = i;
                                         ActiveStrategy2 = j;
@@ -603,15 +658,16 @@ $(document).ready(function(){
                             }
                         }
                     }
+                    
                     ctx.fillStyle="#ff0000";
 
-                    ctx.moveTo(280*maxX+11, 380+(-maxY+min)*price);
-                    ctx.arc(280*maxX+11, 380+(-maxY+min)*price, 3, 0, 2*Math.PI, false);
+                    ctx.moveTo(280*maxX+11, 380+(-targY+min)*price);
+                    ctx.arc(280*maxX+11, 380+(-targY+min)*price, 3, 0, 2*Math.PI, false);
                     setTimeout(function() {ctx.fill();},4500);
                     var player1_strategies = Array();
-                    player1_strategies.push(1-Math.round(maxX*100)/100);
+                    player1_strategies.push(Math.round((1-maxX)*100)/100);
                     player1_strategies.push(Math.round(maxX*100)/100);
-                    var Game_price = Math.round(maxY*100)/100;
+                    var Game_price = Math.round(targY*100)/100;
                     
                     if(maxNegative<0){
                         Game_price -= summand;
@@ -632,7 +688,7 @@ $(document).ready(function(){
                     /*player2_strategies[ActiveStrategy2] = Math.round((-(Game_price-matrix[0][ActiveStrategy1]*(Game_price/matrix[1][ActiveStrategy1]))/(matrix[0][ActiveStrategy1]*(matrix[1][ActiveStrategy2]/matrix[1][ActiveStrategy1])+matrix[0][ActiveStrategy2]))*100)/100;
                     player2_strategies[ActiveStrategy1] = Math.round(((Game_price-matrix[1][ActiveStrategy2]*player2_strategies[ActiveStrategy2])/matrix[1][ActiveStrategy1])*100)/100;*/
  
-                    if(n2){
+                    if(!n2){
                         var tmp = $.extend(true, [], player1_strategies);
                         player1_strategies = player2_strategies;
                         player2_strategies = tmp;
