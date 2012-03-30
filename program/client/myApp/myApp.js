@@ -278,13 +278,6 @@ $(document).ready(function(){
                 }
             }
 
-        /* find infinity */
-        /*var infinity = 0;
-        for(i=0;i<matrix.length;i++)
-            for(j=0;j<matrix[i].length;j++)
-                if(matrix[i][j]>infinity)infinity = matrix[i][j];
-        infinity++;*/
-
         var method = $('#params_method input[type="radio"]:checked').val();
         
         var output = '<pre>';
@@ -669,10 +662,6 @@ $(document).ready(function(){
                     player1_strategies.push(Math.round(maxX*100)/100);
                     var Game_price = Math.round(targY*100)/100;
                     
-                    if(maxNegative<0){
-                        Game_price -= summand;
-                    }
-                    
                     var player2_strategies = Array(matrix[0].length);
                     for(i=0;i<matrix[0].length;i++)
                         player2_strategies[i] = 0;
@@ -685,9 +674,10 @@ $(document).ready(function(){
                     player2_strategies[ActiveStrategy2] = Math.round(deltay*100/delta)/100;
                     player2_strategies[ActiveStrategy1] = Math.round(deltax*100/delta)/100;;
                     
-                    /*player2_strategies[ActiveStrategy2] = Math.round((-(Game_price-matrix[0][ActiveStrategy1]*(Game_price/matrix[1][ActiveStrategy1]))/(matrix[0][ActiveStrategy1]*(matrix[1][ActiveStrategy2]/matrix[1][ActiveStrategy1])+matrix[0][ActiveStrategy2]))*100)/100;
-                    player2_strategies[ActiveStrategy1] = Math.round(((Game_price-matrix[1][ActiveStrategy2]*player2_strategies[ActiveStrategy2])/matrix[1][ActiveStrategy1])*100)/100;*/
- 
+                    if(maxNegative<0){
+                        Game_price -= summand;
+                    }
+
                     if(!n2){
                         var tmp = $.extend(true, [], player1_strategies);
                         player1_strategies = player2_strategies;
