@@ -1,5 +1,6 @@
 var http = require("http");
-var url = require("url");
+var io   = require('socket.io');
+var url  = require("url");
 
 function start(route, handle) {
   function onRequest(request, response) {
@@ -9,6 +10,14 @@ function start(route, handle) {
   }
 
   http.createServer(onRequest).listen(8888);
+  io.listen(http);
+  
+  io.sockets.on('connection', function (socket) {
+    socket.on('symplex', function (data) {
+      console.log(data);
+    });
+  });
+  
   console.log("Server has started.");
 }
 

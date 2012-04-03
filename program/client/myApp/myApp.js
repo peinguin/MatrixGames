@@ -202,357 +202,43 @@ $(document).ready(function(){
             });
             matrix.push(arr);
         });
-        
-        /* Deleting null-lines */
-        for(i=matrix.length-1;i>=0;i--){
-            free = true;
-            for(j=0;j<matrix[i].length;j++)
-                if(matrix[i][j] != 0) free = false;
-            if(free)
-                matrix.splice(i, 1);
-        }
-        
-        for(i=matrix[0].length-1;i>=0;i--){
-            free = true;
-            for(j=0;j<matrix.length;j++)
-                if(matrix[j][i] != 0) free = false;
-            if(free)
-                for(j=0;j<matrix.length;j++)
-                    matrix[j].splice(i, 1);
-        }
-        
-        /* find dominant colls and rows */
-        for(i=0;i<matrix.length;i++){
-            for(k=0;k<matrix.length;k++){
-                if(i!=k){
-                    dominant = true;
-                    for(j=0;j<matrix[i].length;j++){
-                        if(matrix[i][j] > matrix[k][j]){
-                            dominant = false;
-                            break;
-                        }
-                    }
-                    if(dominant){
-                        matrix.splice(k, 1);
-                        k = k - 1;
-                    }
-                }
-            }
-        }
-        
-        for(i=0;i<matrix[0].length;i++){
-            for(k=0;k<matrix[0].length;k++){
-                if(i!=k){
-                    dominant = true;
-                    for(j=0;j<matrix.length;j++){
-                        if(matrix[j][i] > matrix[j][k]){
-                            dominant = false;
-                            break;
-                        }
-                    }
-                    if(dominant){
-                        for(j=0;j<matrix.length;j++){
-                            matrix[j].splice(k, 1);
-                        }
-                        k = k - 1;
-                    }
-                }
-            }
-        }
 
+        var computation_place = $('#params_where input[type="radio"]:checked').val();
+        if(computation_place == 'device'){
+            
+            /* Deleting null-lines */
+            matrix = delete_null_lines(matrix);
+        
+            /* find dominant colls and rows */
+            matrix = find_dominant_colls_and_rows(matrix);
+            
+    
             /* remove the negative items */
             var maxNegative = 0;
-            for(i=0;i<matrix.length;i++){
-                for(j=0;j<matrix[i].length;j++){
-                    if(matrix[i][j]<0 && matrix[i][j]<maxNegative)
-                        maxNegative = matrix[i][j];
-                }
-            }
+            matrix = remove_the_negative_items(matrix);
+    
+            var method = $('#params_method input[type="radio"]:checked').val();
             
-            if(maxNegative<0){
-                var summand = -maxNegative;
-                for(i=0;i<matrix.length;i++){
-                    for(j=0;j<matrix[i].length;j++){
-                        matrix[i][j]+= summand;
-                    }
-                }
-            }
-
-        var method = $('#params_method input[type="radio"]:checked').val();
-        
-        var output = '<pre>';
-        
-        var basis = Array(matrix.length);
-        if(method=='symplex'){
-            
-            output += 'Resolving:' + "\n";
-            output += "\n";
-            output += 'For first player:' + "\n";
-            output += 'F = ';
-            for(i=0;i<matrix.length;i++)
-                output += (i>0?'+':'')+' x<sub>'+(i+1)+'</sub> ';
-            output += ' → min' + "\n";
-            output += "\n";
-            output += 'With constraints:' + "\n";
-            output += "\n";
-            for(i=0;i<matrix[0].length;i++){
-                for(j=0;j<matrix.length;j++)
-                    output += matrix[j][i]+'x<sub>'+(j+1)+'</sub>' + ((j+1)<matrix.length?" + ":'');
-                output += ' >= 1' + "\n";
-            }
-            output += 'x<sub>j</sub> >= 0. j = 1..' + j + "\n";
-            output += "\n";
-            output += 'For secong player:' + "\n";
-            output += 'Ф = ';
-            for(i=0;i<matrix.length;i++)
-                output += (i>0?'+':'')+' y<sub>'+(i+1)+'</sub> ';
-            output += '→ max' + "\n";
-            output += "\n";
-            output += 'With constraints:' + "\n";
-            output += "\n";
-            for(i=0;i<matrix.length;i++){
-                for(j=0;j<matrix[i].length;j++)
-                    output += matrix[i][j]+'y<sub>'+(j+1)+'</sub>' + ((j+1)<matrix[i].length?" + ":'');
-                output += ' <= 1' + "\n";
-            }
-            output += 'y<sub>j</sub> >= 0. j = 1..' + j + "\n";
-            output += "\n";
-            
-            //Приведем систему ограничений к системе неравенств смысла ≤, умножив соответствующие строки на (-1).
-            for(i=0;i<matrix.length;i++)
-                for(j=0;j<matrix[i].length;j++)
-                    matrix[i][j] *= -1;
-            //Transpose (for dual simplex method)
-            matrix = transpose(matrix);
+            var output = '<pre>';
             
             var basis = Array(matrix.length);
-            var F = Array(matrix.length);
-            var l = matrix.length;
-            var significant_elements = matrix[0].length;
-            for(i=0;i<l;i++)
-                for(j=0;j<l;j++){
-                    if(j==i){
-                        matrix[i].push(1);
-                        basis[i] = significant_elements+j;
-                    }else
-                        matrix[i].push(0);
-                    if(j==(l-1))
-                        matrix[i].push(-1);
-                }
-            var arr = Array(matrix[0].length);
-            for(i=0;i<matrix[0].length;i++)
-                if(i<significant_elements)arr[i] = -1;
-                else arr[i] = 0;
-            matrix.push(arr);
-            
-            function is_FcoefPositive(Arr){
-                for(i=0;i<Arr.length;i++){
-                    if(Arr[i][Arr[i].length-1]<0) return false;
-                }
-                return true;
-            }
-            
-            if(show_steps == 1){
-                var str = "<table border=1>";
+            if(method=='symplex'){
+                var result = symplex(matrix);
+            }else
+            if(method=='br'){
+                var result = BraunRobinson(matrix);
+            }else
+            if(method == "graph"){
                 
-                for(i=0;i<matrix.length;i++){
-                    str += "<tr>";
-                    str += "<td>"+basis[i]+"</td>";
-                    str += "<td>";
-                    str += matrix[i].map(function(x){return Math.round(x*100)/100;}).join('</td><td>');
-                    str += "</td></tr>";
-                }
-                str += "</table>";
-                $("#resultArea").html($("#resultArea").html()+str+"<br />");
-            }
-            
-            while(!is_FcoefPositive(matrix)){
-                
-                var max    = undefined; // minimal coefficient
-                var minRow = undefined; // column to search minimal division
-                
-                for(i=0;i<matrix.length-1;i++)
-                    if(matrix[i][matrix[i].length-1]<0){
-                        if(matrix[i][matrix[i].length-1] < 0){
-                            is_neg = false;
-                            for(j=0;j<matrix[i].length-1;j++){
-                                if(matrix[i][j]<0)is_neg = true;
-                                break;
-                            }
-                            if(is_neg && minRow == undefined || max<Math.abs(matrix[i][matrix[i].length-1])){
-                                max = Math.abs(matrix[matrix.length-1][i]);
-                                minRow = i;
-                            }
-                        }
-                    }
+                var result = Nx2xN(marix);
 
-                var min     = undefined; // minimal division
-                var minCell = undefined; // row with minimal division
-                
-                if(minRow == undefined){
-                    alert ('Has no solution by simplex method');
-                    return;
-                }
-
-                for(j=0;j<matrix[minRow].length-1;j++){
-                    if(matrix[minRow][j] < 0){
-                        if(minCell == undefined || min>Math.abs(matrix[matrix.length-1][j]/matrix[minRow][j])){
-                            min = Math.abs(matrix[matrix.length-1][j]/matrix[minRow][j]);
-                            minCell = j;
-                        }
-                    }
-                }
-                if(show_steps)
-                    $("#resultArea").html($("#resultArea").html()+'<p>'+minRow+' '+minCell+"</p>");
-                
-                basis[minRow] = minCell;
-                //Next step
-                var tmpMatrix = $.extend(true, [], matrix);
-                for(i=0;i<matrix.length;i++)
-                    for(j=0;j<matrix[i].length;j++){
-                        if(i != minRow)
-                            matrix[i][j] = (tmpMatrix[i][j]*tmpMatrix[minRow][minCell]-tmpMatrix[minRow][j]*tmpMatrix[i][minCell])/tmpMatrix[minRow][minCell];
-                        else
-                            matrix[i][j] = tmpMatrix[i][j]/tmpMatrix[minRow][minCell];
-                    }
-                
-                //Show steps
-                if(show_steps == 1){
-                    var str = "<table border=1>";
-                    for(i=0;i<matrix.length;i++){
-                        str += "<tr>";
-                        str += "<td>"+basis[i]+"</td>";
-                        str += "<td>";
-                        str += matrix[i].map(function(x){return Math.round(x*100)/100;}).join('</td><td>');
-                        str += "</td></tr>";
-                    }
-                    str += "</table>";
-                    $("#resultArea").html($("#resultArea").html()+str+"<br />");
-                }
-            }
-            
-            var Game_price = 0;
-            var player2_strategies = Array(significant_elements);
-            for(i=0;i<significant_elements;i++)
-                player2_strategies[i] = 0;
-            for(i=0;i<matrix.length;i++){
-                if(basis[i]<significant_elements){
-                    player2_strategies[basis[i]] = matrix[i][matrix[i].length-1];
-                    Game_price += matrix[i][matrix[i].length-1];
-                }
-            }
-
-            player1_strategies_len = matrix[0].length-significant_elements-1;
-            var player1_strategies = Array(player1_strategies_len);
-            for(i=0;i<player1_strategies_len;i++)
-                player1_strategies[i] = -matrix[matrix.length-1][significant_elements+i];
-
-            Game_price = 1/Game_price;
-                
-            for(i=0;i<significant_elements;i++)
-                player2_strategies[i] = Math.round((Game_price * player2_strategies[i] )*100)/100;
-            for(i=0;i<player1_strategies_len;i++)
-                player1_strategies[i] = Math.round((Game_price * player1_strategies[i] )*100)/100;
-
-            Game_price = Math.round(Game_price*100)/100;
-            
-            if(maxNegative<0){
-                Game_price -= summand;
-            }
-    
-        }else
-        if(method=='br'){
-            
-            var parties_count = 10000;
-            
-            var player1_strategy = undefined;
-            var player2_strategy = undefined;
-            var u = undefined;
-            var w = undefined;
-            
-            var player1_strategies = Array(matrix[0].length);
-                for(i=0;i<player1_strategies.length;i++)player1_strategies[i] = 0;
-            var player2_strategies = Array(matrix.length);
-                for(i=0;i<player2_strategies.length;i++)player2_strategies[i] = 0;
-                
-            var player1_sums = Array(matrix.length);
-                for(i=0;i<player1_sums.length;i++)player1_sums[i] = 0;
-            var player2_sums = Array(matrix[0].length);
-                for(i=0;i<player2_sums.length;i++)player2_sums[i] = 0;
-                
-            var part_number;
-            for(part_number=0;part_number<parties_count;part_number++){
-                
-                var max = 0;
-                if(player1_strategy == undefined){
-                    for(i=0;i<matrix.length;i++)
-                        for(j=0;j<matrix[i].length;j++)
-                            if(matrix[i][j]>max){
-                                player2_strategy = i;
-                                max = matrix[i][j];
-                            }
-                    player1_strategy = 0;
-                }else{
-                    for(i=0;i<player1_sums.length;i++)
-                        if(player1_sums[i]>player1_sums[player2_strategy]){
-                            player2_strategy = i;
-                        }
-                }
-                
-                player2_strategies[player2_strategy]++;
-                for(i=0;i<matrix[player2_strategy].length;i++)
-                    player2_sums[i]+=matrix[player2_strategy][i];
-                
-                for(i=0;i<player2_sums.length;i++){
-                    if(player2_sums[i]<player2_sums[player1_strategy]){
-                        player1_strategy = i;
-                    }
-                }
-                
-                player1_strategies[player1_strategy]++;
-                    
-                for(i=0;i<matrix.length;i++)
-                    player1_sums[i]+=matrix[i][player1_strategy];
-            }
-
-            player1_strategies = player1_strategies.map(function(x){return Math.round((x/parties_count)*100)/100;});
-            player2_strategies = player2_strategies.map(function(x){return Math.round((x/parties_count)*100)/100;});
-            var Game_price = (Math.round(((Math.min.apply(null, player2_sums) + Math.max.apply(null, player1_sums))/(parties_count*2))*100)/100);
-            
-            if(maxNegative<0){
-                Game_price -= summand;
-            }
-        }else
-        if(method == "graph"){
-            /* Check for 2*n or n*2 */
-            if((matrix.length == 2 && matrix[0].length > 1) || (matrix[0].length == 2 && matrix.length>1)){
-                /*  */
-                var n2 = false;
-                if(matrix[0].length == 2 && matrix.length != 2){
-                    n2 = true;
-                    matrix = transpose(matrix);
-                }
-                
-                var min = (Math.min.apply(null, matrix[0].concat(matrix[1])));
-                var max = (Math.max.apply(null, matrix[0].concat(matrix[1])));
-                
-                var maxX;
-                if(!n2){
-                    var targY = min-1;
-                }else{
-                    var targY = max+1;
-                }
-                
-                var ActiveStrategy1, ActiveStrategy2;
-                
                 $.fancybox('<canvas id="graph" width="300" height="400"></canvas>');
-                
                 var canvas = document.getElementById('graph');
                 var ctx = canvas.getContext('2d');
                 if (canvas.getContext){
-                  
+                      
                     ctx.fillStyle="#000";
-                  
+                      
                     ctx.moveTo(20,20);
                     ctx.lineTo(20,390);
                     setTimeout(function() {ctx.stroke();},500);
@@ -564,129 +250,51 @@ $(document).ready(function(){
                     ctx.font = "15px Arial";
                     ctx.fillText("u", 0, 30);
                     setTimeout(function() {ctx.stroke();},1500);
-                    
+                        
                     ctx.moveTo(280,20);
                     ctx.lineTo(280,390);
                     setTimeout(function() {ctx.stroke();},2000);
-               
-                    var price = 280/(max-min);
-                    if(max>0 && min<0){
-                        ctx.moveTo(0,  380+min*price);
-                        ctx.lineTo(300,380+min*price);
+                   
+                    var price = 280/(result['max']-result['min']);
+                    if(result['max']>0 && result['min']<0){
+                        ctx.moveTo(0,  380+result['min']*price);
+                        ctx.lineTo(300,380+result['min']*price);
                         setTimeout(function() {ctx.stroke();},2500);
-                        ctx.moveTo(300,380+min*price);
-                        ctx.lineTo(287,380+min*price-3);
-                        ctx.moveTo(300,380+min*price);
-                        ctx.lineTo(287,380+min*price+3);
+                        ctx.moveTo(300,380+result['min']*price);
+                        ctx.lineTo(287,380+result['min']*price-3);
+                        ctx.moveTo(300,380+result['min']*price);
+                        ctx.lineTo(287,380+result['min']*price+3);
                         setTimeout(function() {ctx.stroke();},3000);
                     }
-                    
+                        
                     for(i=0;i<2;i++)
                         for(j=0;j<matrix[i].length;j++){
-                            ctx.moveTo(20+i*260-3,380+(-matrix[i][j]+min)*price);
-                            ctx.lineTo(20+i*260+3,380+(-matrix[i][j]+min)*price);
-                            ctx.fillText(matrix[i][j], 20+i*260-20,380+(-matrix[i][j]+min)*price);
+                            ctx.moveTo(20+i*260-3,380+(-matrix[i][j]+result['min'])*price);
+                            ctx.lineTo(20+i*260+3,380+(-matrix[i][j]+result['min'])*price);
+                            ctx.fillText(matrix[i][j], 20+i*260-20,380+(-matrix[i][j]+result['min'])*price);
                             setTimeout(function() {ctx.stroke();},3500+500*i);
                         }
-                        
+                            
                     for(i=0;i<matrix[0].length;i++){
-                        ctx.moveTo(20,380+(-matrix[0][i]+min)*price);
-                        ctx.lineTo(280,380+(-matrix[1][i]+min)*price);
+                        ctx.moveTo(20,380+(-matrix[0][i]+result['min'])*price);
+                        ctx.lineTo(280,380+(-matrix[1][i]+result['min'])*price);
                         setTimeout(function() {ctx.stroke();},4000+500*i);
                     }
-                    
-                    /* find all points of intersection */
-                    for(i=0;i<matrix[0].length;i++){
-                        for(j=0;j<matrix[0].length;j++){
-                            if(i!=j){
-                                /* not parallel */
-                                if(matrix[0][i]-matrix[0][j] != matrix[1][i]-matrix[1][j]){
-                                    var x1 = 0;
-                                    var x2 = 1;
-                                    var x3 = 0;
-                                    var x4 = 1;
-                                    
-                                    var y1 = matrix[0][i];
-                                    var y2 = matrix[1][i];
-                                    var y3 = matrix[0][j];
-                                    var y4 = matrix[1][j];
-                                    
-                                    var x = ((x1*y2-x2*y1)*(x4-x3)-(x3*y4-x4*y3)*(x2-x1))/((y1-y2)*(x4-x3)-(y3-y4)*(x2-x1));
-                                    var y = ((y3-y4)*x-(x3*y4-x4*y3))/(x4-x3);
-
-                                    if(!n2){
-                                        /* in minimals */
-                                        var cond = true;
-                                        for(k=0;k<matrix[0].length;k++){
-                                            var x1 = 0;
-                                            var x2 = 1;
-                                            
-                                            var y1 = matrix[0][k];
-                                            var y2 = matrix[1][k];
-                                            
-                                            if(((y1-y2)*x-(x1*y2-x2*y1))/(x2-x1) < y || -x<0 || -x>1)
-                                                cond = false;
-                                        }
-                                    }else{
-                                        /* in maximals */
-                                        var cond = true;
-                                        for(k=0;k<matrix[0].length;k++){
-                                            var x1 = 0;
-                                            var x2 = 1;
-                                            
-                                            var y1 = matrix[0][k];
-                                            var y2 = matrix[1][k];
-                                            
-                                            if(((y1-y2)*x-(x1*y2-x2*y1))/(x2-x1) > y || -x<0 || -x>1)
-                                                cond = false;
-                                        }
-                                    }
-                                    if(cond && ((y<targY && n2) || (y>targY && !n2))){
-                                        targY = y;
-                                        maxX = -x;
-                                        ActiveStrategy1 = i;
-                                        ActiveStrategy2 = j;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    
+    
                     ctx.fillStyle="#ff0000";
-
-                    ctx.moveTo(280*maxX+11, 380+(-targY+min)*price);
-                    ctx.arc(280*maxX+11, 380+(-targY+min)*price, 3, 0, 2*Math.PI, false);
+    
+                    ctx.moveTo(280*result['maxX']+11, 380+(-result['targY']+result['min'])*price);
+                    ctx.arc(280*result['maxX']+11, 380+(-result['targY']+result['min'])*price, 3, 0, 2*Math.PI, false);
                     setTimeout(function() {ctx.fill();},4500);
-                    var player1_strategies = Array();
-                    player1_strategies.push(Math.round((1-maxX)*100)/100);
-                    player1_strategies.push(Math.round(maxX*100)/100);
-                    var Game_price = Math.round(targY*100)/100;
-                    
-                    var player2_strategies = Array(matrix[0].length);
-                    for(i=0;i<matrix[0].length;i++)
-                        player2_strategies[i] = 0;
-                    
-                    
-                    delta  = matrix[0][ActiveStrategy1]*matrix[1][ActiveStrategy2]-matrix[0][ActiveStrategy2]*matrix[1][ActiveStrategy1];
-                    deltax = Game_price*matrix[1][ActiveStrategy2]-matrix[0][ActiveStrategy2]*Game_price;
-                    deltay = Game_price*matrix[0][ActiveStrategy1]-matrix[1][ActiveStrategy1]*Game_price;
-                    
-                    player2_strategies[ActiveStrategy2] = Math.round(deltay*100/delta)/100;
-                    player2_strategies[ActiveStrategy1] = Math.round(deltax*100/delta)/100;;
-                    
-                    if(maxNegative<0){
-                        Game_price -= summand;
-                    }
-
-                    if(!n2){
-                        var tmp = $.extend(true, [], player1_strategies);
-                        player1_strategies = player2_strategies;
-                        player2_strategies = tmp;
-                    }
-                }  
-            }else{
-                output += 'The system has not the form 2*n or n*2' + "\n";
+                }
+                
             }
+        }else if(computation_place == 'server'){
+            var socket = io.connect('http://localhost');
+            socket.on('news', function (data) {
+              console.log(data);
+              socket.emit('my other event', { my: 'data' });
+            });
         }
         
         if(method=='br'){
@@ -696,12 +304,12 @@ $(document).ready(function(){
             output += 'Using symplex method' + "\n";
             output += "\n"+'Result:' + "\n";
         }
-        if(player1_strategies != undefined)
-            output += 'x<sup>*</sup>(' + player1_strategies.join('; ')+ ')'+"\n";
-        if(player2_strategies != undefined)
-            output += 'y<sup>*</sup>(' + player2_strategies.join('; ')+ ')'+"\n";
-        if(Game_price != undefined)
-            output += 'Game price = ' + Game_price + "\n";
+        if(result['player1_strategies'] != undefined)
+            output += 'x<sup>*</sup>(' + result['player1_strategies'].join('; ')+ ')'+"\n";
+        if(result['player2_strategies'] != undefined)
+            output += 'y<sup>*</sup>(' + result['player2_strategies'].join('; ')+ ')'+"\n";
+        if(result['Game_price'] != undefined)
+            output += 'Game price = ' + result['Game_price'] + "\n";
 
         //output += '' + "\n";
         if(!show_steps)
