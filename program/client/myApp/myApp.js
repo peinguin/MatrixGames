@@ -180,6 +180,26 @@ resultArea = new enyo.Control({
 
 resultArea.write();
 
+function writeResult(result){
+    var output = '<pre>';
+    if(method=='br'){
+        output += 'Using Braun-Robinson method' + "\n";
+        output += 'After ' + params['parties_count'] + ' iterations we have:' + "\n";
+    }else if(method=='symplex'){
+        output += 'Using symplex method' + "\n";
+        output += "\n"+'Result:' + "\n";
+    }
+    if(result['player1_strategies'] != undefined)
+        output += 'x<sup>*</sup>(' + result['player1_strategies'].join('; ')+ ')'+"\n";
+    if(result['player2_strategies'] != undefined)
+        output += 'y<sup>*</sup>(' + result['player2_strategies'].join('; ')+ ')'+"\n";
+    if(result['Game_price'] != undefined)
+        output += 'Game price = ' + (result['Game_price']-result['maxNegative']) + "\n";
+
+    if(!show_steps)
+        $('#resultArea').html(output+'</pre>');
+}
+
 $(document).ready(function(){
     $('#Matrix_addV').click(function(){
         $('#Matrix').width($('#Matrix').width()+24);
@@ -204,115 +224,23 @@ $(document).ready(function(){
         });
 
         var computation_place = $('#params_where input[type="radio"]:checked').val();
+        var method = $('#params_method input[type="radio"]:checked').val();
+        
         if(computation_place == 'device'){
             
-            /* Deleting null-lines */
-            matrix = delete_null_lines(matrix);
-        
-            /* find dominant colls and rows */
-            matrix = find_dominant_colls_and_rows(matrix);
+            var params = Array();
+            params['parties_count'] = 1000;
+            var result = porahuj(matrix, method, params);
             
-    
-            /* remove the negative items */
-            var maxNegative = 0;
-            matrix = remove_the_negative_items(matrix);
-    
-            var method = $('#params_method input[type="radio"]:checked').val();
-            
-            var output = '<pre>';
-            
-            var basis = Array(matrix.length);
-            if(method=='symplex'){
-                var result = symplex(matrix);
-            }else
-            if(method=='br'){
-                var result = BraunRobinson(matrix);
-            }else
             if(method == "graph"){
-                
-                var result = Nx2xN(marix);
-
-                $.fancybox('<canvas id="graph" width="300" height="400"></canvas>');
-                var canvas = document.getElementById('graph');
-                var ctx = canvas.getContext('2d');
-                if (canvas.getContext){
-                      
-                    ctx.fillStyle="#000";
-                      
-                    ctx.moveTo(20,20);
-                    ctx.lineTo(20,390);
-                    setTimeout(function() {ctx.stroke();},500);
-                    ctx.moveTo(20,20);
-                    ctx.lineTo(17,27);
-                    ctx.moveTo(20,20);
-                    ctx.lineTo(23,27);
-                    setTimeout(function() {ctx.stroke();},1000);
-                    ctx.font = "15px Arial";
-                    ctx.fillText("u", 0, 30);
-                    setTimeout(function() {ctx.stroke();},1500);
-                        
-                    ctx.moveTo(280,20);
-                    ctx.lineTo(280,390);
-                    setTimeout(function() {ctx.stroke();},2000);
-                   
-                    var price = 280/(result['max']-result['min']);
-                    if(result['max']>0 && result['min']<0){
-                        ctx.moveTo(0,  380+result['min']*price);
-                        ctx.lineTo(300,380+result['min']*price);
-                        setTimeout(function() {ctx.stroke();},2500);
-                        ctx.moveTo(300,380+result['min']*price);
-                        ctx.lineTo(287,380+result['min']*price-3);
-                        ctx.moveTo(300,380+result['min']*price);
-                        ctx.lineTo(287,380+result['min']*price+3);
-                        setTimeout(function() {ctx.stroke();},3000);
-                    }
-                        
-                    for(i=0;i<2;i++)
-                        for(j=0;j<matrix[i].length;j++){
-                            ctx.moveTo(20+i*260-3,380+(-matrix[i][j]+result['min'])*price);
-                            ctx.lineTo(20+i*260+3,380+(-matrix[i][j]+result['min'])*price);
-                            ctx.fillText(matrix[i][j], 20+i*260-20,380+(-matrix[i][j]+result['min'])*price);
-                            setTimeout(function() {ctx.stroke();},3500+500*i);
-                        }
-                            
-                    for(i=0;i<matrix[0].length;i++){
-                        ctx.moveTo(20,380+(-matrix[0][i]+result['min'])*price);
-                        ctx.lineTo(280,380+(-matrix[1][i]+result['min'])*price);
-                        setTimeout(function() {ctx.stroke();},4000+500*i);
-                    }
-    
-                    ctx.fillStyle="#ff0000";
-    
-                    ctx.moveTo(280*result['maxX']+11, 380+(-result['targY']+result['min'])*price);
-                    ctx.arc(280*result['maxX']+11, 380+(-result['targY']+result['min'])*price, 3, 0, 2*Math.PI, false);
-                    setTimeout(function() {ctx.fill();},4500);
-                }
-                
+                client_paint_canvas_graph(result['max'], result['min'], result['maxX'], result['targY'], matrix);
             }
+            
+            writeResult(result, method);
         }else if(computation_place == 'server'){
-            var socket = io.connect('http://localhost');
-            socket.on('news', function (data) {
-              console.log(data);
-              socket.emit('my other event', { my: 'data' });
-            });
+            var socket = io.connect('http://localhost:8888');
+            socket.emit('porahuj', { 'matrix': JSON.stringify(matrix, null, 2), 'method': method });
+            socket.on('result', function(data){result = JSON.parse(data);writeResult(result, method);});
         }
-        
-        if(method=='br'){
-            output += 'Using Braun-Robinson method' + "\n";
-            output += 'After ' + parties_count + ' iterations we have:' + "\n";
-        }else if(method=='symplex'){
-            output += 'Using symplex method' + "\n";
-            output += "\n"+'Result:' + "\n";
-        }
-        if(result['player1_strategies'] != undefined)
-            output += 'x<sup>*</sup>(' + result['player1_strategies'].join('; ')+ ')'+"\n";
-        if(result['player2_strategies'] != undefined)
-            output += 'y<sup>*</sup>(' + result['player2_strategies'].join('; ')+ ')'+"\n";
-        if(result['Game_price'] != undefined)
-            output += 'Game price = ' + result['Game_price'] + "\n";
-
-        //output += '' + "\n";
-        if(!show_steps)
-            $('#resultArea').html(output+'</pre>');
     });
 });

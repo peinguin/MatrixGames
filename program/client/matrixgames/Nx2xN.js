@@ -14,9 +14,9 @@ function Nx2xN(matrix){
         
         result['maxX'];
         if(!n2){
-            result['targY'] = min-1;
+            result['targY'] = result['min']-1;
         }else{
-            result['targY'] = max+1;
+            result['targY'] = result['max']+1;
         }
         
         var ActiveStrategy1, ActiveStrategy2;
@@ -95,9 +95,9 @@ function Nx2xN(matrix){
         result['player2_strategies'][ActiveStrategy2] = Math.round(deltay*100/delta)/100;
         result['player2_strategies'][ActiveStrategy1] = Math.round(deltax*100/delta)/100;;
             
-        if(maxNegative<0){
+        /*if(maxNegative<0){
             result['Game_price'] -= summand;
-        }
+        }*/
 
         if(!n2){
             var tmp = $.extend(true, [], result['player1_strategies']);
@@ -105,7 +105,7 @@ function Nx2xN(matrix){
             result['player2_strategies'] = tmp;
         }
     }else{
-        output += 'The system has not the form 2*n or n*2' + "\n";
+        result['output'] += 'The system has not the form 2*n or n*2' + "\n";
     }
     
     return result;

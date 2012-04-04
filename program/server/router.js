@@ -1,4 +1,4 @@
-function route(handle, pathname, response, request) {
+function httpRoute(handle, pathname, response, request) {
   console.log("About to route a request for " + pathname);
   if (typeof handle[pathname] === 'function') {
     handle[pathname](response, request);
@@ -10,4 +10,11 @@ function route(handle, pathname, response, request) {
   }
 }
 
-exports.route = route;
+function socketRoute(socket, socketHandle) {
+    for(var action in socketHandle){
+        socket.on(action, socketHandle[action](data));
+    }
+}
+
+exports.httpRoute   = httpRoute;
+exports.socketRoute = socketRoute;

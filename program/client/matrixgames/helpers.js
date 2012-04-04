@@ -33,11 +33,11 @@ function find_dominant_colls_and_rows(matrix){
                 if(dominant){
                     matrix.splice(k, 1);
                     k = k - 1;
+                    if(i>k)i--;
                 }
             }
         }
     }
-    
     for(i=0;i<matrix[0].length;i++){
         for(k=0;k<matrix[0].length;k++){
             if(i!=k){
@@ -53,15 +53,17 @@ function find_dominant_colls_and_rows(matrix){
                         matrix[j].splice(k, 1);
                     }
                     k = k - 1;
+                    if(i>k)i--;
                 }
             }
         }
     }
-    
     return matrix;
 }
 
 function remove_the_negative_items(matrix){
+    var result = Array();
+    var maxNegative = 0;
     for(i=0;i<matrix.length;i++){
         for(j=0;j<matrix[i].length;j++){
             if(matrix[i][j]<0 && matrix[i][j]<maxNegative)
@@ -77,6 +79,7 @@ function remove_the_negative_items(matrix){
             }
         }
     }
-    
-    return matrix;
+    result['matrix'] = matrix;
+    result['maxNegative'] = maxNegative;
+    return result;
 }

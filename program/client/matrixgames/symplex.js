@@ -45,6 +45,7 @@ function symplex(matrix){
     var basis = Array(matrix.length);
     var F = Array(matrix.length);
     var l = matrix.length;
+
     var significant_elements = matrix[0].length;
     for(i=0;i<l;i++)
         for(j=0;j<l;j++){
@@ -93,8 +94,10 @@ function symplex(matrix){
                 if(matrix[i][matrix[i].length-1] < 0){
                     is_neg = false;
                     for(j=0;j<matrix[i].length-1;j++){
-                        if(matrix[i][j]<0)is_neg = true;
-                        break;
+                        if(matrix[i][j]<0){
+                            is_neg = true;
+                            break;
+                        }
                     }
                     if(is_neg && minRow == undefined || max<Math.abs(matrix[i][matrix[i].length-1])){
                         max = Math.abs(matrix[matrix.length-1][i]);
@@ -108,7 +111,9 @@ function symplex(matrix){
         
         if(minRow == undefined){
             alert ('Has no solution by simplex method');
-            return;
+            result = Array();
+            result['error'] = 'Has no solution by simplex method';
+            return result;
         }
 
         for(j=0;j<matrix[minRow].length-1;j++){
@@ -173,7 +178,9 @@ function symplex(matrix){
 
     result['Game_price'] = Math.round(result['Game_price']*100)/100;
     
-    if(maxNegative<0){
+    /*if(maxNegative<0){
         result['Game_price'] -= summand;
-    }
+    }*/
+    
+    return result;
 }
