@@ -1,13 +1,14 @@
 function client_paint_canvas_graph(max, min, maxX, targY, matrix){
     /* Check for 2*n or n*2 */
     if((matrix.length == 2 && matrix[0].length > 1) || (matrix[0].length == 2 && matrix.length>1)){
+        
         max    = parseFloat(max);
         min    = parseFloat(min);
         maxX   = parseFloat(maxX);
         targY  = parseFloat(targY);
-        matrix = parseFloat(matrix);
-        
+
         $.fancybox('<canvas id="graph" width="300" height="400"></canvas>');
+
         var canvas = document.getElementById('graph');
         var ctx = canvas.getContext('2d');
         if (canvas.getContext){
@@ -58,6 +59,7 @@ function client_paint_canvas_graph(max, min, maxX, targY, matrix){
     
             ctx.fillStyle="#ff0000";
     
+        
             ctx.moveTo(280*maxX+11, 380+(-targY+min)*price);
             ctx.arc(280*maxX+11, 380+(-targY+min)*price, 3, 0, 2*Math.PI, false);
             setTimeout(function() {ctx.fill();},4500);

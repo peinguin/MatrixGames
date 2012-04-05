@@ -1,5 +1,6 @@
 function Nx2xN(matrix){
-    var result = Array();
+    var result = {};
+    result['output'] = '';
     
     /* Check for 2*n or n*2 */
     if((matrix.length == 2 && matrix[0].length > 1) || (matrix[0].length == 2 && matrix.length>1)){
@@ -103,6 +104,8 @@ function Nx2xN(matrix){
             var tmp = $.extend(true, [], result['player1_strategies']);
             result['player1_strategies'] = result['player2_strategies'];
             result['player2_strategies'] = tmp;
+        }else{
+            result['maxX'] = result['player2_strategies'][1];
         }
     }else{
         result['output'] += 'The system has not the form 2*n or n*2' + "\n";

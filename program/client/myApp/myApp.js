@@ -1,46 +1,6 @@
-var show_steps = false;
-
-/**
- * Transposes a given array.
- * @id Array.prototype.transpose
- * @author Shamasis Bhattacharya
- *
- * @type Array
- * @return The Transposed Array
- * @compat=ALL
- */
-function transpose(a) {
- 
-  // Calculate the width and height of the Array
-    w = a.length ? a.length : 0,
-    h = a[0] instanceof Array ? a[0].length : 0;
- 
-  // In case it is a zero matrix, no transpose routine needed.
-  if(h === 0 || w === 0) { return []; }
- 
-  /**
-   * @var {Number} i Counter
-   * @var {Number} j Counter
-   * @var {Array} t Transposed data is stored in this array.
-   */
-  var i, j, t = [];
- 
-  // Loop through every item in the outer array (height)
-  for(i=0; i<h; i++) {
- 
-    // Insert a new row (array)
-    t[i] = [];
- 
-    // Loop through every item per item in outer array (width)
-    for(j=0; j<w; j++) {
- 
-      // Save transposed data.
-      t[i][j] = a[j][i];
-    }
-  }
- 
-  return t;
-};
+var params = {};
+params['parties_count'] = 1000;
+params['show_steps'] = false;
 
 /**
  * Function : dump()
@@ -180,8 +140,9 @@ resultArea = new enyo.Control({
 
 resultArea.write();
 
-function writeResult(result){
+function writeResult(result, method){
     var output = '<pre>';
+    output += result['output'];
     if(method=='br'){
         output += 'Using Braun-Robinson method' + "\n";
         output += 'After ' + params['parties_count'] + ' iterations we have:' + "\n";
@@ -196,11 +157,14 @@ function writeResult(result){
     if(result['Game_price'] != undefined)
         output += 'Game price = ' + (result['Game_price']-result['maxNegative']) + "\n";
 
-    if(!show_steps)
+    if(!params['show_steps'])
         $('#resultArea').html(output+'</pre>');
 }
 
 $(document).ready(function(){
+    
+    var socket = io.connect('http://localhost:8888');
+    
     $('#Matrix_addV').click(function(){
         $('#Matrix').width($('#Matrix').width()+24);
         $('#Matrix_matrixTable tr').each(function(){$(this).append('<td><input /></td>');});
@@ -225,21 +189,18 @@ $(document).ready(function(){
 
         var computation_place = $('#params_where input[type="radio"]:checked').val();
         var method = $('#params_method input[type="radio"]:checked').val();
-        
+
         if(computation_place == 'device'){
             
-            var params = Array();
-            params['parties_count'] = 1000;
             var result = porahuj(matrix, method, params);
             
             if(method == "graph"){
-                client_paint_canvas_graph(result['max'], result['min'], result['maxX'], result['targY'], matrix);
+                client_paint_canvas_graph(result['max'], result['min'], result['maxX'], result['targY'], matrix, result['n2']);
             }
             
             writeResult(result, method);
         }else if(computation_place == 'server'){
-            var socket = io.connect('http://localhost:8888');
-            socket.emit('porahuj', { 'matrix': JSON.stringify(matrix, null, 2), 'method': method });
+            socket.emit('porahuj', { 'matrix': JSON.stringify(matrix), 'method': method,  params: JSON.stringify(params) });
             socket.on('result', function(data){result = JSON.parse(data);writeResult(result, method);});
         }
     });

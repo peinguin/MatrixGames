@@ -4,7 +4,11 @@ var includeInThisContext = function(path) {
     var code = fs.readFileSync(path);
     vm.runInThisContext(code, path);
 }.bind(this);
-//includeInThisContext(__dirname+"/models/car.js");
+includeInThisContext(__dirname+"/../client/matrixgames/helpers.js");
+includeInThisContext(__dirname+"/../client/matrixgames/symplex.js");
+includeInThisContext(__dirname+"/../client/matrixgames/BraunRobinson.js");
+includeInThisContext(__dirname+"/../client/matrixgames/Nx2xN.js");
+includeInThisContext(__dirname+"/../client/matrixgames/porahuj.js");
 
 var server = require("./server");
 var router = require("./router");

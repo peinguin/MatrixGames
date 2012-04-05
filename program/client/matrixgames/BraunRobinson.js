@@ -1,11 +1,13 @@
-function BraunRobinson(matrix, parties_count){
+function BraunRobinson(matrix, params){
 
     var player1_strategy = undefined;
     var player2_strategy = undefined;
     var u = undefined;
     var w = undefined;
     
-    var result = Array();
+    var parties_count = params['parties_count'];
+    
+    var result = {};
     
     result['player1_strategies'] = Array(matrix[0].length);
         for(i=0;i<result['player1_strategies'].length;i++)result['player1_strategies'][i] = 0;
@@ -55,10 +57,6 @@ function BraunRobinson(matrix, parties_count){
     result['player1_strategies'] = result['player1_strategies'].map(function(x){return Math.round((x/parties_count)*100)/100;});
     result['player2_strategies'] = result['player2_strategies'].map(function(x){return Math.round((x/parties_count)*100)/100;});
     result['Game_price'] = (Math.round(((Math.min.apply(null, player2_sums) + Math.max.apply(null, player1_sums))/(parties_count*2))*100)/100);
-    
-    /*if(maxNegative<0){
-        result['Game_price'] -= summand;
-    }*/
     
     return result;
 }

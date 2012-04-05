@@ -12,7 +12,7 @@ function httpRoute(handle, pathname, response, request) {
 
 function socketRoute(socket, socketHandle) {
     for(var action in socketHandle){
-        socket.on(action, socketHandle[action](data));
+        socket.on(action, function(data){socketHandle[action](socket, data)});
     }
 }
 

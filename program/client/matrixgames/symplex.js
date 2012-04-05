@@ -1,7 +1,8 @@
-function symplex(matrix){
+function symplex(matrix, params){
     
-    var result = Array();
+    var result = {};
     
+    result['output'] = '';
     result['output'] += 'Resolving:' + "\n";
     result['output'] += "\n";
     result['output'] += 'For first player:' + "\n";
@@ -70,7 +71,7 @@ function symplex(matrix){
         return true;
     }
     
-    if(show_steps == 1){
+    if(params['show_steps'] == 1){
         var str = "<table border=1>";
         
         for(i=0;i<matrix.length;i++){
@@ -124,12 +125,12 @@ function symplex(matrix){
                 }
             }
         }
-        if(show_steps)
+        if(params['show_steps'])
             $("#resultArea").html($("#resultArea").html()+'<p>'+minRow+' '+minCell+"</p>");
         
         basis[minRow] = minCell;
         //Next step
-        var tmpMatrix = $.extend(true, [], matrix);
+        var tmpMatrix = clone(matrix);
         for(i=0;i<matrix.length;i++)
             for(j=0;j<matrix[i].length;j++){
                 if(i != minRow)
@@ -139,7 +140,7 @@ function symplex(matrix){
             }
         
         //Show steps
-        if(show_steps == 1){
+        if(params['show_steps'] == 1){
             var str = "<table border=1>";
             for(i=0;i<matrix.length;i++){
                 str += "<tr>";

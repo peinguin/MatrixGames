@@ -1,6 +1,6 @@
 function porahuj(matrix, method, params){
     
-    var result = Array();
+    var result = {};
         
     /* Deleting null-lines */
     matrix = delete_null_lines(matrix);
@@ -20,15 +20,13 @@ function porahuj(matrix, method, params){
     
     var basis = Array(matrix.length);
     if(method=='symplex'){
-        result = symplex(matrix);
+        result = symplex(matrix, params);
     }else
     if(method=='br'){
-        result = BraunRobinson(matrix, params['parties_count']);
+        result = BraunRobinson(matrix, params);
     }else
     if(method == "graph"){
-        
         result = Nx2xN(matrix);
-        client_paint_canvas_graph(result['max'], result['min'], result['maxX'], result['targY'], matrix);
     }
     result['maxNegative'] = maxNegative;
     return result;
