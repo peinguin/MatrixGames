@@ -101,7 +101,7 @@ function Nx2xN(matrix){
         }*/
 
         if(!n2){
-            var tmp = $.extend(true, [], result['player1_strategies']);
+            var tmp = clone(result['player1_strategies']);
             result['player1_strategies'] = result['player2_strategies'];
             result['player2_strategies'] = tmp;
         }else{

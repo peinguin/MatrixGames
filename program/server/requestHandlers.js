@@ -12,6 +12,10 @@ function socketPorahuj(socket, data){
     
     var result = porahuj(matrix, method, params);
     
+    if(method == 'graph'){
+        result['output'] += require("./nodejs_paint_canvas_graph").nodejs_paint_canvas_graph(result['max'], result['min'], result['maxX'], result['targY'], matrix, result['n2']);
+    }
+    
     socket.emit('result', JSON.stringify(result) );
 }
 
