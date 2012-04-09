@@ -18,5 +18,6 @@ var httpHandle = {};
 var socketHandle = {}
 httpHandle["/porahuj"] = requestHandlers.httpPorahuj;
 socketHandle["porahuj"] = requestHandlers.socketPorahuj;
+socketHandle["message"] = requestHandlers.socketPostFile;
 
 server.start(router, httpHandle, socketHandle);

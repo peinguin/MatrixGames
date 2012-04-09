@@ -19,5 +19,11 @@ function socketPorahuj(socket, data){
     socket.emit('result', JSON.stringify(result) );
 }
 
+function socketPostFile(socket, data){
+
+    var matrix_str = new Buffer(data.substr(37), 'base64').toString('utf8');
+}
+
 exports.httpPorahuj   = httpPorahuj;
 exports.socketPorahuj = socketPorahuj;
+exports.socketPostFile = socketPostFile;

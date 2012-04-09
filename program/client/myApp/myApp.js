@@ -86,7 +86,22 @@ var matrix = new enyo.Control({
     ]
 });
 
-matrix.write();
+var fileuploader = new enyo.Control({
+    name : 'upload',
+    components: [
+        {tag: 'input', id: 'fileupload', attributes: { type: "file", multiple: 'false' }},
+        {tag: 'p', attributes: {id: 'info'}, content: 'Drag one or more file to the blue square to upload them.<br>Or click the square to select multiple files to upload.'}
+    ]
+});
+
+new enyo.Control({
+    name: 'inputs',
+    components: [
+        matrix,
+        {tag: 'span', content: 'or select a file'},
+        fileuploader
+    ]
+}).write();
 
 new enyo.Control({
     name: 'params',
@@ -162,8 +177,71 @@ function writeResult(result, method){
 }
 
 $(document).ready(function(){
-    
+
     var socket = io.connect('http://localhost:8888');
+
+    socket.on('connect', function() {
+        console.log('connected');
+    });
+
+    socket.on('message', function(data) {
+        alert(data);
+    });
+
+
+    if ($.browser.msie || $.browser.opera) {
+        $(document.body).text('Your browser does not support Drag & Drop uploading.');
+        return;
+    }
+
+    function handleDrag(e) {
+        if (e.type == 'dragenter') {
+          $('#upload').addClass('drop');
+        } else if ((e.type == 'dragleave') || (e.type == 'drop')) {
+          $('#upload').removeClass('drop');
+        }
+        e.stopPropagation();
+        e.preventDefault();
+    }
+
+    function handleUploads(files) {
+        for (var i = 0; i < files.length; ++i) {
+            var reader = new FileReader();
+            reader.onloadend = function(d) {
+                socket.send(d.target.result, function(err) {
+                  if (!err) {
+                        console.log('file uploaded');
+                  }
+                });
+            };
+            reader.readAsDataURL(files[i]);
+        }
+    }
+
+    $('#upload, #fileupload').bind('dragenter', handleDrag).bind('dragleave', handleDrag).bind('dragover', handleDrag);
+
+    $('#upload').get(0).ondrop = function(e) {
+        handleDrag(e);
+        if (!e.dataTransfer.files) {
+            alert('Dropping files is not supported by your browser.');
+            return;
+        }
+        var files = e.dataTransfer.files;
+        handleUploads(files);
+    };
+
+    $('#fileupload').change(function(e) {
+        handleUploads(this.files);
+    }).click(function(e) {
+        e.stopPropagation();
+    });
+
+    if ($.browser.mozilla) {
+        $('#upload').click(function() {
+            $('#fileupload').click();
+        });
+        $('#fileupload').css('display', 'none');
+    }
     
     $('#Matrix_addV').click(function(){
         $('#Matrix').width($('#Matrix').width()+24);
