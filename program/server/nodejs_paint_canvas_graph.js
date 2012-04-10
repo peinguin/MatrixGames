@@ -48,7 +48,10 @@ function nodejs_paint_canvas_graph(max, min, maxX, targY, matrix){
                     ctx.lineTo(20+i*260+3,380+(-matrix[i][j]+min)*price);
                     ctx.fillText(matrix[i][j], 20+i*260-20,380+(-matrix[i][j]+min)*price);
                 }
-                    
+            
+            if(matrix[0].length == 2 && matrix.length != 2)
+                matrix = transpose(matrix);
+            
             for(i=0;i<matrix[0].length;i++){
                 ctx.moveTo(20,380+(-matrix[0][i]+min)*price);
                 ctx.lineTo(280,380+(-matrix[1][i]+min)*price);

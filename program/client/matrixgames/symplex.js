@@ -111,7 +111,6 @@ function symplex(matrix, params){
         var minCell = undefined; // row with minimal division
         
         if(minRow == undefined){
-            alert ('Has no solution by simplex method');
             result = Array();
             result['error'] = 'Has no solution by simplex method';
             return result;

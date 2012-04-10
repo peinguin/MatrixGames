@@ -1,4 +1,6 @@
 var params = {};
+var computation_place = '';
+var method = '';
 params['parties_count'] = 1000;
 params['show_steps'] = false;
 
@@ -110,7 +112,7 @@ new enyo.Control({
         tag: "div",
         components: [
             { components:[
-                { tag: 'input type="radio" name="method" value="symplex"' },
+                { tag: 'input type="radio" name="method" value="symplex" checked="checked"' },
                 { tag: 'label', content: 'Symplex' }
             ]},
             { components:[
@@ -126,7 +128,7 @@ new enyo.Control({
         tag: "div",
         components: [
             { components:[
-                { tag: 'input type="radio" name="where" value="device"' },
+                { tag: 'input type="radio" name="where" value="device" checked="checked"' },
                 { tag: 'label', content: 'Device' }
             ]},
             { components:[
@@ -177,6 +179,12 @@ function writeResult(result, method){
 }
 
 $(document).ready(function(){
+    
+    $('#params_where input[type="radio"]').change(function(){computation_place = $(this).val();});
+    $('#params_method input[type="radio"]').change(function(){computation_place = $(this).val();});
+    
+    computation_place = $('#params_where input[type="radio"]:checked').val();
+    method = $('#params_method input[type="radio"]:checked').val();
 
     var socket = io.connect('http://localhost:8888');
 
@@ -186,6 +194,10 @@ $(document).ready(function(){
 
     socket.on('message', function(data) {
         alert(data);
+    });
+    
+    socket.on('result', function(data) {
+        result = JSON.parse(data);writeResult(result, method);
     });
 
 
@@ -208,10 +220,10 @@ $(document).ready(function(){
         for (var i = 0; i < files.length; ++i) {
             var reader = new FileReader();
             reader.onloadend = function(d) {
-                socket.send(d.target.result, function(err) {
-                  if (!err) {
+                socket.send(JSON.stringify({matrix:d.target.result, method: method, params: JSON.stringify(params)}), function(err) {
+                    if (!err) {
                         console.log('file uploaded');
-                  }
+                    }
                 });
             };
             reader.readAsDataURL(files[i]);
@@ -265,9 +277,6 @@ $(document).ready(function(){
             matrix.push(arr);
         });
 
-        var computation_place = $('#params_where input[type="radio"]:checked').val();
-        var method = $('#params_method input[type="radio"]:checked').val();
-
         if(computation_place == 'device'){
             
             var result = porahuj(matrix, method, params);
@@ -279,7 +288,6 @@ $(document).ready(function(){
             writeResult(result, method);
         }else if(computation_place == 'server'){
             socket.emit('porahuj', { 'matrix': JSON.stringify(matrix), 'method': method,  params: JSON.stringify(params) });
-            socket.on('result', function(data){result = JSON.parse(data);writeResult(result, method);});
         }
     });
 });
