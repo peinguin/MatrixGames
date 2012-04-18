@@ -181,12 +181,12 @@ function writeResult(result, method){
 $(document).ready(function(){
     
     $('#params_where input[type="radio"]').change(function(){computation_place = $(this).val();});
-    $('#params_method input[type="radio"]').change(function(){computation_place = $(this).val();});
+    $('#params_method input[type="radio"]').change(function(){method = $(this).val();});
     
     computation_place = $('#params_where input[type="radio"]:checked').val();
     method = $('#params_method input[type="radio"]:checked').val();
 
-    var socket = io.connect('http://localhost:8888');
+    var socket = io.connect('http://78.47.172.97:8888');
 
     socket.on('connect', function() {
         console.log('connected');
@@ -217,6 +217,11 @@ $(document).ready(function(){
     }
 
     function handleUploads(files) {
+        
+        if(computation_place == 'device'){
+            alert('Send the file to the server can only');return false;
+        }
+        
         for (var i = 0; i < files.length; ++i) {
             var reader = new FileReader();
             reader.onloadend = function(d) {

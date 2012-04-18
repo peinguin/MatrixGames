@@ -1,12 +1,12 @@
 function porahuj(matrix, method, params){
-    
+
     var result = {};
         
     /* Deleting null-lines */
     matrix = delete_null_lines(matrix);
 
     /* find dominant colls and rows */
-    matrix = find_dominant_colls_and_rows(matrix);
+    //matrix = find_dominant_colls_and_rows(matrix);
 
     /* Чи знайдено сідлову точку */
     if(matrix.length == 1 && matrix[0].length == 1){
