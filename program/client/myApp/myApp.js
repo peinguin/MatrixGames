@@ -186,7 +186,7 @@ $(document).ready(function(){
     computation_place = $('#params_where input[type="radio"]:checked').val();
     method = $('#params_method input[type="radio"]:checked').val();
 
-    var socket = io.connect('http://78.47.172.97:8888');
+    var socket = io.connect('http://matrixgames.org.ua:8888');
 
     socket.on('connect', function() {
         console.log('connected');

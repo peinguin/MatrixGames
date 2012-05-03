@@ -1,4 +1,4 @@
-function client_paint_canvas_graph(max, min, maxX, targY, matrix){
+function client_paint_canvas_graph(max, min, maxX, targY, matrix, n2){
     /* Check for 2*n or n*2 */
     if((matrix.length == 2 && matrix[0].length > 1) || (matrix[0].length == 2 && matrix.length>1)){
         
@@ -48,6 +48,7 @@ function client_paint_canvas_graph(max, min, maxX, targY, matrix){
                     ctx.moveTo(20+i*260-3,380+(-matrix[i][j]+min)*price);
                     ctx.lineTo(20+i*260+3,380+(-matrix[i][j]+min)*price);
                     ctx.fillText(matrix[i][j], 20+i*260-20,380+(-matrix[i][j]+min)*price);
+                    ctx.fillText((i==0?'A':'B')+j, i*260+(i==20?0:25),380+(-matrix[i][j]+min)*price);
                     setTimeout(function() {ctx.stroke();},3500+500*i);
                 }
             
@@ -61,8 +62,7 @@ function client_paint_canvas_graph(max, min, maxX, targY, matrix){
             }
     
             ctx.fillStyle="#ff0000";
-    
-        
+
             ctx.moveTo(280*maxX+11, 380+(-targY+min)*price);
             ctx.arc(280*maxX+11, 380+(-targY+min)*price, 3, 0, 2*Math.PI, false);
             setTimeout(function() {ctx.fill();},4500);
