@@ -1,4 +1,4 @@
-function porahuj(matrix, method, params){
+function calculate(matrix, method, params){
 
     var result = {};
         

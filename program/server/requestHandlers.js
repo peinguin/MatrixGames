@@ -1,16 +1,16 @@
-function httpPorahuj(response, request){
+function httpCalculate(response, request){
     
     response.write("");
     response.end();
 }
 
-function socketPorahuj(socket, data){
+function socketCalculate(socket, data){
 
     matrix = eval(data['matrix']);
     params = JSON.parse(data['params']);
     method = data['method'];
     
-    var result = porahuj(matrix, method, params);
+    var result = calculate(matrix, method, params);
     
     if(method == 'graph'){
         result['output'] += require("./nodejs_paint_canvas_graph").nodejs_paint_canvas_graph(result['max'], result['min'], result['maxX'], result['targY'], matrix, result['n2']);
@@ -36,7 +36,7 @@ function socketPostFile(socket, data){
     params = JSON.parse(data['params']);
     method = data['method'];
 
-    var result = porahuj(matrix, method, params);
+    var result = calculate(matrix, method, params);
     
     if(method == 'graph'){
         result['output'] += require("./nodejs_paint_canvas_graph").nodejs_paint_canvas_graph(result['max'], result['min'], result['maxX'], result['targY'], matrix, result['n2']);
@@ -45,6 +45,6 @@ function socketPostFile(socket, data){
     socket.emit('result', JSON.stringify(result) );
 }
 
-exports.httpPorahuj   = httpPorahuj;
-exports.socketPorahuj = socketPorahuj;
+exports.httpCalculate   = httpCalculate;
+exports.socketCalculate = socketCalculate;
 exports.socketPostFile = socketPostFile;

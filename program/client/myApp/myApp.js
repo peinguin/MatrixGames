@@ -155,6 +155,128 @@ resultArea = new enyo.Control({
     content:'&nbsp'
 });
 
+predekat = new enyo.Control({
+    name: 'predekat',
+    classes: 'predekat',
+    components: [
+        {tag: "select",
+            components: [
+                {tag: 'option value="experienced"', content: "experienced"},
+                {tag: 'option value="inexperienced"',content: "inexperienced"},
+                {tag: 'option value="at risk"',content: "at risk"},
+                {tag: 'option value="cautious"',content: "cautious"},
+                {tag: 'option value="gain is too low"',content: "gain is too low"},
+                {tag: 'option value="gain is not too low"',content: "gain is not too low"},
+            ]
+        }
+    ]
+});
+
+strategy = new enyo.Control({
+    name: 'strategy',
+    classes: 'strategy',
+    components: [
+        {tag: "select", components: [
+            {tag: 'option value="maximizing the maximum"', content: "maximizing the maximum"},
+            {tag: 'option value="minimax"', content: "minimax"},
+            {tag: 'option value="maximizing the average"', content: "maximizing the average"}
+        ]}
+    ]
+});
+
+rule = new enyo.Control({
+    name: 'rule',
+    classes: 'rule',
+    components: [
+        {
+            tag: 'p',
+            content: 'IF'
+        },
+        predekat,
+        {
+            tag: 'button',
+            name: 'and',
+            content:'&amp;',
+            classes: 'rule_and'
+        },
+        {
+            tag: 'p',
+            content: 'THEN'
+        },
+        strategy
+    ]
+});
+
+opponent_info = new enyo.Control({
+    name: 'opponent_info',
+    components: [
+        {
+            tag: 'p',
+            components: [
+                {
+                    tag: 'label',
+                    content: 'Opponents caution'
+                },{
+                    tag: 'input',
+                    name: 'caution',
+                    value: '0'
+                }
+            ]
+        },
+        {
+            tag: 'p',
+            components: [
+                {
+                    tag: 'label',
+                    content: 'Opponents experience'
+                },{
+                    tag: 'input',
+                    name: 'experience',
+                    value: '0'
+                }
+            ]
+        },
+        {
+            tag: 'p',
+            components: [
+                {
+                    tag: 'label',
+                    content: 'The minimum acceptable value of winning'
+                },{
+                    tag: 'input',
+                    name: 'low_gain',
+                    value: '0'
+                }
+            ]
+        }
+    ]
+});
+
+rules = new enyo.Control({
+    name: 'rules',
+    components: [
+        rule,
+        {
+            tag: 'button',
+            name: 'plus',
+            content:'+'
+        },
+        opponent_info,
+        {
+            tag: 'button',
+            name: 'get_result',
+            content:'Get result'
+        },
+    ]
+});
+
+use_opponent_information = new enyo.Control({
+    name: 'use_opponent_information',
+    tag: 'button',
+    content: 'Use opponent information'
+}).write();
+
+rules.write();
 resultArea.write();
 
 function writeResult(result, method){
@@ -178,7 +300,228 @@ function writeResult(result, method){
         $('#resultArea').html(output+'</pre>');
 }
 
+function inialise_rule_and(){
+    $('.rule_and').click(function(){
+        $(this).parent().children('button').before("<span> & </span>");
+        $(this).parent().children('button').before(predekat.generateHtml()); 
+    });
+}
+
 $(document).ready(function(){
+    
+   $('#use_opponent_information').click(function(){$('#rules').show(1000)});
+   
+   // for tests
+ /*  $('#rules').html('<div id="rule" class="rule"><p id="rule_control3">IF</p><div id="predekat" class="predekat"><select id="predekat_control15"><option id="predekat_control16" value="experienced">experienced</option><option id="predekat_control17" value="inexperienced" selected="selected">inexperienced</option><option id="predekat_control18" value="at risk">at risk</option><option id="predekat_control19" value="cautious">cautious</option><option id="predekat_control20" value="gain is too low">gain is too low</option><option id="predekat_control21" value="gain is not too low">gain is not too low</option></select></div><button id="rule_and" class="rule_and">&amp;</button><p id="rule_control4">THEN</p><div id="strategy" class="strategy"><select id="strategy_control9"><option id="strategy_control10" value="maximizing the maximum" selected="selected">maximizing the maximum</option><option id="strategy_control11" value="minimax">minimax</option><option id="strategy_control12" value="maximizing the average">maximizing the average</option></select></div></div><div id="rule" class="rule"><p id="rule_control">IF</p><div id="predekat" class="predekat"><select id="predekat_control8"><option id="predekat_control9" value="experienced">experienced</option><option id="predekat_control10" value="inexperienced">inexperienced</option><option id="predekat_control11" value="at risk" selected="selected">at risk</option><option id="predekat_control12" value="cautious">cautious</option><option id="predekat_control13" value="gain is too low">gain is too low</option><option id="predekat_control14" value="gain is not too low">gain is not too low</option></select></div><button id="rule_and" class="rule_and">&amp;</button><p id="rule_control2">THEN</p><div id="strategy" class="strategy"><select id="strategy_control5"><option id="strategy_control6" value="maximizing the maximum" selected="selected">maximizing the maximum</option><option id="strategy_control7" value="minimax">minimax</option><option id="strategy_control8" value="maximizing the average">maximizing the average</option></select></div></div><div id="rule" class="rule"><p id="rule_control">IF</p><div id="predekat" class="predekat"><select id="predekat_control8"><option id="predekat_control9" value="experienced">experienced</option><option id="predekat_control10" value="inexperienced">inexperienced</option><option id="predekat_control11" value="at risk">at risk</option><option id="predekat_control12" value="cautious" selected="selected">cautious</option><option id="predekat_control13" value="gain is too low">gain is too low</option><option id="predekat_control14" value="gain is not too low">gain is not too low</option></select></div><button id="rule_and" class="rule_and">&amp;</button><p id="rule_control2">THEN</p><div id="strategy" class="strategy"><select id="strategy_control5"><option id="strategy_control6" value="maximizing the maximum">maximizing the maximum</option><option id="strategy_control7" value="minimax" selected="selected">minimax</option><option id="strategy_control8" value="maximizing the average">maximizing the average</option></select></div></div><div id="rule" class="rule"><p id="rule_control">IF</p><div id="predekat" class="predekat"><select id="predekat_control8"><option id="predekat_control9" value="experienced" selected="selected">experienced</option><option id="predekat_control10" value="inexperienced">inexperienced</option><option id="predekat_control11" value="at risk">at risk</option><option id="predekat_control12" value="cautious">cautious</option><option id="predekat_control13" value="gain is too low">gain is too low</option><option id="predekat_control14" value="gain is not too low">gain is not too low</option></select></div><span> &amp; </span><div id="predekat" class="predekat"><select id="predekat_control"><option id="predekat_control2" value="experienced">experienced</option><option id="predekat_control3" value="inexperienced">inexperienced</option><option id="predekat_control4" value="at risk">at risk</option><option id="predekat_control5" value="cautious">cautious</option><option id="predekat_control6" value="gain is too low">gain is too low</option><option id="predekat_control7" value="gain is not too low" selected="selected">gain is not too low</option></select></div><button id="rule_and" class="rule_and">&amp;</button><p id="rule_control2">THEN</p><div id="strategy" class="strategy"><select id="strategy_control5"><option id="strategy_control6" value="maximizing the maximum">maximizing the maximum</option><option id="strategy_control7" value="minimax" selected="selected">minimax</option><option id="strategy_control8" value="maximizing the average">maximizing the average</option></select></div></div><div id="rule" class="rule"><p id="rule_control">IF</p><div id="predekat" class="predekat"><select id="predekat_control8"><option id="predekat_control9" value="experienced" selected="selected">experienced</option><option id="predekat_control10" value="inexperienced">inexperienced</option><option id="predekat_control11" value="at risk">at risk</option><option id="predekat_control12" value="cautious">cautious</option><option id="predekat_control13" value="gain is too low">gain is too low</option><option id="predekat_control14" value="gain is not too low">gain is not too low</option></select></div><span> &amp; </span><div id="predekat" class="predekat"><select id="predekat_control"><option id="predekat_control2" value="experienced">experienced</option><option id="predekat_control3" value="inexperienced">inexperienced</option><option id="predekat_control4" value="at risk">at risk</option><option id="predekat_control5" value="cautious">cautious</option><option id="predekat_control6" value="gain is too low" selected="selected">gain is too low</option><option id="predekat_control7" value="gain is not too low">gain is not too low</option></select></div><button id="rule_and" class="rule_and">&amp;</button><p id="rule_control2">THEN</p><div id="strategy" class="strategy"><select id="strategy_control5"><option id="strategy_control6" value="maximizing the maximum">maximizing the maximum</option><option id="strategy_control7" value="minimax">minimax</option><option id="strategy_control8" value="maximizing the average" selected="selected">maximizing the average</option></select></div></div><button id="rules_plus">+</button><div id="opponent_info"><p id="opponent_info_control7"><label id="opponent_info_control8">Opponents caution</label><input id="opponent_info_caution" value="0.7"></p><p id="opponent_info_control9"><label id="opponent_info_control10">Opponents experience</label><input id="opponent_info_experience" value="0.33"></p><p id="opponent_info_control11"><label id="opponent_info_control12">The minimum acceptable value of winning</label><input id="opponent_info_low_gain" value="0.66"></p></div><button id="rules_get_result">Get result</button>');$('#rules').show(1000);*/
+    
+    inialise_rule_and();
+    
+    $('#rules_plus').click(function(){
+        $(this).parent().children('button').first().before(rule.generateHtml());
+        
+        inialise_rule_and();
+    });
+    
+    $('#rules_get_result').click(function(){
+        var mu = {};
+        mu['A'] = $('#opponent_info_experience').val();
+        mu['B'] = $('#opponent_info_caution').val();
+        
+        var matrix = new Array();
+
+        $('#Matrix_matrixTable tr').each(function(){
+            var arr = Array();
+            $(this).children('td').each(function(){
+                if($(this).children('input').val()=='')
+                    $(this).children('input').val(0);
+                arr.push(parseFloat($(this).children('input').val()));
+            });
+            matrix.push(arr);
+        });
+        
+        var zmax = undefined;
+        
+        for(j=0;j<matrix[0].length;j++){
+            for(i=0;i<matrix.length;i++){
+                if(matrix[i][j]*(-1)>zmax || zmax == undefined)
+                    zmax = matrix[i][j]*(-1);
+            }
+        }
+        
+        var minimax = undefined;
+        var minimaxCols = [];
+        
+        var maximax = undefined;
+        var maximaxCol = [];
+        
+        var maxiavg = undefined;
+        var maxiavgCol = [];
+        
+        for(j=0;j<matrix[0].length;j++){
+            min = undefined;
+            for(i=0;i<matrix.length;i++){
+                if(matrix[i][j]*(-1)<min || min == undefined)
+                    min = matrix[i][j]*(-1);
+            }
+            
+            if(minimax<min || minimax == undefined){
+                minimax = min;
+                minimaxCols = [j];
+            }else if(minimax == min){
+                minimaxCols.push(j);
+            }
+        }
+        
+        for(j=0;j<matrix[0].length;j++){
+            max = undefined;
+            for(i=0;i<matrix.length;i++){
+                if(matrix[i][j]*(-1)>max || max == undefined)
+                    max = matrix[i][j]*(-1);
+            }
+            
+            if(maximax<max || maximax == undefined){
+                maximax = max;
+                maximaxCols = [j];
+            }else if(maximax == max){
+                maximaxCols.push(j);
+            }
+        }
+        
+        for(j=0;j<matrix[0].length;j++){
+            sum = 0;
+            for(i=0;i<matrix.length;i++){
+                sum += matrix[i][j]*(-1);
+            }
+            
+            if(maxiavg<sum || maxiavg == undefined){
+                maxiavg = sum;
+                maxiavgCols = [j];
+            }else if(maxiavg == sum){
+                maxiavgCols.push(j);
+            }
+        }
+        
+        var z_minimax_sum = 0;
+        
+        for(j=0;j<minimaxCols.length;j++)
+            for(i=0;i<matrix.length;i++){
+                z_minimax_sum += matrix[i][minimaxCols[j]]*(-1);
+            }
+        
+        var z_minimax_avg = z_minimax_sum / (matrix.length*minimaxCols.length);
+        
+        var low_gain = $('#opponent_info_low_gain').val();
+        
+        if(z_minimax_avg <= 0) mu['D'] = 0;
+        else if(z_minimax_avg > 0 && z_minimax_avg <low_gain*zmax){
+            mu['D'] = (low_gain*zmax - z_minimax_avg)/(low_gain*zmax);
+        }else{
+            mu['D'] = 0;
+        }
+            
+        var strategies = {
+            'maximizing the maximum' : 0,
+            'minimax'                : 0,
+            'maximizing the average' : 0
+        };
+        
+        for (s in strategies){
+            $('.rule').each(function(){
+                if($(this).find('.strategy option:selected').val() == s){
+                    
+                    tmp = undefined;
+                    
+                    $(this).find('.predekat option:selected').each(function(){
+                        predekat = $(this).val();
+                        
+                        val = undefined;
+                        
+                        if(predekat=='experienced'){
+                            val = mu['A'];
+                        }else if(predekat=='inexperienced'){
+                            val = 1 - mu['A'];
+                        }else if(predekat=='at risk'){
+                            val = 1 - mu['B'];
+                        }else if(predekat=='cautious'){
+                            val = mu['B'];
+                        }else if(predekat=='gain is too low'){
+                            val = mu['D'];
+                        }else if(predekat=='gain is not too low'){
+                            val = 1 - mu['D'];
+                        }
+                        
+                        if(tmp == undefined || tmp > val){
+                            tmp = val;
+                        }
+                        
+                    });
+                    
+                    if(strategies[s] < tmp){
+                       strategies[s] = tmp; 
+                    }
+                }
+            });
+        }
+        
+        sum = 0;
+        for (s in strategies){
+            sum += parseFloat(strategies[s]);
+        }
+
+        for (s in strategies){
+            strategies[s] = strategies[s] / sum;
+        }
+        
+        result = Array(matrix.length);
+        for(i = 0;i<matrix.length;i++){
+            result[i] = 0;
+        }
+        
+        for(i in maximaxCols){
+            
+            max = undefined;
+            otvet = 0;
+            for(j=0;j<matrix.length;j++){
+                if(max == undefined || matrix[j][maximaxCols[i]] > max){
+                    max = matrix[j][maximaxCols[i]];
+                    otvet = j;
+                }
+            }
+            
+            result[otvet] += strategies['maximizing the maximum'] / maximaxCols.length;
+        }
+        for(i in minimaxCols){
+            
+            max = undefined;
+            otvet = 0;
+            for(j=0;j<matrix.length;j++){
+                if(max == undefined || matrix[j][minimaxCols[i]] > max){
+                    max = matrix[j][minimaxCols[i]];
+                    otvet = j;
+                }
+            }
+            
+            result[otvet] += strategies['minimax'] / minimaxCols.length;
+        }
+        for(i in maxiavgCols){
+            
+            max = undefined;
+            otvet = 0;
+            for(j=0;j<matrix.length;j++){
+                if(max == undefined || matrix[j][maxiavgCols[i]] > max){
+                    max = matrix[j][maxiavgCols[i]];
+                    otvet = j;
+                }
+            }
+            
+            result[otvet] += strategies['maximizing the average'] / maxiavgCols.length;
+        }
+        
+        result['output'] = 'x* = (' + result.map(function(x){return Math.round((x)*100)/100;}).join('; ') + ')';
+        
+        writeResult(result, '');
+        
+    });
     
     $('#params_where input[type="radio"]').change(function(){computation_place = $(this).val();});
     $('#params_method input[type="radio"]').change(function(){method = $(this).val();});
@@ -284,7 +627,7 @@ $(document).ready(function(){
 
         if(computation_place == 'device'){
             
-            var result = porahuj(matrix, method, params);
+            var result = calculate(matrix, method, params);
             
             if(method == "graph"){
                 client_paint_canvas_graph(result['max'], result['min'], result['maxX'], result['targY'], matrix, result['n2']);
@@ -292,7 +635,7 @@ $(document).ready(function(){
             
             writeResult(result, method);
         }else if(computation_place == 'server'){
-            socket.emit('porahuj', { 'matrix': JSON.stringify(matrix), 'method': method,  params: JSON.stringify(params) });
+            socket.emit('calculate', { 'matrix': JSON.stringify(matrix), 'method': method,  params: JSON.stringify(params) });
         }
     });
 });

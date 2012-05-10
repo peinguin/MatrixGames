@@ -98,3 +98,26 @@
 .footer p{
     margin: 5px 0;
 }
+
+#rules{
+    border-radius: 10px;
+    border: 1px solid green;
+    
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    
+    display: none;
+}
+#rules #rule #predekat, #rules #rule #strategy{
+    display: inline-block;
+}
+#rules #rules_plus{
+    margin-left: 95%;
+    margin-top: 7px;
+}
+
+#use_opponent_information{
+    margin-left: 75px;
+    margin-bottom: 20px;
+}
