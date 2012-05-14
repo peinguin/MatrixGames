@@ -228,7 +228,7 @@ opponent_info = new enyo.Control({
             components: [
                 {
                     tag: 'label',
-                    content: 'Коефціент досвідченості опонента'
+                    content: 'Коефціент досвіду опонента'
                 },{
                     tag: 'input',
                     name: 'experience',
