@@ -108,7 +108,7 @@ function Nx2xN(matrix){
             result['maxX'] = result['player1_strategies'][1];
         }
     }else{
-        result['output'] += 'The system has not the form 2*n or n*2' + "\n";
+        result['output'] += 'Система не має вигляд 2*n чи n*2' + "\n";
     }
     
     return result;

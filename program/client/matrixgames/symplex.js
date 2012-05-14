@@ -3,15 +3,15 @@ function symplex(matrix, params){
     var result = {};
     
     result['output'] = '';
-    result['output'] += 'Resolving:' + "\n";
+    result['output'] += 'Рішення:' + "\n";
     result['output'] += "\n";
-    result['output'] += 'For first player:' + "\n";
+    result['output'] += 'Для першого гравця:' + "\n";
     result['output'] += 'F = ';
     for(i=0;i<matrix.length;i++)
         result['output'] += (i>0?'+':'')+' x<sub>'+(i+1)+'</sub> ';
     result['output'] += ' → min' + "\n";
     result['output'] += "\n";
-    result['output'] += 'With constraints:' + "\n";
+    result['output'] += 'З обмеженнями:' + "\n";
     result['output'] += "\n";
     for(i=0;i<matrix[0].length;i++){
         for(j=0;j<matrix.length;j++)
@@ -20,13 +20,13 @@ function symplex(matrix, params){
     }
     result['output'] += 'x<sub>j</sub> >= 0. j = 1..' + j + "\n";
     result['output'] += "\n";
-    result['output'] += 'For secong player:' + "\n";
+    result['output'] += 'Для другого гравця:' + "\n";
     result['output'] += 'Ф = ';
     for(i=0;i<matrix.length;i++)
         result['output'] += (i>0?'+':'')+' y<sub>'+(i+1)+'</sub> ';
     result['output'] += '→ max' + "\n";
     result['output'] += "\n";
-    result['output'] += 'With constraints:' + "\n";
+    result['output'] += 'З обмеженнями:' + "\n";
     result['output'] += "\n";
     for(i=0;i<matrix.length;i++){
         for(j=0;j<matrix[i].length;j++)

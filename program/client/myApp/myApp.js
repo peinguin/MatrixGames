@@ -92,7 +92,7 @@ var fileuploader = new enyo.Control({
     name : 'upload',
     components: [
         {tag: 'input', id: 'fileupload', attributes: { type: "file", multiple: 'false' }},
-        {tag: 'p', attributes: {id: 'info'}, content: 'Drag one or more file to the blue square to upload them.<br>Or click the square to select multiple files to upload.'}
+        {tag: 'p', attributes: {id: 'info'}, content: 'Перетяніть файл на це поле для його завантаження.<br>Або натисніть сюди для вибору файла.'}
     ]
 });
 
@@ -100,7 +100,7 @@ new enyo.Control({
     name: 'inputs',
     components: [
         matrix,
-        {tag: 'span', content: 'or select a file'},
+        {tag: 'span', content: 'або виберіть файл'},
         fileuploader
     ]
 }).write();
@@ -113,15 +113,15 @@ new enyo.Control({
         components: [
             { components:[
                 { tag: 'input type="radio" name="method" value="symplex" checked="checked"' },
-                { tag: 'label', content: 'Symplex' }
+                { tag: 'label', content: 'Симплекс-метод' }
             ]},
             { components:[
                 {tag: 'input type="radio" name="method" value="br"' },
-                { tag: 'label', content: 'Braun-Robinson' }
+                { tag: 'label', content: 'метод Брауна-Робінсона' }
             ]},
             { components:[
                 {tag: 'input type="radio" name="method" value="graph"' },
-                { tag: 'label', content: 'Graphical method' }
+                { tag: 'label', content: 'Графічни метод' }
             ]}
         ]},
         {name:"where",
@@ -129,11 +129,11 @@ new enyo.Control({
         components: [
             { components:[
                 { tag: 'input type="radio" name="where" value="device" checked="checked"' },
-                { tag: 'label', content: 'Device' }
+                { tag: 'label', content: 'Обрахувати на цьому пристрої' }
             ]},
             { components:[
                 {tag: 'input type="radio" name="where" value="server"' },
-                { tag: 'label', content: 'Server' }
+                { tag: 'label', content: 'Відправити на сервер' }
             ]}
         ]}
     ]
@@ -143,7 +143,7 @@ goButton = new enyo.Control({
     tag: 'Button',
     name: 'GoButton',
     classes: 'GoButton',
-    content: 'Resolve'
+    content: 'Знайти розв’язок'
 });
 
 goButton.write();
@@ -161,12 +161,12 @@ predekat = new enyo.Control({
     components: [
         {tag: "select",
             components: [
-                {tag: 'option value="experienced"', content: "experienced"},
-                {tag: 'option value="inexperienced"',content: "inexperienced"},
-                {tag: 'option value="at risk"',content: "at risk"},
-                {tag: 'option value="cautious"',content: "cautious"},
-                {tag: 'option value="gain is too low"',content: "gain is too low"},
-                {tag: 'option value="gain is not too low"',content: "gain is not too low"},
+                {tag: 'option value="experienced"', content: "досвідчений"},
+                {tag: 'option value="inexperienced"',content: "недосвідчений"},
+                {tag: 'option value="at risk"',content: "схильний до ризику"},
+                {tag: 'option value="cautious"',content: "обережний"},
+                {tag: 'option value="gain is too low"',content: "середній виграш надто низький"},
+                {tag: 'option value="gain is not too low"',content: "середній виграш не надто низький"},
             ]
         }
     ]
@@ -177,9 +177,9 @@ strategy = new enyo.Control({
     classes: 'strategy',
     components: [
         {tag: "select", components: [
-            {tag: 'option value="maximizing the maximum"', content: "maximizing the maximum"},
-            {tag: 'option value="minimax"', content: "minimax"},
-            {tag: 'option value="maximizing the average"', content: "maximizing the average"}
+            {tag: 'option value="maximizing the maximum"', content: "максимізація максимуму"},
+            {tag: 'option value="minimax"', content: "мнімакс"},
+            {tag: 'option value="maximizing the average"', content: "максимізація середнього"}
         ]}
     ]
 });
@@ -190,7 +190,7 @@ rule = new enyo.Control({
     components: [
         {
             tag: 'p',
-            content: 'IF'
+            content: 'Якщо'
         },
         predekat,
         {
@@ -201,7 +201,7 @@ rule = new enyo.Control({
         },
         {
             tag: 'p',
-            content: 'THEN'
+            content: 'то'
         },
         strategy
     ]
@@ -215,7 +215,7 @@ opponent_info = new enyo.Control({
             components: [
                 {
                     tag: 'label',
-                    content: 'Opponents caution'
+                    content: 'Коефіціент обережності опонента'
                 },{
                     tag: 'input',
                     name: 'caution',
@@ -228,7 +228,7 @@ opponent_info = new enyo.Control({
             components: [
                 {
                     tag: 'label',
-                    content: 'Opponents experience'
+                    content: 'Коефціент досвідченості опонента'
                 },{
                     tag: 'input',
                     name: 'experience',
@@ -241,7 +241,7 @@ opponent_info = new enyo.Control({
             components: [
                 {
                     tag: 'label',
-                    content: 'The minimum acceptable value of winning'
+                    content: 'Мінімально прийнятна частка максимально можливого виграшу'
                 },{
                     tag: 'input',
                     name: 'low_gain',
@@ -265,7 +265,7 @@ rules = new enyo.Control({
         {
             tag: 'button',
             name: 'get_result',
-            content:'Get result'
+            content:'Отримати результат'
         },
     ]
 });
@@ -273,7 +273,7 @@ rules = new enyo.Control({
 use_opponent_information = new enyo.Control({
     name: 'use_opponent_information',
     tag: 'button',
-    content: 'Use opponent information'
+    content: 'Додаткові відомості про опонента'
 }).write();
 
 rules.write();
@@ -283,18 +283,18 @@ function writeResult(result, method){
     var output = '<pre>';
     output += result['output'];
     if(method=='br'){
-        output += 'Using Braun-Robinson method' + "\n";
-        output += 'After ' + params['parties_count'] + ' iterations we have:' + "\n";
+        output += 'Після використання методу Брауна-Робінсона' + "\n";
+        output += 'Після ' + params['parties_count'] + ' ітерацій ми маємо:' + "\n";
     }else if(method=='symplex'){
-        output += 'Using symplex method' + "\n";
-        output += "\n"+'Result:' + "\n";
+        output += 'Використавши симплекс метод' + "\n";
+        output += "\n"+'Результат:' + "\n";
     }
     if(result['player1_strategies'] != undefined)
         output += 'x<sup>*</sup>(' + result['player1_strategies'].join('; ')+ ')'+"\n";
     if(result['player2_strategies'] != undefined)
         output += 'y<sup>*</sup>(' + result['player2_strategies'].join('; ')+ ')'+"\n";
     if(result['Game_price'] != undefined)
-        output += 'Game price = ' + (result['Game_price']-result['maxNegative']) + "\n";
+        output += 'Ціна гри = ' + (result['Game_price']-result['maxNegative']) + "\n";
 
     if(!params['show_steps'])
         $('#resultArea').html(output+'</pre>');
@@ -545,7 +545,7 @@ $(document).ready(function(){
 
 
     if ($.browser.msie || $.browser.opera) {
-        $(document.body).text('Your browser does not support Drag & Drop uploading.');
+        $(document.body).text('Ваш браузер не підтримує передачу файлів через Drag&Drop.');
         return;
     }
 
@@ -562,7 +562,7 @@ $(document).ready(function(){
     function handleUploads(files) {
         
         if(computation_place == 'device'){
-            alert('Send the file to the server can only');return false;
+            alert('Завантажувати файл можна тільки на сервер');return false;
         }
         
         for (var i = 0; i < files.length; ++i) {
@@ -583,7 +583,7 @@ $(document).ready(function(){
     $('#upload').get(0).ondrop = function(e) {
         handleDrag(e);
         if (!e.dataTransfer.files) {
-            alert('Dropping files is not supported by your browser.');
+            alert('Ваш браузер не підтримує передачу файлів через Drag&Drop.');
             return;
         }
         var files = e.dataTransfer.files;
