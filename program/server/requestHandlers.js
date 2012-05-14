@@ -9,7 +9,7 @@ function socketCalculate(socket, data){
     matrix = eval(data['matrix']);
     params = JSON.parse(data['params']);
     method = data['method'];
-    
+    console.log(data['matrix']);
     var result = calculate(matrix, method, params);
     
     if(method == 'graph'){
@@ -24,10 +24,15 @@ function socketPostFile(socket, data){
         data = eval('(' + data + ')');
         
         var matrix_str = new Buffer(data['matrix'].substr(37), 'base64').toString('utf8');
+        
         var matrix = matrix_str.split("\n");
    
         for(i=0;i<matrix.length;i++)
             matrix[i] = matrix[i].split(" ");
+            
+        for(i=0;i<matrix.length;i++)
+            for(j=0;j<matrix[i].length;j++)
+                matrix[i][j] = parseFloat(matrix[i][j]);
     }else{
         var matrix = eval(data['matrix']);
     }
@@ -35,7 +40,7 @@ function socketPostFile(socket, data){
     
     params = JSON.parse(data['params']);
     method = data['method'];
-
+    
     var result = calculate(matrix, method, params);
     
     if(method == 'graph'){

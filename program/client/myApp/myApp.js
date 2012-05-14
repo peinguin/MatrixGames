@@ -281,7 +281,8 @@ resultArea.write();
 
 function writeResult(result, method){
     var output = '<pre>';
-    output += result['output'];
+    if(result['output'] != undefined)
+        output += result['output'];
     if(method=='br'){
         output += 'Після використання методу Брауна-Робінсона' + "\n";
         output += 'Після ' + params['parties_count'] + ' ітерацій ми маємо:' + "\n";
